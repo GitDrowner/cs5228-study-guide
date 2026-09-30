@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="CS5228 Lecture 1–6 中文期中复习：概念讲解、公式、交互演示与自测。">
+<title>CS5228 · 数据挖掘复习手册</title>
+<style>
+:root{--bg:#f5f6f3;--paper:#fff;--ink:#202c29;--muted:#68716b;--line:#e1e6df;--green:#315b47;--soft:#eaf1e8;--orange:#925221;--sand:#fff4e5;--nav:#182e26;--radius:16px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.85}button,input,select{font:inherit}button,a,input,summary{touch-action:manipulation}button{cursor:pointer}a{color:var(--green)}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #b88a40;outline-offset:4px}button{border:1px solid var(--line);border-radius:9px;padding:8px 16px;color:var(--ink);background:#fff;font-weight:550}button:hover{background:var(--soft)}button:disabled{opacity:.5;cursor:default}.primary{background:var(--green);color:#fff;border-color:var(--green)}.primary:hover{background:#234a37}.skip{position:fixed;top:-100px;left:20px;z-index:99;background:white;padding:12px}.skip:focus{top:12px}aside{position:fixed;inset:0 auto 0 0;width:250px;background:var(--nav);color:#f3f6ef;padding:30px 22px;display:flex;flex-direction:column;z-index:30;overflow:auto}.brand{display:flex;gap:12px;align-items:center}.brandmark{width:39px;height:39px;display:grid;place-items:center;background:#dce8b8;color:#233e2e;font-family:Georgia,serif;font-size:23px;border-radius:12px}.brand strong{font-size:19px;letter-spacing:1px}.brand small{display:block;font-size:11px;color:#becbc0;letter-spacing:2px}.navlabel{font-size:11px;color:#acbeb3;letter-spacing:2px;margin:40px 12px 12px}nav{display:grid;gap:5px}nav a{color:#c9d5cc;text-decoration:none;display:flex;gap:12px;align-items:center;padding:11px 13px;border-radius:9px;font-size:14px}nav a:hover{background:#284236}nav a.active{background:#dce8b8;color:#243b2b}nav .num{font-family:Georgia,serif;opacity:.7;min-width:19px}nav .done{margin-left:auto;font-size:12px}.sidebar-foot{margin-top:auto;padding-top:34px;font-size:12px;color:#bbcbbf}.progressbar{height:5px;background:#3b5145;border-radius:5px;overflow:hidden;margin:10px 0}.progressbar span{display:block;height:100%;background:#dce8b8;transition:width .2s}.workspace{margin-left:250px}.topbar{height:80px;display:flex;align-items:center;gap:20px;padding:0 48px;border-bottom:1px solid var(--line);background:rgba(245,246,243,.96)}.crumb{font-size:13px;color:var(--muted);margin-right:auto}.crumb b{color:var(--ink);font-weight:500}.searchbox{position:relative;width:260px}.searchbox input{width:100%;border:1px solid var(--line);border-radius:9px;background:#fff;padding:8px 12px;font-size:13px}.search-results{position:absolute;right:0;top:48px;width:380px;max-height:420px;overflow:auto;background:white;box-shadow:0 12px 50px #182e2622;border:1px solid var(--line);border-radius:12px;z-index:40}.search-results a{display:block;text-decoration:none;padding:14px;border-bottom:1px solid var(--line);font-size:13px}.search-results a small{display:block;color:var(--muted)}.search-results p{padding:12px}.menu-toggle{display:none}.print-button{font-size:12px;background:transparent}.content{max-width:1160px;margin:auto;padding:44px 48px 60px}.eyebrow{text-transform:uppercase;color:var(--green);font-size:11px;font-weight:700;letter-spacing:2px}.hero{padding:36px 38px;background:#eaf0e4;border:1px solid #dce4d5;border-radius:20px;position:relative;overflow:hidden;display:grid;grid-template-columns:1.3fr .7fr;gap:20px}.hero h1{font-size:38px;line-height:1.35;letter-spacing:-1.5px;margin:14px 0 17px}.hero h1 span{color:var(--green)}.hero p{color:#53634f;max-width:510px;font-size:14px}.hero-art{align-self:center;width:100%;min-width:0}.hero .primary{margin-top:12px}.metrics{display:flex;gap:40px;margin-top:24px;padding-top:24px;border-top:1px solid #cedac7}.metrics b{font-family:Georgia,serif;font-size:25px;font-weight:400;margin-right:7px}.metrics span{font-size:12px;color:#576552}.sectionhead{display:flex;justify-content:space-between;align-items:baseline;margin:35px 0 16px;gap:12px}.sectionhead h2{font-size:20px;margin:0;letter-spacing:-.4px}.sectionhead small{font-size:12px;color:var(--muted)}.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.chapter-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);padding:22px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .15s,border-color .15s}.chapter-card:hover{transform:translateY(-3px);border-color:#89a083}.cardtop{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted)}.chapter-card .index{font-family:Georgia,serif;font-size:29px;color:#829678}.chapter-card h3{font-size:17px;margin:13px 0 7px}.chapter-card p{font-size:13px;color:var(--muted);margin:0 0 20px;line-height:1.8}.cardbottom{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;font-size:12px;color:var(--green)}.path{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;margin:16px 0}.path span{background:var(--soft);padding:6px 11px;border-radius:6px}.path i{font-style:normal;color:#919d92}.notice{font-size:13px;border-left:3px solid #b49a60;padding:12px 17px;background:var(--sand);border-radius:0 8px 8px 0}.intro-note{font-size:12px;color:var(--muted);margin-top:20px}.lesson-head{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:26px}.lesson-head h1{font-size:32px;line-height:1.4;margin:8px 0 12px;letter-spacing:-.6px}.lesson-head p{color:var(--muted);max-width:720px;margin:0}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{font-size:11px;background:var(--soft);color:var(--green);padding:3px 10px;border-radius:20px}.lesson h2{font-size:22px;line-height:1.5;margin:35px 0 14px}.lesson h3{font-size:17px;margin:24px 0 10px}.lesson p{margin:10px 0}.lesson li{margin:6px 0}.lesson ul,.lesson ol{padding-left:23px}.lead{font-size:17px}.panel{background:white;border:1px solid var(--line);padding:24px;border-radius:var(--radius);margin:20px 0}.panel h3:first-child{margin-top:0}.formula{font-family:"Cambria Math",Georgia,"Times New Roman",serif;background:#f0f3ed;color:#243b2c;font-size:19px;line-height:1.85;padding:17px 20px;border-radius:9px;margin:16px 0;overflow-x:auto}.formula small{display:block;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;font-size:12px;color:var(--muted);margin-top:4px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}.twocol .panel{margin:0}.table-wrap{overflow-x:auto;margin:17px 0;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;font-size:13px;background:white}th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf1e9;color:#36503d;font-weight:600}tr:last-child td{border-bottom:0}.pitfall{background:var(--sand);border-left:3px solid #be8a4e;padding:13px 18px;border-radius:0 9px 9px 0;font-size:14px;margin:18px 0}.pitfall b{color:var(--orange)}.example{border-left:3px solid #89a276;padding:4px 0 4px 18px;margin:20px 0}.example .label,.lab .label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-weight:700}.source{font-size:12px;color:var(--muted);padding:14px 0;border-top:1px solid var(--line);margin-top:30px;overflow-wrap:anywhere}.lab{background:#fff;border:1px solid #cad8c6;border-radius:16px;padding:25px;margin:25px 0}.lab h3{margin:6px 0}.lab p{font-size:13px;color:var(--muted)}.lab svg{display:block;width:100%;height:auto;max-height:330px;background:#fafbf8;border-radius:10px;margin-top:16px}.controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:16px 0}.controls label{font-size:13px;display:flex;gap:8px;align-items:center}.controls input[type=number]{width:80px;padding:7px 9px;border:1px solid var(--line);border-radius:7px}.controls input[type=range]{width:150px;accent-color:var(--green)}.readout{background:var(--soft);border-radius:8px;padding:12px 16px;font-size:14px;margin-top:15px;line-height:1.8}.readout.error{color:#943d29;background:#fff0e8}.lab-values{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.lab-values div{padding:14px;border:1px solid var(--line);border-radius:9px}.lab-values b{display:block;font-family:Georgia,serif;font-size:25px;color:var(--green)}.lab-values span{font-size:12px;color:var(--muted)}details{border:1px solid var(--line);border-radius:10px;background:white;margin:12px 0}summary{padding:14px 18px;font-size:14px;font-weight:600;cursor:pointer}details>div{padding:0 18px 17px;font-size:14px}.quiz-section{margin-top:36px}.quiz{background:white;border:1px solid var(--line);padding:22px;border-radius:12px;margin:15px 0}.quiz legend{padding:0;font-weight:600;font-size:15px;margin-bottom:12px}.quiz fieldset{border:0;padding:0;margin:0;min-width:0}.quiz label{display:flex;align-items:flex-start;gap:9px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;margin:7px 0;cursor:pointer;font-size:14px}.quiz label:has(input:checked){background:var(--soft);border-color:#92aa89}.quiz input{margin-top:7px;accent-color:var(--green)}.quiz button{margin-top:10px;font-size:13px}.feedback{padding:12px 14px;background:var(--soft);border-radius:8px;margin-top:12px;font-size:13px}.feedback.wrong{background:var(--sand)}.quiz-section .score{font-size:12px;color:var(--muted)}.lesson-footer{border-top:1px solid var(--line);margin-top:35px;padding-top:25px;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}.lesson-footer a{text-decoration:none;font-size:13px;padding:8px 4px}.complete-btn.completed{background:var(--soft);border-color:#92aa89;color:var(--green)}.footer{text-align:center;color:var(--muted);font-size:11px;padding:25px 0 0}.checklist label{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}.checklist input{margin-top:7px;accent-color:var(--green)}[hidden]{display:none!important}.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.flash-grid details{margin:0}.flash-grid .formula{font-size:17px;padding:12px;overflow-wrap:anywhere}.bottom-note{font-size:12px;color:var(--muted);margin-top:24px}code{background:var(--soft);padding:2px 5px;border-radius:4px;font-size:.92em}@media(max-width:1100px){aside{width:222px;padding:26px 16px}.workspace{margin-left:222px}.content{padding:32px 28px}.topbar{padding:0 28px}.hero{padding:28px}.hero h1{font-size:33px}.chapter-grid{grid-template-columns:1fr 1fr}.metrics{gap:20px}}@media(max-width:760px){aside{transform:translateX(-100%);transition:transform .2s;width:260px;box-shadow:10px 0 50px #182e2622}body.menu-open aside{transform:translateX(0)}.workspace{margin-left:0}.menu-toggle{display:block;padding:6px 10px;white-space:nowrap}.topbar{height:68px;padding:0 18px;gap:12px}.crumb{display:none}.searchbox{width:auto;flex:1;min-width:0}.print-button{padding:6px 9px;white-space:nowrap}.search-results{width:min(340px,calc(100vw - 36px));right:-62px}.content{padding:26px 20px 40px}.hero{grid-template-columns:1fr;padding:28px}.hero-art{display:none}.hero h1{font-size:34px}.chapter-grid{gap:12px}.chapter-card{padding:18px}.twocol,.flash-grid{grid-template-columns:1fr}.lesson-head h1{font-size:28px}.panel,.lab{padding:19px}.lab-values{gap:6px}.lab-values div{padding:10px}.lab-values b{font-size:21px}.metrics{gap:22px}.formula{font-size:17px}.lesson h2{font-size:20px}.sectionhead{align-items:flex-start}.sectionhead small{max-width:130px}.lesson-footer .complete-btn{order:3;width:100%}}@media(max-width:390px){.chapter-grid{grid-template-columns:1fr}.metrics{gap:15px}.metrics b{font-size:22px}.hero h1{font-size:29px}.controls input[type=range]{width:120px}.topbar{gap:8px}.print-button{font-size:11px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}@media print{aside,.topbar,.hero-art,.lab button,.controls,.lesson-footer,.quiz button,.footer,.search-results{display:none!important}.workspace{margin:0}.content{max-width:none;padding:0}body{background:white;font-size:11pt;line-height:1.6}.page[hidden]{display:block!important}.page{break-before:page}.page:first-child{break-before:auto}.hero,.panel,.lab,.quiz,details{break-inside:avoid;box-shadow:none}.chapter-grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:26pt}.formula{font-size:14pt}.source{font-size:9pt}.quiz-section{break-before:page}.lesson h2{break-after:avoid}.feedback[hidden]{display:block!important}details>div{display:block!important}.print-only{display:block!important}}
+
+.cheat-actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.cheat-actions a{display:inline-block;padding:9px 16px;border:1px solid var(--line);border-radius:9px;text-decoration:none;background:white}.cheat-actions a.primary{background:var(--green);color:white}.cheat-jump{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.cheat-jump button{font-size:13px}.cheat-preview{margin:26px 0}.cheat-preview img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}.cheat-preview figcaption{font-size:14px;color:var(--muted);margin:9px 0}.cheat-entry{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.cheat-entry p{margin:4px 0;font-size:14px;color:var(--muted)}@media print{#cheat-sheet{display:none!important}}
+.deep{margin:44px 0 26px;padding-top:26px;border-top:2px solid var(--line)}.deep-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}.deep-head h2{margin:0}.deep-head .label{background:var(--soft);padding:3px 10px;border-radius:20px}.deep-intro{color:var(--muted);font-size:14px;margin:8px 0 16px}.deep details{margin:10px 0}.deep summary .pg{font-weight:400;font-size:12px;color:var(--muted);margin-left:8px;white-space:nowrap}.deep details>div h4{font-size:15px;margin:18px 0 6px}.deep details>div p,.deep details>div li{font-size:14px}.deep .formula{font-size:14px}.deep .mini td,.deep .mini th{font-size:13px;padding:6px 10px}.deep code,.deep .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}.deep pre.code{background:#f3f5f1;border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow:auto;line-height:1.6;white-space:pre}.deep .supp{display:inline-block;font-size:11px;color:var(--orange);border:1px solid #e3c8a8;border-radius:5px;padding:0 6px;margin-left:6px;vertical-align:1px}.deep s{color:var(--muted)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<aside id="sidebar" aria-label="课程导航">
+ <div class="brand"><span class="brandmark" aria-hidden="true">∴</span><div><strong>CS5228</strong><small>THE STUDY COMPANION</small></div></div>
+ <div class="navlabel">知识发现与数据挖掘</div>
+ <nav id="nav"><a href="#overview" data-page="overview"><span class="num">◉</span>复习总览</a><a href="#lecture1" data-page="lecture1"><span class="num">01</span>理解数据<span class="done"></span></a><a href="#lecture2" data-page="lecture2"><span class="num">02</span>聚类分析<span class="done"></span></a><a href="#lecture3" data-page="lecture3"><span class="num">03</span>关联规则<span class="done"></span></a><a href="#lecture4" data-page="lecture4"><span class="num">04</span>分类与决策树<span class="done"></span></a><a href="#lecture5" data-page="lecture5"><span class="num">05</span>线性与逻辑回归<span class="done"></span></a><a href="#lecture6" data-page="lecture6"><span class="num">06</span>集成学习<span class="done"></span></a><a href="#review" data-page="review"><span class="num">↗</span>考前速查</a><a href="#cheat-sheet" data-page="cheat-sheet"><span class="num">▤</span>中英 Cheat Sheet</a></nav>
+ <div class="sidebar-foot"><div id="progress-text">你的复习进度 · 0 / 6</div><div class="progressbar" role="progressbar" aria-label="章节复习进度" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="progress-fill" style="width:0%"></span></div><div>理解原理，再动手算一遍。</div><p style="font-size:11px;color:#a8bbad">Lecture 01–06 · 中文学习版<br>依据课后讲义整理</p></div>
+</aside>
+<div class="workspace"><header class="topbar"><button class="menu-toggle" aria-controls="sidebar" aria-expanded="false">目录</button><div class="crumb">学习空间 <span style="padding:0 10px">/</span><b id="breadcrumb">复习总览</b></div><div class="searchbox"><label for="search" hidden>搜索知识点</label><input id="search" type="search" placeholder="搜索概念、算法或公式…" autocomplete="off" aria-label="搜索知识点" aria-controls="search-results"><div id="search-results" class="search-results" hidden></div></div><button class="print-button" id="print">打印讲义</button></header>
+<main class="content" id="main">
+<section class="page" id="overview" data-title="复习总览">
+ <div class="hero"><div><div class="eyebrow">CS5228 / MIDTERM STUDY GUIDE</div><h1>把知识串起来，<br><span>把题目算明白。</span></h1><p>从数据准备到集成学习，用中文理解六讲的关键概念。每章都有公式、手算例题与自测，学完不止是“看懂”。</p><button class="primary" id="start">开始复习 →</button><div class="metrics"><div><b>06</b><span>章节</span></div><div><b>24</b><span>自测题</span></div><div><b>04</b><span>交互实验</span></div></div></div><svg class="hero-art" viewBox="0 0 300 270" role="img" aria-label="从分散的数据点到有结构的知识：三组聚类点的示意图"><path d="M20 225H280M35 240V25" stroke="#acbca3" stroke-width="1" fill="none"/><ellipse cx="108" cy="90" rx="65" ry="51" fill="#d3dfc4" transform="rotate(-25 108 90)"/><ellipse cx="217" cy="163" rx="57" ry="65" fill="#dde4d2" transform="rotate(18 217 163)"/><path d="M110 95L215 165L97 202Z" fill="none" stroke="#819974" stroke-dasharray="4 6"/><g fill="#446347"><circle cx="70" cy="94" r="5"/><circle cx="88" cy="73" r="4"/><circle cx="116" cy="61" r="5"/><circle cx="127" cy="89" r="5"/><circle cx="106" cy="119" r="4"/><circle cx="145" cy="70" r="4"/><circle cx="155" cy="105" r="5"/></g><g fill="#9a844e"><circle cx="202" cy="134" r="5"/><circle cx="229" cy="128" r="4"/><circle cx="243" cy="158" r="5"/><circle cx="193" cy="178" r="5"/><circle cx="219" cy="197" r="4"/><circle cx="244" cy="193" r="4"/></g><g fill="#829879"><circle cx="72" cy="179" r="4"/><circle cx="83" cy="209" r="5"/><circle cx="115" cy="193" r="5"/><circle cx="122" cy="216" r="4"/></g><g stroke="#243e2c" stroke-width="2"><path d="M102 94h14m-7-7v14M208 163h14m-7-7v14M91 200h14m-7-7v14"/></g><text x="45" y="260" fill="#53684d" font-family="Georgia,serif" font-size="12" font-style="italic">data → patterns → knowledge</text></svg></div>
+ <p class="intro-note">当前按 Lecture 1–6 全覆盖整理。具体考试范围与题型请以课程公告为准；这里的复习优先级是学习建议。</p>
+<div class="panel cheat-entry"><div><strong>中英 Cheat Sheet · 6 页 A4</strong><p>每讲一页：核心概念、公式、算法步骤与易错点。</p></div><a href="#cheat-sheet">查看 / 下载速查表 →</a></div>
+ <div class="sectionhead"><h2>六讲，一条学习主线</h2><small>建议依次学，也可以按薄弱点跳转</small></div>
+ <div class="chapter-grid">
+ <a class="chapter-card" href="#lecture1"><div class="cardtop"><span class="index">01</span><span>FOUNDATIONS</span></div><h3>先理解你的数据</h3><p>属性类型、数据质量与预处理。为什么“看起来是数字”不等于数值特征？</p><div class="cardbottom"><span>概念辨析 · 4 道自测</span><span>↗</span></div></a>
+ <a class="chapter-card" href="#lecture2"><div class="cardtop"><span class="index">02</span><span>CLUSTERING</span></div><h3>没有标签，如何分组？</h3><p>K-Means、DBSCAN、层次聚类。三种不同的“相似”定义。</p><div class="cardbottom"><span>分步演示 · 4 道自测</span><span>↗</span></div></a>
+ <a class="chapter-card" href="#lecture3"><div class="cardtop"><span class="index">03</span><span>ASSOCIATION RULES</span></div><h3>一起出现，意味着什么？</h3><p>Support、Confidence、Lift，以及 Apriori 为什么能够剪枝。</p><div class="cardbottom"><span>规则计算器 · 4 道自测</span><span>↗</span></div></a>
+ <a class="chapter-card" href="#lecture4"><div class="cardtop"><span class="index">04</span><span>SUPERVISED LEARNING</span></div><h3>从相似到预测</h3><p>评价指标、KNN 与决策树。学会判断一次分裂是否更好。</p><div class="cardbottom"><span>指标实验 · 4 道自测</span><span>↗</span></div></a>
+ <a class="chapter-card" href="#lecture5"><div class="cardtop"><span class="index">05</span><span>LINEAR MODELS</span></div><h3>用函数学习规律</h3><p>线性回归、梯度下降、逻辑回归，以及正确的模型验证流程。</p><div class="cardbottom"><span>概率演示 · 4 道自测</span><span>↗</span></div></a>
+ <a class="chapter-card" href="#lecture6"><div class="cardtop"><span class="index">06</span><span>ENSEMBLE LEARNING</span></div><h3>让多个模型协作</h3><p>随机森林、AdaBoost 与梯度提升。理解“独立投票”和“逐步纠错”。</p><div class="cardbottom"><span>算法对照 · 4 道自测</span><span>↗</span></div></a>
+ </div>
+ <div class="sectionhead"><h2>怎么用这份手册</h2></div><div class="panel"><div class="path"><span>① 读懂直觉</span><i>→</i><span>② 理解公式</span><i>→</i><span>③ 独立手算</span><i>→</i><span>④ 自测并解释错因</span></div><p>第一遍建立整体框架；第二遍重点练聚类迭代、Apriori 剪枝、分类指标、树分裂、梯度更新与 Boosting。能够说清“为什么”，比只记住公式更可靠。</p><p class="bottom-note">进度仅保存在当前浏览器。页面不联网，也不上传答题数据。练习与交互数据为教学用例，不是历年真题。</p></div>
+</section>
+
+<section class="page lesson" id="cheat-sheet" data-title="中英 Cheat Sheet" hidden><header class="lesson-head"><div class="eyebrow">BILINGUAL / QUICK REFERENCE</div><h1>中英 Cheat Sheet</h1><p>覆盖 Lecture 1–6，每讲一页，共 6 页 A4。保留英文术语，搭配中文解释、公式与易错点；下方可逐页查看，打印请使用 PDF 原文件。</p></header><div class="cheat-actions"><a class="primary" href="cs5228-bilingual-cheat-sheet.pdf" download>下载 PDF · 6 页</a><a href="cs5228-bilingual-cheat-sheet.pdf" target="_blank" rel="noopener">打开 PDF / 打印 ↗</a><a href="cs5228-practice.html">进入中英练习页 →</a></div><div class="cheat-jump" aria-label="速查表页码"><button type="button" data-cheat-page="1">01 数据与预处理</button><button type="button" data-cheat-page="2">02 聚类</button><button type="button" data-cheat-page="3">03 关联规则</button><button type="button" data-cheat-page="4">04 分类与决策树</button><button type="button" data-cheat-page="5">05 回归与验证</button><button type="button" data-cheat-page="6">06 集成学习</button></div><figure class="cheat-preview" id="cheat-page-1"><figcaption>第 1 / 6 页 · 数据与预处理 / Data & Preprocessing</figcaption><a href="cheat-page-1.png" target="_blank" rel="noopener" aria-label="打开第 1 页大图"><img src="cheat-page-1.png" loading="lazy" decoding="async" alt="中英速查表第 1 页：数据与预处理 / Data & Preprocessing。可打开大图查看，完整文本与打印版见上方 PDF。"></a></figure><figure class="cheat-preview" id="cheat-page-2"><figcaption>第 2 / 6 页 · 聚类 / Clustering</figcaption><a href="cheat-page-2.png" target="_blank" rel="noopener" aria-label="打开第 2 页大图"><img src="cheat-page-2.png" loading="lazy" decoding="async" alt="中英速查表第 2 页：聚类 / Clustering。可打开大图查看，完整文本与打印版见上方 PDF。"></a></figure><figure class="cheat-preview" id="cheat-page-3"><figcaption>第 3 / 6 页 · 关联规则 / Association Rules</figcaption><a href="cheat-page-3.png" target="_blank" rel="noopener" aria-label="打开第 3 页大图"><img src="cheat-page-3.png" loading="lazy" decoding="async" alt="中英速查表第 3 页：关联规则 / Association Rules。可打开大图查看，完整文本与打印版见上方 PDF。"></a></figure><figure class="cheat-preview" id="cheat-page-4"><figcaption>第 4 / 6 页 · 分类与决策树 / Classification & Decision Trees</figcaption><a href="cheat-page-4.png" target="_blank" rel="noopener" aria-label="打开第 4 页大图"><img src="cheat-page-4.png" loading="lazy" decoding="async" alt="中英速查表第 4 页：分类与决策树 / Classification & Decision Trees。可打开大图查看，完整文本与打印版见上方 PDF。"></a></figure><figure class="cheat-preview" id="cheat-page-5"><figcaption>第 5 / 6 页 · 回归与验证 / Regression & Validation</figcaption><a href="cheat-page-5.png" target="_blank" rel="noopener" aria-label="打开第 5 页大图"><img src="cheat-page-5.png" loading="lazy" decoding="async" alt="中英速查表第 5 页：回归与验证 / Regression & Validation。可打开大图查看，完整文本与打印版见上方 PDF。"></a></figure><figure class="cheat-preview" id="cheat-page-6"><figcaption>第 6 / 6 页 · 集成学习 / Ensemble Learning</figcaption><a href="cheat-page-6.png" target="_blank" rel="noopener" aria-label="打开第 6 页大图"><img src="cheat-page-6.png" loading="lazy" decoding="async" alt="中英速查表第 6 页：集成学习 / Ensemble Learning。可打开大图查看，完整文本与打印版见上方 PDF。"></a></figure></section>
+<section class="page lesson" id="lecture1" data-title="理解数据" hidden>
+<header class="lesson-head"><div class="eyebrow">LECTURE 01 / INTRODUCTION & OVERVIEW</div><h1>先问：这些数据代表什么？</h1><p>数据挖掘的目标，是从已有数据中找到能推广到新数据的规律。数据质量和表示方式，决定后面的算法是否在解决正确的问题。</p><div class="tags"><span class="tag">属性类型</span><span class="tag">EDA</span><span class="tag">预处理</span></div></header>
+<h2>1. 找到模式，不等于发现知识</h2><p>随机数据里也能找到巧合。一个有用的模式应该有意义，并且能在<strong>未见过的数据</strong>上保持有效，这就是泛化（generalization）。例如，冰淇淋销量和溺水人数一起上升，可能因为天气变热，而不是冰淇淋导致溺水。</p><div class="pitfall"><b>判断题抓手：</b>相关不等于因果；训练集表现好不等于泛化好；查找数据库中的电话号码通常只是查询，不是挖掘未知模式。</div>
+<h2>2. 四类属性：能对它做什么运算？</h2><div class="table-wrap"><table><thead><tr><th>类型</th><th>含义</th><th>例子</th><th>要点</th></tr></thead><tbody><tr><td>Nominal 名义</td><td>只有类别区别</td><td>ID、邮编、眼睛颜色</td><td>能判断相同/不同，不能解释大小或差值</td></tr><tr><td>Ordinal 有序</td><td>有自然顺序</td><td>满意度、学历等级</td><td>“高一级”不一定有相同的量化差距</td></tr><tr><td>Interval 区间</td><td>差值有意义，无绝对零点</td><td>摄氏温度、日历日期</td><td>20℃ 不是 10℃ 的“两倍热”</td></tr><tr><td>Ratio 比率</td><td>差值、比值都可解释</td><td>重量、长度、年龄</td><td>20kg 是 10kg 的两倍</td></tr></tbody></table></div><p><strong>看语义，不看存储类型。</strong>邮编即使用整数保存也只是标签；把“差、一般、好”编码为 1、2、3，并不能证明类别之间等距。</p>
+<h2>3. EDA：先认识数据，再建立模型</h2><p>探索性数据分析（Exploratory Data Analysis）用于检查分布、缺失值、重复记录、类别比例和变量关系。直方图看分布，箱线图看单变量异常，散点图看变量间关系。</p><ul><li><strong>Noise 噪声：</strong>测量误差等对信号的扰动。</li><li><strong>Outlier 离群点：</strong>显著不同于其他记录的点。它可能是错误，也可能是要发现的欺诈交易。</li><li><strong>Missing value 缺失值：</strong>“没有记录”不等于数值 0。填补策略需要结合业务。</li><li><strong>Duplicate 重复记录：</strong>不同记录可能指向同一个现实对象，需要合并或去重。</li></ul><div class="pitfall"><b>别机械删除异常值。</b>单个属性正常，不代表组合正常；单变量箱线图无法发现所有多变量异常。分布奇怪是调查线索，不是数据出错的证明。</div>
+<h2>4. 预处理：改变数据，让方法适用</h2><div class="table-wrap"><table><thead><tr><th>操作</th><th>做什么</th><th>目的</th></tr></thead><tbody><tr><td>Cleaning 清洗</td><td>处理缺失、重复、错误单位</td><td>提高数据质量</td></tr><tr><td>Reduction 约简</td><td>抽样、特征选择、降维</td><td>减少数据或计算量</td></tr><tr><td>Aggregation / Smoothing</td><td>按年汇总、用箱内均值替代原值</td><td>简化细节，降低部分噪声</td></tr><tr><td>Discretization 离散化</td><td>年龄 → 青年/中年/老年</td><td>连续值转有序类别</td></tr><tr><td>One-hot encoding</td><td>类别 → 多个 0/1 特征</td><td>避免给名义类别强加数值顺序</td></tr></tbody></table></div>
+<div class="formula">Min–max: x′ = (x − x<sub>min</sub>) / (x<sub>max</sub> − x<sub>min</sub>)<br>Z-score: x′ = (x − μ) / σ<small>μ 为均值，σ 为标准差；常数特征的分母为 0，需要单独处理。</small></div><div class="example"><span class="label">手算例题</span><p>某特征的训练范围为 10–50，x = 30 的 min–max 值为 (30−10)/(50−10) = <strong>0.5</strong>。若训练均值为 25、标准差为 5，则 z-score = <strong>1</strong>，即高出训练均值 1 个标准差。</p></div><p>尺度会影响欧氏距离：收入的数值可能比年龄大几千倍，未缩放时距离容易被收入支配。因此 KNN、K-Means 特别需要关注尺度。标准化并不会自动把数据变成正态分布。</p><div class="notice">与第 5 讲连接：先划分训练/验证/测试数据，再只在训练数据上拟合预处理参数。测试值超出训练 min–max 范围时，变换结果可以小于 0 或大于 1。</div>
+<section class="deep" aria-labelledby="deep1"><div class="deep-head"><span class="label">教材精讲</span><h2 id="deep1">按讲义顺序，把每一步讲透</h2></div><p class="deep-intro">以下内容按 cs5228-lecture01 讲义页码展开，补全讲义中的图示、课堂例子和 Quick Quiz 的解题思路。标 <span class="supp">补充</span> 的内容超出讲义，仅供理解。</p>
+
+<details><summary>① 什么是知识发现 / 数据挖掘：DIKW 与 KDD 流程<span class="pg">p.13–15</span></summary><div>
+<p>讲义采用的定义（Frawley et al., 1991）：<em>从数据中<strong>非平凡地</strong>提取<strong>隐含的、先前未知的、可能有用的</strong>信息</em>。三个关键词逐一对应“什么不算数据挖掘”。</p>
+<h4>数据 → 信息 → 知识 → 智慧（讲义超市例子）</h4>
+<div class="table-wrap"><table class="mini"><thead><tr><th>层级</th><th>例子</th><th>理解了什么</th></tr></thead><tbody>
+<tr><td>Data</td><td>2023-08-15T15:05:30Z；1.2933, 103.7844</td><td>原始记录，没有语境</td></tr>
+<tr><td>Information</td><td>某顾客 8 月 15 日在 FairPrice NUH 买了面包、麦片、牛奶</td><td>理解关系（relationships）</td></tr>
+<tr><td>Knowledge</td><td>很多顾客经常同时买牛奶和麦片</td><td>理解模式（patterns）</td></tr>
+<tr><td>Wisdom</td><td>据此优化商品摆放、动态定价、捆绑促销</td><td>理解原理（principles）并行动</td></tr>
+</tbody></table></div>
+<h4>KDD 流程（Fayyad et al., 1996）</h4>
+<p>Data →<strong>Selection</strong>→ Target Data →<strong>Preprocessing</strong>→ Preprocessed Data →<strong>Transformation</strong>→ Transformed Data →<strong>Data Mining</strong>→ Patterns →<strong>Post-processing</strong>→ Knowledge</p>
+<ul><li><strong>Selection：</strong>找出与任务相关的数据。</li><li><strong>Preprocessing：</strong>处理缺失、去重、特征选择、归一化……</li><li><strong>Transformation：</strong>转换为适合算法的表示。</li><li><strong>Data Mining：</strong>聚类、分类、回归、关联、相关分析……</li><li><strong>Post-processing：</strong>可视化、解释、理解。</li></ul>
+<p>数据挖掘只是整条流程中的一步；本讲后半部分（数据质量、EDA、预处理）讲的都是它前面的步骤。</p>
+<h4>什么<em>不是</em>数据挖掘（p.15）</h4>
+<ul><li><strong>平凡的提取：</strong>在电话簿里查号码；按专业给学生分组；算公司总销售额。这些是查询或统计，答案的“形式”事先已知。</li><li><strong>不产生新模式的分析：</strong>监测病人心率是否异常（规则已知）；使用搜索引擎（检索已有信息）。</li></ul>
+<div class="example"><span class="label">Quick Quiz · p.20（答案 D）</span><p>给定超市交易数据，哪个“不算”真正的数据挖掘？A 找最常一起购买的最大商品集合（频繁项集）、B 按购买行为找相似用户（聚类）都是在发现未知模式。<strong>D “周末晚 6 点后最常卖的商品”</strong>只是先过滤、再计数排序，一条 SQL 查询就能完成，属于平凡的聚合统计。</p></div>
+</div></details>
+
+<details><summary>② 什么样的模式有用：泛化、虚假相关与混杂变量<span class="pg">p.16–19</span></summary><div>
+<p>“只要拷问数据足够久，它什么都会招。”（Coase）主要目标是<strong>泛化</strong>：模式要在没见过的数据上仍然准确。常见破坏原因是<strong>数据太少</strong>或<strong>数据有偏</strong>。</p>
+<div class="example"><span class="label">讲义例子 · 决策树判定哺乳动物</span><p>体温恒温 → 胎生 → 四足 → mammal。这棵树在训练动物上可能完全正确，但人（不是四足）会被判为 non-mammal，鸭嘴兽（卵生）也会被判错。训练数据里没有这类样本，规则就学得过窄 —— 这正是泛化失败。</p></div>
+<h4>数据里总能找到“模式”（p.17）</h4>
+<p>讲义列举了《Predictive Analytics》里的“惊人发现”：女性名字的飓风致死更多、用 Chrome/Firefox 的员工表现更好、素食者更少误机、冰淇淋销量高时鲨鱼袭击多……它们都是<strong>相关</strong>，不能说明<strong>因果</strong>。</p>
+<ul><li><strong>Confounding variable 混杂变量：</strong>气温升高同时导致冰淇淋销量和下水人数（从而鲨鱼袭击）上升。</li><li><strong>Spurious correlation 虚假相关：</strong>两个变量之间看似有关系，实际上由第三个因素或纯巧合造成。</li></ul>
+<h4>Reality check（p.18）</h4>
+<p>“冰淇淋销量越高，鲨鱼袭击越多”和“抗缪勒管激素浓度越高，促卵泡激素浓度越低”在<em>形式上</em>完全一样。我们会觉得前者荒谬、后者可信，只是因为背景知识不同。讲义提醒：<strong>“这不合理！”很少是好的论证</strong>——判断模式要看数据来源、样本、机制与验证，而不是直觉。</p>
+<p>p.19 引用《侏罗纪公园》：“只顾着能不能做，没想过该不该做。”数据挖掘也涉及伦理：能从数据中推断出的东西，不一定应该去推断（见 p.64–67 的 Quiz）。</p>
+</div></details>
+
+<details><summary>③ 六类常见任务：输入是什么，模式是什么<span class="pg">p.22–28</span></summary><div>
+<div class="table-wrap"><table class="mini"><thead><tr><th>任务</th><th>输入</th><th>要找的模式</th><th>课程位置</th></tr></thead><tbody>
+<tr><td>Association rules</td><td>交易数据（每条记录是一组物品）</td><td>根据一些物品的出现预测另一些物品：{anosmia, fatigue}→{covid-19}</td><td>第 3 讲</td></tr>
+<tr><td>Clustering</td><td>数据 + 明确定义的相似度</td><td>簇：簇内相似度最大化，簇间相似度最小化</td><td>第 2 讲</td></tr>
+<tr><td>Classification</td><td>多属性数据集</td><td><strong>类别型</strong>属性作为其他属性的函数（KNN、决策树、线性分类……）</td><td>第 4–6 讲</td></tr>
+<tr><td>Regression</td><td>多属性数据集</td><td><strong>数值型</strong>属性作为其他属性的函数（KNN、回归树、线性回归……）</td><td>第 4–6 讲</td></tr>
+<tr><td>Graph mining</td><td>G = (V, E)：节点是数据点，边是关系</td><td>社区发现、找“重要”节点</td><td>后续</td></tr>
+<tr><td>Recommender systems</td><td>用户对物品的评分矩阵</td><td>利用物品特征、用户或物品之间的相似性预测缺失评分</td><td>后续</td></tr>
+</tbody></table></div>
+<p><strong>分类例子（p.24）：</strong>用 Age、Education、Marital Status、Annual Income 预测 Credit Default。讲义的树：先按 Marital Status 分，Single 再看 Annual Income（&lt; 65k → NO，≥ 65k → YES），Married 再看 Education（Master/Bachelor → NO，PhD → YES）。可以逐行核对：23 岁 Masters Single 75k → YES ✔；35 岁 Bachelor Married 50k → NO ✔。</p>
+<p><strong>回归例子（p.25）：</strong>散点图横轴是鞋印长度（约 27–35 cm），纵轴是身高（约 165–195 cm），红线是拟合直线。问题“鞋印 32.2 cm 的人预计多高？”的答案就是把 32.2 代入这条直线读出的数值 —— 输出是连续值，所以是回归而不是分类。</p>
+<p><strong>推荐例子（p.27）：</strong>Bob 对 Clueless、Jarhead、Big、Rocky 的评分为 1、4、0、2，与 Alice（2、5、0、1）和 Erin（1、3、0、3）的模式很接近，而她们给 Heat 分别打了 4 分和 5 分。基于用户相似性，可以推测 Bob 也会给 Heat 较高的分数，从而推荐给他。这就是“利用用户之间的相似性”；“利用物品特征”则是看 Heat 与 Bob 喜欢的电影在类型、演员等方面是否相似。</p>
+<p>p.28 提到：生物医学研究中常用的数据挖掘算法清单，大多在本课覆盖（主要例外是深度学习）。</p>
+</div></details>
+
+<details><summary>④ 属性类型四级：允许哪些运算 + 三道 Quiz 解析<span class="pg">p.30, 35–37</span></summary><div>
+<div class="table-wrap"><table class="mini"><thead><tr><th></th><th>Nominal</th><th>Ordinal</th><th>Interval</th><th>Ratio</th></tr></thead><tbody>
+<tr><th>大类</th><td colspan="2">Categorical（定性）</td><td colspan="2">Numerical（定量）</td></tr>
+<tr><th>含义</th><td>值只是标签</td><td>标签 + 有意义的顺序</td><td>测量值，<strong>距离</strong>有意义</td><td>测量值，<strong>比值</strong>有意义</td></tr>
+<tr><th>运算</th><td>=, ≠</td><td>=, ≠, &lt;, &gt;</td><td>+ −</td><td>+ − × ÷</td></tr>
+<tr><th>讲义例子</th><td>性别、眼睛颜色、邮编</td><td>门牌号、学历</td><td>摄氏体温、日历日期</td><td>年龄、体重、收入、血压</td></tr>
+</tbody></table></div>
+<p>每一级都继承上一级的运算。判断方法：问“哪种运算有意义”。10℃ 到 20℃ 与 20℃ 到 30℃ 的差相同（区间有意义），但 0℃ 不是“没有温度”，所以 20℃ ≠ 2 × 10℃（比值无意义）。年龄 0 表示真正的“零”，40 岁确实是 20 岁的两倍。</p>
+<p>讲义把<strong>门牌号</strong>列为 ordinal：门牌号有顺序（12 号在 10 号之后），但 12 − 10 = 2 并不代表距离。</p>
+<div class="example"><span class="label">Quick Quiz · p.35–37</span><ul><li><strong>Annual Income → D Ratio。</strong>有真正的零点，100k 是 50k 的两倍。</li><li><strong>Education → B Ordinal</strong>（A 也可接受）。Bachelor &lt; Masters &lt; PhD 有自然顺序，但“等级差”无法量化；如果认为学位之间不一定有严格高低，也可以当作 nominal。</li><li><strong>ID → A Nominal</strong>（一般情况）。101、102 只是标签，即使存成整数，比大小也没意义（若 ID 按注册顺序递增，理论上带有顺序信息，所以讲义加了 “in general”）。</li></ul></div>
+</div></details>
+
+<details><summary>⑤ 数据的类型与表示<span class="pg">p.31–34</span></summary><div>
+<div class="table-wrap"><table class="mini"><thead><tr><th>类型</th><th>特点</th><th>例子</th></tr></thead><tbody>
+<tr><td>结构化</td><td>遵循预定义数据模型，每个对象有同样固定的属性；易于搜索、聚合、分析</td><td>关系数据库、电子表格</td></tr>
+<tr><td>半结构化</td><td>没有严格模式，结构化与非结构化混合；“带标签的非结构化数据”</td><td>XML、JSON、CSV；照片 + 拍摄时间、地点、曝光、分辨率等元数据</td></tr>
+<tr><td>非结构化</td><td>没有固定数据模型，需要更高级的分析技术</td><td>图像、视频、音频、文本、社交媒体</td></tr>
+</tbody></table></div>
+<ul><li><strong>Record data：</strong><em>数据矩阵</em>（每条记录有同一组固定属性，如信用审批表）与<em>交易数据</em>（每条记录是一组物品，如症状列表）。</li><li><strong>Graph data：</strong>交通网络（LTA）、社交网络。</li><li><strong>Ordered data：</strong>序列，例如股票价格随时间变化。</li></ul>
+<p>同一份信息可以有多种表示；选择表示方式本身就决定了哪些算法可用（交易数据 → 关联规则；数据矩阵 → 分类/回归/聚类）。</p>
+</div></details>
+
+<details><summary>⑥ 数据质量四大问题：噪声、离群点、缺失值、重复<span class="pg">p.40–43</span></summary><div>
+<h4>Noise：数据 = 真实信号 + 噪声</h4>
+<ul><li>故障传感器读数（以及固有噪声、外界干扰）</li><li>人或机器录入错误；传输错误</li><li><strong>格式不一致：</strong>ISO 时间 vs Unix 时间；DD/MM/YYYY vs MM/DD/YYYY</li><li><strong>约定不一致：</strong>米 vs 英里，米 vs 厘米</li></ul>
+<h4>Outliers：两种截然不同的处理</h4>
+<ul><li><strong>情况 1 · 离群点是噪声：</strong>会干扰分析 → 尝试删除，或使用对离群点不敏感的方法。</li><li><strong>情况 2 · 离群点就是目标：</strong>信用卡欺诈、入侵检测——要找的恰好是罕见、异常的点。</li></ul>
+<h4>Missing values</h4>
+<p>原因：没有采集（传感器坏了、有人拒绝报告年龄）；或属性不适用（儿童没有收入）。处理方式：</p>
+<ol><li>删除含缺失值的<strong>数据点</strong>；</li><li>删除含缺失值的<strong>属性</strong>（并非所有属性都同样重要）；</li><li>尝试<strong>填补</strong>（例如用附近传感器的平均温度）。</li></ol>
+<p>讲义表中 9 条记录有 2 个年龄缺失、3 个收入缺失。按“删除数据点”会丢掉 5 条中的大部分信息；按“删除属性”则失去收入这一可能很重要的特征 —— 两者都有代价，需要结合任务权衡。</p>
+<h4>Duplicates</h4>
+<ul><li><strong>完全重复：</strong>属性值完全相同，较容易消除。</li><li><strong>近似重复：</strong>同一个人但电话号码格式不同等，一般非常困难。</li></ul>
+<p>重复在合并多个异构数据源时尤其严重；去重算法超出本课范围。</p>
+</div></details>
+
+<details><summary>⑦ EDA 实战：心血管疾病数据集里发现了什么<span class="pg">p.45–54</span></summary><div>
+<p>EDA 通过基本变换与可视化“认识数据”：评估质量、做合理性检查、获得初步洞察、提出新问题。<strong>没有形式化流程或严格规则。</strong>讲义用（刻意修改过的）Cardiovascular Disease 数据集演示：</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>工具</th><th>讲义发现</th><th>教训</th></tr></thead><tbody>
+<tr><td>直方图 p.46</td><td>身高呈两个峰：50% 用英寸、50% 用厘米；体重 80% 用千克、20% 用磅</td><td>双峰分布可能来自单位混用，而不是真实的两类人</td></tr>
+<tr><td>箱线图 p.47</td><td>有人身高落在“世界最高前 10 人”范围</td><td>箱线图让离群点显式化；但 CEO 工资也是离群点而非错误，是否删除取决于分析目标</td></tr>
+<tr><td>散点图 p.48</td><td>身高极高但体重 &lt; 100 kg（不现实）；170 cm 但 &lt; 25 kg（无法存活）；还可能是极度肥胖的儿童、侏儒症……</td><td>单看每个属性都正常，组合起来才不合理；解释需要对数据的深入理解，且高维时不一定可行</td></tr>
+<tr><td>缺失值 p.49</td><td>未公开体重的人被填了默认值 0</td><td>“0” 冒充了真实值，连求平均这种简单分析都会被拉偏</td></tr>
+<tr><td>属性类型 p.50</td><td>胆固醇字段取值 1/2/3，看似数值，实为 ordinal（正常 / 偏高 / 远高于正常）</td><td>通常要查数据集文档；自动化方法一般无法判断</td></tr>
+<tr><td>类别分布 p.51</td><td>检查各类标签比例</td><td>分类任务一般受益于类别平衡；类别分布也影响评估（连接第 4 讲）</td></tr>
+<tr><td>t-SNE p.52</td><td>MNIST：6 万张 28×28 手写数字 = 784 个特征（灰度 0–255）</td><td>高维数据可先降到 2 维可视化，观察类别是否可分</td></tr>
+</tbody></table></div>
+<p><strong>非结构化数据（p.53）</strong>也要做 EDA：文本看语言、词表大小、正式/非正式（俚语、表情）；图像/视频看尺寸、分辨率、色彩空间；音频看采样率、频率范围、录音类型（人声还是音乐）。</p>
+<div class="example"><span class="label">Quick Quiz · p.54（答案 C）</span><ul><li>A ✘：离群点不一定是噪声，可能正是分析目标。</li><li>B ✘：类别平衡只是有利条件之一，不保证好结果。</li><li><strong>C ✔：</strong>箱线图只看单个属性，发现不了“170 cm、25 kg”这种组合异常。</li><li>D ✘：分布奇怪只是调查线索，并不证明出错（可能是数据本身的真实特性）。</li></ul></div>
+<p>课堂活动（p.38）“拿到客户的大 CSV 要建分类器，你先做什么？”——本节就是答案的骨架：看属性含义与类型、检查缺失/重复/单位、画分布、看标签比例。</p>
+</div></details>
+
+<details><summary>⑧ 预处理：清洗、约简、分箱平滑的完整算例<span class="pg">p.56–59</span></summary><div>
+<p>三个目的：提高数据质量（Garbage in, garbage out）；为算法生成合法输入；降低复杂度以便分析。四项核心任务：cleaning、reduction、transformation、discretization。</p>
+<h4>Data cleaning</h4>
+<p>删除或填补缺失值；识别并删除离群点（如果离群点不是分析目标）；识别并删除/合并重复；纠正错误和不一致（如英寸转厘米）。这些任务都<strong>不平凡，且高度依赖应用</strong>。</p>
+<h4>Data reduction 的三个层面</h4>
+<ul><li><strong>减少数据点：</strong>抽样（随机或分层），常用于初步分析或数据极大时。</li><li><strong>减少属性：</strong>删除无关属性（如 ID，或宗教、性取向等伦理上有问题的属性）；降维（PCA、LDA、t-SNE 等）。</li><li><strong>减少属性取值</strong>（一种去噪）：聚合/泛化；分箱平滑。</li></ul>
+<h4>聚合 / 泛化</h4>
+<p>数值属性沿概念层级上移（天 → 年）；类别属性泛化（如城市 → 国家）。</p>
+<div class="example"><span class="label">分箱平滑 · 讲义算例逐步</span><p>① 按身高排序：55 57 59 60 64 65 65 66 67 67 67 68 68 70 70 70 …</p><p>② 等大小分箱（每箱 5 个）：[55 57 59 60 64] [65 65 66 67 67] [67 68 68 70 70] [70 …]</p><p>③ 每个值换成箱均值：(55+57+59+60+64)/5 = <strong>59</strong>；(65+65+66+67+67)/5 = <strong>66</strong>；(67+68+68+70+70)/5 = 68.6 ≈ <strong>69</strong>。结果：59 59 59 59 59 66 66 66 66 66 69 69 69 69 69 72 …（讲义对均值做了取整）。</p><p>注意第三个 67 被分到了第 3 箱：等频分箱按位置切，不保证相同值落在同一箱。</p></div>
+</div></details>
+
+<details><summary>⑨ 变换、归一化、离散化与 One-hot 的算例<span class="pg">p.60–63</span></summary><div>
+<p><strong>Attribute construction：</strong>由已有属性推出新属性，例如 weight, volume → density。一些约简技术（降维、聚合、分箱）本身也是变换。</p>
+<div class="formula">Min–max： x′ = (x − min(x)) / (max(x) − min(x))　→ [0, 1]<br>Standardization： x′ = (x − μ) / σ</div>
+<div class="example"><span class="label">用讲义的 5 个体重练习</span><p>体重 62、85、64、82、56（kg）。min = 56，max = 85，差 29：</p><p>Min–max：62 → 6/29 ≈ <strong>0.207</strong>；85 → <strong>1</strong>；64 → 8/29 ≈ 0.276；82 → 26/29 ≈ 0.897；56 → <strong>0</strong>。</p><p>Z-score：μ = 69.8；离差平方和 = 60.84 + 231.04 + 33.64 + 148.84 + 190.44 = 664.8，总体标准差 σ = √(664.8/5) ≈ 11.53。62 → −0.68；85 → 1.32；64 → −0.50；82 → 1.06；56 → −1.20。</p><p>讲义表格里的数值（如 0.273684、−0.847867）是用<strong>整列数据</strong>的 min/max 与均值算的，所以与这里只用 5 个值的结果不同；变换的形状（大小顺序不变）一致。</p></div>
+<h4>Discretization（p.62）</h4>
+<p>把连续属性变成 ordinal：有些算法只接受类别属性；也可以把回归任务变成分类任务。讲义用 3 个人工设定的区间把体重分为 light (0, 70]、average (70, 90]、heavy (90, 150]：86 → average，57 → light，103 → heavy。</p>
+<h4>One-hot encoding（p.63）</h4>
+<p>把类别属性展开为一组 0/1 属性，让所有面向数值特征的方法都能使用类别数据。weight_class ∈ {light, average, heavy} → 三列 weight_class_light / _average / _heavy，每行恰好一个 1：average → (0, 1, 0)。讲义强调这只是众多编码策略之一。</p>
+<p class="notice">为什么不直接用 1/2/3？ <span class="supp">补充</span>对 nominal 属性这会强加不存在的顺序和距离（“3 − 1 = 2”）；对 light/average/heavy 这种 ordinal 属性，用有序整数编码有时也合理，取决于模型能否利用顺序。</p>
+</div></details>
+
+<details><summary>⑩ 伦理与相关性：应该删掉哪些属性？<span class="pg">p.64–67</span></summary><div>
+<div class="example"><span class="label">Quick Quiz · p.64（答案 A）</span><p>在 ID、Age、Education、Marital Status、Annual Income、Email 中，一般应删除 <strong>ID + Email</strong>：它们是唯一标识，每条记录都不同，无法泛化到新数据，模型只会“记住”它们。</p><p>但讲义 Side Note（p.65）提醒：有研究《How extraverted is honey.bunny77@hotmail.de? Inferring personality from e-mail addresses》表明邮箱地址本身可能携带信息 —— 所以是“一般情况下”删除。</p></div>
+<div class="example"><span class="label">Quick Quiz · p.66（答案 B，C 也可）</span><p>信用审批数据含 Age、Religion、Education、Has Account、Annual Income、Zodiac Sign：</p><ul><li><strong>Religion：</strong>伦理上有问题的敏感属性，用于信贷决策会造成歧视。</li><li><strong>Zodiac Sign：</strong>与信用无合理关联（星座）。</li><li><strong>Has Account：</strong>表中所有人都是 Yes，是<strong>常数属性</strong>，没有区分能力。</li></ul><p>Side Note（p.67）：CNA 报道确有公司用星座等方式辅助招聘 —— 数据中可能“找得到”关系，但并不意味着应该使用。</p></div>
+<h4>本讲总结（p.69）</h4>
+<ul><li>什么是（不是）数据挖掘；Data → Knowledge 的知识发现流程；常见任务概览。</li><li>数据准备：数据类型与数据质量、探索性数据分析、数据预处理 —— <strong>Know your data &amp; clean your data!</strong></li></ul>
+</div></details>
+</section>
+<div class="quiz-section" data-quiz="1"></div><p class="source">依据：cs5228-lecture01-post.pdf · 属性类型 p.30–37；数据质量与 EDA p.40–54；预处理 p.56–67。例题为配套讲解。</p></section>
+
+<section class="page lesson" id="lecture2" data-title="聚类分析" hidden>
+<header class="lesson-head"><div class="eyebrow">LECTURE 02 / CLUSTERING</div><h1>聚类，是给“相似”一个定义。</h1><p>没有预先给定的标签。你选择距离、簇的形状假设和算法，算法才知道怎样把数据分组。</p><div class="tags"><span class="tag">K-Means</span><span class="tag">DBSCAN</span><span class="tag">AGNES</span></div></header>
+<h2>1. K-Means：让点靠近自己的中心</h2><p>给定 K 个簇，K-Means 试图减小每个点到所属簇中心的平方距离总和：</p><div class="formula">SSE = ∑<sub>k=1</sub><sup>K</sup> ∑<sub>x∈Cₖ</sub> ‖x − μ<sub>k</sub>‖²<br>μ<sub>k</sub> = (1 / |C<sub>k</sub>|) ∑<sub>x∈Cₖ</sub> x</div><ol><li><strong>初始化：</strong>选择 K 个中心。</li><li><strong>Assignment：</strong>把每个点分给最近的中心。</li><li><strong>Update：</strong>把中心移到该簇所有点的均值。</li><li>重复分配和更新，直到分组不再变化。</li></ol><p>为什么用均值？固定一个簇时，均值最小化簇内<strong>平方</strong>误差。为什么会收敛？分配与更新都不会增加 SSE。但它通常只到达局部最优，不保证全局最佳分组。</p>
+<div class="lab"><span class="label">INTERACTIVE 01 / 逐步执行</span><h3>亲手走一轮 K-Means</h3><p>一维数据为 1、2、3、8、9、10；K = 2，初始中心为 1 和 3。同距离时归给中心 1。圆点/方点表示数据（分组后形状区分簇），菱形表示中心。</p><svg id="km-chart" viewBox="0 0 700 190" role="img" aria-label="K-Means 一维分配与中心更新示意图"></svg><div class="controls"><button class="primary" id="km-next">执行分配</button><button id="km-reset">重置</button></div><div class="readout" id="km-status" aria-live="polite"></div></div>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>改变了什么</th><th>记忆点</th></tr></thead><tbody><tr><td>K-Means++</td><td>优化初始化</td><td>新中心的抽样概率 ∝ 到最近已有中心的距离平方；不是每次直接选最远点</td></tr><tr><td>K-Medoids</td><td>中心必须是实际数据点</td><td>适合只定义了距离、无法求均值的对象；通常更抗离群点，更新更贵</td></tr><tr><td>X-Means</td><td>用评分准则判断是否拆分子簇</td><td>自动探索 K，仍依赖所选模型评分</td></tr></tbody></table></div><div class="pitfall"><b>K-Means 的假设和局限：</b>偏好紧凑、近似球状的簇；对初始化、尺度、离群点和大小/密度差异敏感。增大 K 往往降低最优 SSE，所以不能只靠最小 SSE 选 K。</div>
+<h2>2. DBSCAN：沿着稠密区域扩展</h2><p>参数 ε 定义邻域半径，MinPts 定义形成稠密区域的最低点数。<strong>本课讲义的邻域包含该点自身。</strong></p><div class="table-wrap"><table><thead><tr><th>点类型</th><th>判断规则</th><th>是否继续扩展</th></tr></thead><tbody><tr><td>Core 核心点</td><td>ε 邻域中的点数 ≥ MinPts</td><td>是</td></tr><tr><td>Border 边界点</td><td>不是核心点，但落在某核心点的 ε 邻域内</td><td>否</td></tr><tr><td>Noise 噪声点</td><td>以上都不是</td><td>否</td></tr></tbody></table></div><p>从一个核心点出发，吸收邻居，再从新发现的核心点继续扩展。<strong>边界点不能当桥梁继续连接。</strong>探索初期暂标为噪声的点，后来可能被某核心点吸收，成为边界点。</p><div class="example"><span class="label">手算例题</span><p>MinPts = 4。某点附近有 3 个其他点，连同自身共 4 个，因此是核心点。若所有点都没有足够邻居，DBSCAN 可以输出 <strong>0 个簇</strong>，全部点为噪声。</p></div><p>它能发现非球状簇，不需预先指定 K；但同一组 ε、MinPts 难以同时适配密度差异很大的簇。k-distance 曲线的拐点可帮助初选 ε。</p><div class="pitfall"><b>是否确定？</b>给定数据与参数，核心点身份及核心点连接结构固定；若边界点邻接两个不同簇，它的归属可能取决于访问顺序。忽略簇编号后，也不保证全部成员完全一致。</div>
+<h2>3. AGNES：把最近的两簇不断合并</h2><p>凝聚型层次聚类从“一点一簇”开始，每次合并最接近的两簇，形成 dendrogram（树状图）。在不同高度切开树，就得到不同数量的簇。关键是：<strong>簇与簇的距离如何定义？</strong></p><div class="table-wrap"><table><thead><tr><th>Linkage</th><th>定义</th><th>主要特点</th></tr></thead><tbody><tr><td>Single</td><td>两簇点对距离的最小值</td><td>能连接细长形状；易被噪声串成链</td></tr><tr><td>Complete</td><td>两簇点对距离的最大值</td><td>偏好紧凑簇；可能拆散较大的自然簇</td></tr><tr><td>Average</td><td>所有跨簇点对距离的平均值</td><td>折中；不是两个质心间的距离</td></tr><tr><td>Centroid</td><td>两个簇均值之间的距离</td><td>直接比较中心</td></tr><tr><td>Ward</td><td>合并造成的 SSE 增量</td><td>优先选择最少增加簇内误差的合并</td></tr></tbody></table></div><div class="formula">ΔSSE(A, B) = [|A||B| / (|A| + |B|)] · ‖μ<sub>A</sub> − μ<sub>B</sub>‖²</div><div class="example"><span class="label">手算例题</span><p>A = {1, 2}，B = {6, 8}。跨簇距离为 5、7、4、6，因此 single = <strong>4</strong>，complete = <strong>7</strong>，average = <strong>5.5</strong>。两簇均值为 1.5、7，所以 Ward 的 SSE 增量为 (2×2/4)×5.5² = <strong>30.25</strong>。</p></div><p>距离矩阵需要 O(N²) 空间。朴素实现 N−1 次合并、每次扫描距离矩阵，时间 O(N³)；更好的数据结构或特定 linkage 可加速。</p>
+<details><summary>补充复习：怎样评价聚类？</summary><div><p>第 3 讲 p.5 提到：有真实标签时可用 purity、Rand index；没有标签时可用 SSE 肘部法、轮廓系数。</p><div class="formula">s(i) = [b(i) − a(i)] / max(a(i), b(i))</div><p>a(i) 为该点到同簇其他点的平均距离；b(i) 为它到其他每个簇的平均距离中的最小值。s 接近 1 表示分离较好，接近 0 表示靠近边界，负值提示分组可能不合适。单点簇通常约定为 0。这些指标也有形状偏好，不能取代任务判断。</p></div></details>
+<section class="deep" aria-labelledby="deep2"><div class="deep-head"><span class="label">教材精讲</span><h2 id="deep2">按讲义顺序，把每一步讲透</h2></div><p class="deep-intro">以下内容按 cs5228-lecture02 讲义页码展开，补全推导、图示中的数字、AGNES 距离矩阵的完整演算和各 Quick Quiz 的解析。标 <span class="supp">补充</span> 的内容超出讲义，仅供理解。</p>
+
+<details><summary>① 开头回顾里的三个澄清（容易考判断题）<span class="pg">p.5–7</span></summary><div>
+<ul><li><strong>“EDA 结果可疑 ⟹ 数据有错”是错的。</strong>讲义例子：婴儿护理数据集同时含婴儿和父母，年龄分布会出现两个相距很远的峰，看起来奇怪，数据却完全正确。</li>
+<li><strong>“删掉可疑属性 ⟹ 结果更好”不成立。</strong>例如从信用违约预测中删除星座，准确率也可能下降（数据里可能恰好存在某种相关）。</li>
+<li><strong>“删掉敏感属性 ⟹ 没有偏见 / 完全隐私”不成立。</strong>删除 Ethnicity 并不保险：如果它与 Education、Income 等其他属性相关（讲义引用美国各族裔受教育程度的统计），模型仍可通过这些<strong>代理变量</strong>间接利用它。</li>
+<li><strong>被篡改的数据：</strong>有时数据就是“看起来不对”，例如不符合直觉的分布（讲义引用 Data Colada 第 98 篇对学术造假数据的分析）。EDA 也是发现这种情况的手段。</li></ul>
+</div></details>
+
+<details><summary>② 聚类的概念：簇的类型与聚类结果的类型<span class="pg">p.9–18</span></summary><div>
+<p><strong>目标：</strong>把<em>无标签</em>数据分成相似对象组成的组，最大化簇内相似度、最小化簇间相似度。聚类提供数据的<strong>中观（meso）视角</strong>：介于单个数据点（micro）与整个数据集（macro）之间。</p>
+<p><strong>应用：</strong>市场细分（对同一簇客户推送定制促销）；推荐系统（按类型、时长、预算等把电影聚类，推荐用户喜欢的电影所在簇）；网页搜索多样化（从不同簇中返回结果，保证多样性）。</p>
+<h4>三个要素（p.11）</h4>
+<div class="table-wrap"><table class="mini"><thead><tr><th>对象表示</th><th>对应的相似度</th></tr></thead><tbody><tr><td>多维点坐标 x, y</td><td>欧氏距离</td></tr><tr><td>集合 A, B（如一笔交易的物品）</td><td>Jaccard 相似度 = |A∩B| / |A∪B|</td></tr><tr><td>向量 u, v（如 TF-IDF）</td><td>余弦相似度 = u·v / (‖u‖‖v‖)</td></tr></tbody></table></div>
+<p>再加上<strong>聚类算法</strong>：决定对象是否属于某个簇的过程。p.12 的同一组点可以合理地看成 2、3 或 5 个簇 —— “好”的聚类并不唯一。</p>
+<h4>簇的四种类型（p.13–14）</h4>
+<ul><li><strong>Well-separated：</strong>簇内任一点与簇内<em>每个</em>点的距离，都比与簇外任何点更近（最严格）。</li><li><strong>Center-based：</strong>每个点离自己簇的“中心”比离其他簇的中心更近；欧氏空间中心常取均值，称 centroid（K-Means 的假设）。</li><li><strong>Contiguity-based：</strong>两点足够相似就在同一簇；每个点至少与簇内<em>某个</em>点比与簇外点更相似（可形成链状，类似 single linkage）。</li><li><strong>Density-based：</strong>簇是被低密度区域包围的高密度区域；通常比 contiguity-based 更能处理噪声（DBSCAN 的假设）。</li></ul>
+<h4>聚类结果的三组对比（p.15–17）</h4>
+<div class="table-wrap"><table class="mini"><thead><tr><th>对比</th><th>一方</th><th>另一方</th></tr></thead><tbody>
+<tr><td>结构</td><td><strong>Partitional：</strong>划分成不重叠子集，每个对象恰好属于 1 个簇（或不属于任何簇）</td><td><strong>Hierarchical：</strong>簇可以嵌套，一个点在不同层级属于不同簇</td></tr>
+<tr><td>归属</td><td><strong>Exclusive：</strong>每个对象只属于 1 个簇</td><td><strong>Overlapping：</strong>可同时属于多个簇；<strong>Fuzzy</strong>：以一定概率属于所有簇</td></tr>
+<tr><td>覆盖</td><td><strong>Complete：</strong>每个对象至少被分到 1 个簇</td><td><strong>Partial：</strong>有对象不属于任何簇（噪声、离群点）</td></tr>
+</tbody></table></div>
+<div class="example"><span class="label">Quick Quiz · p.18（答案 D）</span><p>唯一不能聚类的情况是<strong>数据点之间没有定义相似度或距离</strong>。全是 nominal 属性可以用 Jaccard 或汉明距离；一维数据可以聚类（本讲的 K-Means 交互例子就是一维）；聚类不要求正态分布。</p></div>
+</div></details>
+
+<details><summary>③ K-Means：目标函数、为什么中心是均值、收敛过程<span class="pg">p.20–27</span></summary><div>
+<p><strong>特征：</strong>簇是 centroid-based；聚类结果是 partitional、exclusive、complete。输入是 d 维欧氏空间中的点 x<sub>1</sub>…x<sub>N</sub> 和簇数 K，输出 K 个中心 c<sub>1</sub>…c<sub>K</sub>。</p>
+<div class="formula">SSE = ∑<sub>i=1</sub><sup>K</sup> ∑<sub>x∈C<sub>i</sub></sub> ‖x − c<sub>i</sub>‖²</div>
+<p>找到全局最优是 <strong>NP-hard</strong> 的（讲义板书：精确求解约 O(N<sup>Kd+1</sup>)），因此用贪心算法 —— Lloyd's algorithm。</p>
+<h4>为什么中心取均值（p.22 推导）</h4>
+<p>固定分组，对某个中心 c<sub>k</sub> 求导，只有第 k 个簇的项与它有关：</p>
+<div class="formula">∂SSE/∂c<sub>k</sub> = ∑<sub>x∈C<sub>k</sub></sub> 2(c<sub>k</sub> − x) = 0<br>⇒ m<sub>k</sub>·c<sub>k</sub> = ∑<sub>x∈C<sub>k</sub></sub> x ⇒ c<sub>k</sub> = (1/m<sub>k</sub>) ∑<sub>x∈C<sub>k</sub></sub> x<small>m<sub>k</sub> = |C<sub>k</sub>|。结论：欧氏距离平方下，簇中心 = 簇内所有点的均值。</small></div>
+<h4>Lloyd 算法（p.23–25）</h4>
+<ol><li><strong>初始化：</strong>选 K 个点作为初始中心。</li><li>重复：<strong>2a Assignment</strong>——每个点分给最近的中心；<strong>2b Update</strong>——每个中心移到所分配点的均值。</li><li>直到分配不再改变。</li></ol>
+<h4>收敛过程中的 SSE（p.26 讲义数字）</h4>
+<p>4.61 →(U) 3.26 →(A) 2.24 →(U) 0.77 →(A) 0.55 →(U) 0.45 →(A) 0.42 →(U) 0.39 →(A) 0.39 →(U) 0.38 →(A) 0.38 →(U) 0.38。</p>
+<ul><li><strong>好消息：</strong>K-Means 一定收敛。Assignment 在中心固定时让每个点选最近中心，SSE 不增；Update 在分组固定时取均值，是该分组下 SSE 的最小值，也不增。分组的可能数量有限，所以不会无限循环。大部分改进发生在前几轮。</li><li><strong>坏消息：</strong>只保证局部最优，不保证全局最优；结果依赖初始化。</li></ul>
+</div></details>
+
+<details><summary>④ K-Means 的局限：分布假设、初始化、空簇 + 两道 Quiz<span class="pg">p.28–31, 35</span></summary><div>
+<p><strong>对“自然”簇敏感（p.28）：</strong>非球状簇（如月牙形）、大小差别很大的簇、密度差别很大的簇，K-Means 都容易切错。原因是它按“离哪个中心最近”划分，边界是两中心的垂直平分线。</p>
+<p><strong>初始化影响结果（p.29）：</strong>同一份数据三次不同初始化，得到 SSE 分别为 0.38、0.94、0.54 的三种聚类。实践中常多次随机初始化，取 SSE 最小的一次。</p>
+<p><strong>空簇（p.30）：</strong>如果一个中心被其他中心“挡住”，没有任何点离它最近，它就得到空簇，而且之后位置不会再更新。</p>
+<div class="example"><span class="label">Quick Quiz · p.31（答案 B：K − 1）</span><p>每个点总要分给某个最近的中心，所以至少有一个簇非空。最坏情况下，所有点都离同一个中心最近，其余 K − 1 个簇全空。</p></div>
+<div class="example"><span class="label">Quick Quiz · p.35（答案 A：No）</span><p>即使初始化“理论最优”，也不能保证任何情况下都没有空簇。最简单的反例：数据中不同的点少于 K 个（如大量重复点），那么无论中心怎么放，都不可能让 K 个簇都非空。</p></div>
+</div></details>
+
+<details><summary>⑤ K-Means++、K-Medoids、X-Means 细节<span class="pg">p.32–34</span></summary><div>
+<h4>K-Means++（只改初始化）</h4>
+<ol><li>随机选一个点作第一个中心。</li><li>重复：对每个点 x 计算 D(x) = 到最近已有中心的距离；按 <strong>正比于 D(x)²</strong> 的概率随机选下一个中心。</li><li>直到选够 K 个。</li></ol>
+<p>目的是让中心分散开；实践表现更好，并且有理论保证（期望 SSE 在最优解的 O(log K) 倍以内 <span class="supp">补充</span>）。讲义图中离已有两个中心都很远的点“最有可能成为第 3 个中心”——是<em>概率最高</em>，不是一定选中。</p>
+<div class="example"><span class="label">小算例 <span class="supp">补充</span></span><p>一维点 0、1、10，第一个中心选 0。D² 分别为 0、1、100，第二个中心选中 10 的概率 = 100/101 ≈ 0.99，选中 1 的概率 ≈ 0.01。</p></div>
+<h4>K-Medoids（灵活性 vs. 性能）</h4>
+<ul><li>中心（medoid）必须是真实数据点，不需要求平均（集合、字符串等复杂对象无法求平均）。</li><li>只需要距离或相似度的概念，不限于欧氏距离。</li><li>对噪声和离群点更鲁棒（中心不会被极端值拉走）。</li><li><strong>主要问题是性能：</strong>Update 步要把 medoid 与簇内每个点试着交换，计算代价（如 SSE）的变化，选交换后代价最小的点作新 medoid。</li></ul>
+<h4>X-Means（自动选 K）</h4>
+<p>先用 K = 2 运行 K-Means；然后对每个子簇再用 K = 2 运行；只有当拆分按评分函数“有意义”时才真正拆分。评分函数例子：BIC、AIC、MDL —— 它们在拟合程度与模型复杂度之间权衡，避免无限拆分。</p>
+</div></details>
+
+<details><summary>⑥ DBSCAN：两阶段算法与讲义伪代码<span class="pg">p.37–42</span></summary><div>
+<p><strong>特征：</strong>density-based 簇；结果是 partitional、exclusive、<strong>partial</strong>（噪声点不属于任何簇）。输入：点集、半径 ε、最少点数 MinPts。</p>
+<h4>三类点（p.38）</h4>
+<ul><li><strong>Core：</strong>ε 邻域内至少 MinPts 个点（<strong>包括自身</strong>），构成簇的内部。</li><li><strong>Border：</strong>非核心点，但邻域内至少有一个核心点，构成簇的边界。</li><li><strong>Noise：</strong>其他所有点；也是算法中点的<em>默认</em>标签。</li></ul>
+<h4>Phase 1：找新的簇种子（p.39）</h4>
+<p>随机挑一个未探索的点 x；若它的邻居少于 MinPts，就标为 noise（之后可能被改）；重复直到找到一个新的核心点 x<sub>c</sub>。讲义动画：第 1、2、3 次挑到的都是噪声，第 4 次挑到核心点。</p>
+<h4>Phase 2：探索簇（p.40–42 伪代码）</h4>
+<pre class="code">S ← get_neighbors(x_c, ε)
+WHILE |S| ≠ 0:
+    s ← S.pop()
+    IF s.label = "noise":   s.label ← x_c.cluster_id   # 噪声被改为边界点
+    IF s.label ≠ "unknown": CONTINUE                  # 已探索过
+    s.label ← x_c.cluster_id
+    neighbors ← get_neighbors(s, ε)
+    IF |neighbors| ≥ MinPts:  S ← S ∪ neighbors        # s 也是核心点，继续扩展</pre>
+<p>核心点的所有邻居都进入同一簇，邻居要么是核心点、要么是边界点，<strong>绝不会是噪声</strong>。扩展在边界点处停止；边界点之外的点，之后在 Phase 1 中要么成为噪声，要么成为新簇的一部分。</p>
+</div></details>
+
+<details><summary>⑦ DBSCAN 的性质、局限、参数选择 + Quiz<span class="pg">p.43–50</span></summary><div>
+<h4>课堂活动：DBSCAN 是确定性的吗？（p.43–44）</h4>
+<ul><li><strong>总会收敛：</strong>每个点都会被探索（在 Phase 1 或 2），且点的类型不会改变，唯一例外是 noise → border。</li><li><strong>不完全确定：</strong>Phase 1 引入随机顺序。<strong>核心点和噪声点是确定的</strong>；但一个边界点可能同时位于两个不同簇的核心点邻域内，它归哪一簇取决于哪个簇先被探索。</li></ul>
+<h4>局限（p.45–46）</h4>
+<p>无法处理<strong>不同密度</strong>的簇：ε 小了稀疏簇变噪声，ε 大了稠密簇连成一片。对参数<strong>非常敏感</strong>：讲义三张图 MinPts 相同、ε 稍有不同，结果差异很大。</p>
+<h4>如何选参数（p.47–48）</h4>
+<ul><li><strong>k-distance 图：</strong>计算每个点到第 k 个最近邻的距离，排序后作图，取“肘部”处的距离作为 ε 的初始值。</li><li><strong>MinPts 经验值：</strong>维度数的 2 倍。</li><li><strong>利用语义：</strong>若密度有直观含义，直接由任务定参数。讲义例子：新加坡 141 家麦当劳，找“500 m 半径内超过 5 家”的区域 → ε = 500 m，MinPts 由“超过 5 家”确定。类似地，“500 m 内超过 10 家酒吧”的区域。</li></ul>
+<div class="example"><span class="label">Quick Quiz · p.49（答案 A：0）</span><p>N = 1000、MinPts = 10 时，最少可能有 <strong>0 个簇</strong>：如果点分布稀疏，没有任何点的 ε 邻域达到 10 个点，就没有核心点，所有点都是噪声。</p></div>
+<div class="example"><span class="label">Side Note · p.50</span><p>不同资料对 “neighbors 是否包含 s 自身” 不一致。<strong>原始论文：包含。</strong>由此：最小簇大小 = <strong>MinPts</strong>（一个核心点的邻域就有 MinPts 个点）；最大簇数 = <strong>⌊N / MinPts⌋</strong>。考试时按讲义约定（包含自身）作答。</p></div>
+</div></details>
+
+<details><summary>⑧ 层次聚类与 Dendrogram + 深度 Quiz<span class="pg">p.52–57</span></summary><div>
+<p><strong>特征：</strong>簇的类型取决于所用 linkage；结果是 hierarchical、complete，并且<strong>在每一层上</strong>是 exclusive。原则上无需参数；实践中通常仍会指定簇数（类似 K-Means）。讲义例子：NUS Students ⊃ Undergraduate Students ⊃ CS Majors / EE Majors。</p>
+<p><strong>Dendrogram：</strong>二叉树，每个节点是一个簇，每个叶子是单点簇，<strong>节点高度 = 合并时两簇的距离</strong>。在某个高度水平切一刀，与切线相交的竖线数就是簇数（讲义示例：切得高得到 2 簇，切得低得到 4 簇）。</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>Agglomerative（自底向上）AGNES</th><th>Divisive（自顶向下）DIANA</th></tr></thead><tbody><tr><td>每个点一个簇开始，每步合并最近的两簇，直到只剩一个簇</td><td>所有点一个簇开始，每步拆分一个簇，直到每簇只有一个点</td></tr></tbody></table></div>
+<div class="example"><span class="label">Quick Quiz · p.56（答案 A：Min log₂N，Max N）</span><p>每次合并两个簇。若每次都把大小相同的簇两两配对，树是平衡二叉树，深度约 <strong>log₂N</strong>；若每次都把一个新点并入同一个大簇，树退化成一条链，深度为 N − 1，即 <strong>O(N)</strong>。</p></div>
+</div></details>
+
+<details><summary>⑨ Linkage 详解：优缺点、Ward 公式与讲义算例<span class="pg">p.60–71</span></summary><div>
+<div class="example"><span class="label">Quick "Quiz" · p.60</span><p>“下一步应合并哪两个簇？”没有唯一答案 —— <strong>取决于如何定义簇间距离</strong>。红、蓝两簇各有一个点离得很近，按 single linkage（最近点对）应合并红与蓝；但红、蓝整体跨度大，按 complete linkage（最远点对）可能是红与品红更近。这引出了各种 linkage。</p></div>
+<div class="table-wrap"><table class="mini"><thead><tr><th>Linkage</th><th>强项</th><th>弱项</th></tr></thead><tbody>
+<tr><td>Single（最小点对距离）</td><td>能处理非球状形状（讲义：两个弯曲带状簇被正确分开）</td><td>对噪声非常敏感，<strong>chaining</strong>：一个“桥点”就能把两簇连起来合并</td></tr>
+<tr><td>Complete（最大点对距离）</td><td>对噪声、离群点不那么敏感</td><td>偏好球状簇；倾向于<strong>拆开大簇</strong></td></tr>
+<tr><td>Average（所有跨簇点对的平均）</td><td colspan="2">single 与 complete 的折中（讲义 p.67 标题误写为 Complete Linkage，内容是 average）</td></tr>
+<tr><td>Centroid</td><td colspan="2">两簇质心之间的距离 d(m<sub>i</sub>, m<sub>j</sub>)</td></tr>
+</tbody></table></div>
+<div class="formula">d<sub>Ward</sub>(C<sub>i</sub>, C<sub>j</sub>) = ∑<sub>k∈C<sub>i</sub>∪C<sub>j</sub></sub>‖x<sub>k</sub> − m<sub>ij</sub>‖² − ∑<sub>k∈C<sub>i</sub></sub>‖x<sub>k</sub> − m<sub>i</sub>‖² − ∑<sub>k∈C<sub>j</sub></sub>‖x<sub>k</sub> − m<sub>j</sub>‖²<br>　　　　　　= [n<sub>i</sub>n<sub>j</sub> / (n<sub>i</sub> + n<sub>j</sub>)] · ‖m<sub>i</sub> − m<sub>j</sub>‖²<small>合并后的“方差”（平方误差和）减去合并前两簇各自的平方误差和，即合并造成的 SSE 增量。</small></div>
+<div class="example"><span class="label">Ward 直觉 · p.69</span><p>三个各 100 点的团：红、蓝较分散，绿很紧凑。</p><p>d<sub>Ward</sub>(Red, Blue) = 1,635 − 195 − 200 = <strong>1,240</strong>；d<sub>Ward</sub>(Blue, Green) = 1,450 − 200 − 10 = <strong>1,240</strong>。</p><p>两者相等。由第二个等式，簇大小相同（都是 100）时 Ward 距离只取决于质心间距离，与簇本身的离散程度无关：合并后的总 SSE 虽然不同（1,635 vs 1,450），但扣除各自原有的 SSE 后，<strong>增量</strong>相同。</p></div>
+<p><strong>p.70</strong> 引用 scikit-learn 的 linkage 对比图：不同数据形状下各 linkage 的表现差异很大，没有一种总是最好。</p>
+<div class="example"><span class="label">Quick Quiz · p.71（答案 A：Single）</span><p>深度 N − 1 意味着链式合并：每步只把一个点并入同一个大簇。Single linkage 只看最近点对，簇越大，“最近的那个点”越容易离它近，最容易形成 chaining。讲义板书的例子：一排间距逐渐增大的点，single linkage 会依次把点接到同一个簇上。</p></div>
+</div></details>
+
+<details><summary>⑩ AGNES 距离矩阵完整演算（Average linkage）+ 复杂度<span class="pg">p.58–59, 72–77</span></summary><div>
+<p>6 个点 A–F 的初始距离矩阵（上三角）：</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th></th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead><tbody>
+<tr><th>A</th><td>2.25</td><td>5.32</td><td>9.06</td><td>9.79</td><td>9.49</td></tr><tr><th>B</th><td></td><td>6.08</td><td>7.85</td><td>9.86</td><td>9.21</td></tr><tr><th>C</th><td></td><td></td><td>6.73</td><td>4.81</td><td>5.02</td></tr><tr><th>D</th><td></td><td></td><td></td><td>5.51</td><td>4.00</td></tr><tr><th>E</th><td></td><td></td><td></td><td></td><td>1.53</td></tr></tbody></table></div>
+<ol>
+<li><strong>最小 1.53 → 合并 E、F 为 EF。</strong>Average linkage 的新距离：d(A, EF) = (9.79 + 9.49)/2 = 9.64；d(B, EF) = (9.86 + 9.21)/2 ≈ 9.54；d(C, EF) = (4.81 + 5.02)/2 ≈ 4.92；d(D, EF) = (5.51 + 4.00)/2 ≈ 4.76。</li>
+<li><strong>最小 2.25 → 合并 A、B 为 AB。</strong>d(AB, C) = (5.32 + 6.08)/2 = 5.70；d(AB, D) = (9.06 + 7.85)/2 ≈ 8.45；d(AB, EF) = (9.79 + 9.49 + 9.86 + 9.21)/4 ≈ 9.59 —— 注意是 2×2 = 4 个原始点对的平均，<strong>不是</strong>把 9.64 与 9.54 再平均（本例两者恰好接近）。</li>
+<li><strong>最小 4.76 → 合并 D、EF 为 DEF。</strong>d(AB, DEF) = 6 个点对平均 = (9.06 + 7.85 + 9.79 + 9.49 + 9.86 + 9.21)/6 ≈ 9.21；d(C, DEF) = (6.73 + 4.81 + 5.02)/3 ≈ 5.52（讲义显示 5.51，是用未四舍五入的原始距离计算的）。</li>
+<li><strong>最小 5.51 → 合并 C、DEF 为 CDEF。</strong>d(AB, CDEF) = 8 个点对平均 = (5.32 + 6.08 + 55.26)/8（55.26 是上一步 AB 与 DEF 那 6 个点对之和） ≈ <strong>8.33</strong>。</li>
+<li><strong>合并 AB 与 CDEF</strong>，只剩一个簇，结束。Dendrogram 的合并高度依次为 1.53、2.25、4.76、5.51、8.33。</li></ol>
+<p>p.59 留下的问题“合并后 ??? 怎么填”，答案就是：取决于 linkage；上面演示的是 average linkage。若用 single linkage，d(A, EF) = min(9.79, 9.49) = 9.49；complete 则取 max = 9.79。</p>
+<h4>复杂度（p.77）</h4>
+<ul><li><strong>空间 O(N²)：</strong>存距离矩阵。</li><li><strong>时间：</strong>基线 O(N³)——N − 1 步，每步 O(N²) 扫描矩阵找最小值；用堆/优先队列可降到 O(N² log N)；single linkage 有专门优化可到 O(N²)。</li></ul>
+<h4>本讲总结（p.79）</h4>
+<ul><li>K-Means：根据<strong>相对</strong>相似度把所有点分成 k 个簇。</li><li>DBSCAN：根据点之间的<strong>绝对</strong>相似度（ε 内有多少点）找簇。</li><li>AGNES：利用相对相似度把数据组织成层次结构。</li><li>遗留问题：K-Means 的 k 怎么选？→ 见教程与第 3 讲开头的聚类评价。</li></ul>
+</div></details>
+</section>
+<div class="quiz-section" data-quiz="2"></div><p class="source">依据：cs5228-lecture02-post.pdf · K-Means p.20–34；DBSCAN p.37–50；层次聚类 p.52–77。聚类评价见 Lecture 3 p.5；轮廓系数公式为补充解释。</p></section>
+
+<section class="page lesson" id="lecture3" data-title="关联规则" hidden>
+<header class="lesson-head"><div class="eyebrow">LECTURE 03 / ASSOCIATION RULE MINING</div><h1>买了 X 的人，也常买 Y 吗？</h1><p>输入是一组交易，每笔交易是一组物品；输出是 X → Y 的共现规律。规则两侧非空且不重叠，不表达因果关系。</p><div class="tags"><span class="tag">Support / Confidence / Lift</span><span class="tag">Apriori</span><span class="tag">反单调性</span></div></header>
+<h2>1. 三个指标，分别回答三个问题</h2><div class="formula">Support(X → Y) = S(X ∪ Y)<br>Confidence(X → Y) = S(X ∪ Y) / S(X) = P(Y | X)<br>Lift(X → Y) = S(X ∪ Y) / [S(X)S(Y)] = Confidence / S(Y)</div><div class="table-wrap"><table><thead><tr><th>指标</th><th>直觉</th><th>注意</th></tr></thead><tbody><tr><td>Support 支持度</td><td>一起出现，覆盖多少交易？</td><td>规则 X→Y 和 Y→X 的支持度相同</td></tr><tr><td>Confidence 置信度</td><td>出现 X 后，Y 有多常见？</td><td>有方向；Y 本身很常见时也可能很高</td></tr><tr><td>Lift 提升度</td><td>比 Y 原本的流行程度高多少倍？</td><td>&gt;1 正关联；=1 该事件组合独立；&lt;1 负关联</td></tr></tbody></table></div>
+<div class="lab"><span class="label">INTERACTIVE 02 / 规则计算器</span><h3>高置信度，真的代表正关联吗？</h3><p>默认 100 笔交易中，40 笔有 X，80 笔有 Y，30 笔同时含 X 和 Y。调整计数，观察三个指标。</p><div class="controls"><label>总数 N <input type="number" id="ar-n" min="1" step="1" value="100"></label><label>含 X <input type="number" id="ar-x" min="0" step="1" value="40"></label><label>含 Y <input type="number" id="ar-y" min="0" step="1" value="80"></label><label>同时含 X、Y <input type="number" id="ar-xy" min="0" step="1" value="30"></label></div><div class="lab-values"><div><span>Support</span><b id="ar-support">30.0%</b></div><div><span>Confidence</span><b id="ar-confidence">75.0%</b></div><div><span>Lift</span><b id="ar-lift">0.938</b></div></div><div class="readout" id="ar-status" aria-live="polite"></div></div><p>默认例子里，买 X 的顾客有 75% 买 Y，但所有顾客本来就有 80% 买 Y。出现 X 后，Y 的概率反而降低，所以 lift &lt; 1。<strong>置信度高，不一定值得推荐。</strong></p>
+<h2>2. Apriori 的核心：先找频繁项集</h2><p>d 种物品有 2<sup>d</sup>−1 个非空项集；允许两侧都是多物品时，有 3<sup>d</sup>−2<sup>d+1</sup>+1 条可能规则。枚举成本很高，因此把任务拆成两步：</p><ol><li>找到 support ≥ minsup 的<strong>频繁项集</strong>。</li><li>将频繁项集拆成规则，只保留 confidence ≥ minconf 的规则。</li></ol><div class="formula">A ⊆ B ⇒ S(A) ≥ S(B)<small>包含 B 的每笔交易一定也包含 A；要求的物品越多，满足条件的交易不会更多。</small></div><p>由此得到两个方向：<strong>频繁项集的所有子集都频繁；不频繁项集的所有超集都不频繁。</strong>反过来，“所有子集频繁”不保证整个项集频繁。</p><div class="panel"><h3>算法步骤：Generate → Prune → Count → Filter</h3><ol><li><strong>Generate：</strong>从上一轮频繁项集 F<sub>k−1</sub> 生成候选 k 项集 L<sub>k</sub>。本课用 L 表示候选集。</li><li><strong>Prune：</strong>若某候选的任一 (k−1) 项子集不在 F<sub>k−1</sub> 中，直接删除。</li><li><strong>Count：</strong>扫描交易，计算剩余候选的支持计数。</li><li><strong>Filter：</strong>删除支持度不足的项集，得到 F<sub>k</sub>；若为空则结束。</li></ol><p>剪枝的价值是减少昂贵的数据库计数操作。可用 F<sub>k−1</sub>×F<sub>1</sub> 扩展，或用重叠 k−2 个物品的两个 (k−1) 项集连接，再去重和剪枝。</p></div>
+<div class="example"><span class="label">手算例题 / 完整一轮</span><p>交易：T₁={A,B,C}，T₂={A,B}，T₃={A,C}，T₄={A,B,C}，T₅={B}。minsup=0.6，所以至少出现 3 次。</p><p>单项：A=4、B=4、C=3，全部频繁。两项：AB=3、AC=3、BC=2，因此 F₂={AB, AC}。候选 ABC 包含不频繁的 BC，<strong>不必扫描交易就能剪掉</strong>。</p><p>AB 产生 A→B 与 B→A。二者支持度均为 3/5=0.6，置信度均为 3/4=0.75；如果 minconf=0.8，则这两条规则都不能保留。</p></div>
+<h2>3. 规则生成也能剪枝，但条件要说完整</h2><p>固定同一个频繁项集 S，把它拆成 X→(S−X)。若扩大后件，就会缩小前件；分子 S(S) 不变，分母 S(X) 不会减小，因此置信度不会增加。</p><div class="example"><span class="label">规则剪枝</span><p>固定 S={A,B,C,D}。如果 ABC→D 置信度不足，则 AB→CD、A→BCD 等所有“后件包含 D”的规则都不够。<strong>这个结论要求整个项集 S 固定</strong>，不能随便比较两个来自不同项集的规则。</p></div><p>一个大小为 k 的频繁项集有 2<sup>k</sup>−2 条非空二分规则。计算置信度可复用频繁项集阶段的计数，无需再次扫描交易。</p><div class="pitfall"><b>三个常见陷阱：</b>lift 不具备这里所需的反单调性，不能直接照搬支持度剪枝；单项集虽然不能单独构成规则，但其计数用于置信度和 lift；有效规则必须同时满足两个阈值，任一个不满足都应淘汰。</div>
+<section class="deep" aria-labelledby="deep3"><div class="deep-head"><span class="label">教材精讲</span><h2 id="deep3">按讲义顺序，把每一步讲透</h2></div><p class="deep-intro">以下内容按 cs5228-lecture03 讲义页码展开，重点补全讲义中以图片、公式或课堂板书呈现的部分。标 <span class="supp">补充</span> 的内容超出讲义，仅供理解。</p>
+
+<details><summary>① 问题设定：交易、物品与“软”规则<span class="pg">p.8–13</span></summary><div>
+<p><strong>输入</strong>是一个交易数据库：每笔交易（transaction）有一个 TID，内容是一组物品（item）的<strong>集合</strong>。集合意味着：不记录数量、不记录顺序、同一物品在一笔交易里只算一次。<strong>输出</strong>是形如 X → Y 的规则，X 叫前件（antecedent），Y 叫后件（consequent），含义是“出现 X 时，也倾向于出现 Y”。</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>应用</th><th>物品</th><th>一笔交易</th><th>规则示例</th><th>用途</th></tr></thead><tbody>
+<tr><td>购物篮分析</td><td>商品</td><td>结账时的购物篮</td><td>{cereal}→{milk}</td><td>货架摆放、捆绑促销、推荐、定价</td></tr>
+<tr><td>医疗：诊断支持</td><td>症状、疾病</td><td>病人病史</td><td>{anosmia, fatigue}→{covid-19}</td><td>辅助诊断</td></tr>
+<tr><td>医疗：药物不良反应</td><td>药物、反应</td><td>病人病史</td><td>{d1}→{rash}</td><td>发现 ADR</td></tr>
+<tr><td>人口普查</td><td>人口属性（离散化后）</td><td>一条普查记录</td><td>{uni-grad, ≥30}→{high-income}</td><td>政策、资源分配、城市规划</td></tr>
+<tr><td>行为数据</td><td>电影、歌曲、书</td><td>观看/收听历史</td><td>{Jaws}→{It}</td><td>推荐系统</td></tr>
+</tbody></table></div>
+<p>注意人口普查例子：年龄、收入这类连续属性必须先<strong>离散化</strong>成 “≥30”“high-income” 这样的物品，才能放进交易（连接第 1 讲的预处理）。</p>
+<p><strong>关联规则不是“硬”规则。</strong>{cereal}→{milk} 不代表买麦片的人<em>一定</em>买牛奶，只是经常一起出现。原则上任何物品组合都可能是一条候选规则，因此问题有两半：找出<strong>有意义</strong>的规则（靠指标），并且<strong>高效地</strong>找到它们（靠算法）。</p>
+</div></details>
+
+<details><summary>② 定义逐条过一遍（用讲义的 5 笔交易）<span class="pg">p.15–21</span></summary><div>
+<div class="table-wrap"><table class="mini"><thead><tr><th>TID</th><th>Items</th></tr></thead><tbody><tr><td>1</td><td>bread, yogurt</td></tr><tr><td>2</td><td>bread, milk, cereal, eggs</td></tr><tr><td>3</td><td>yogurt, milk, cereal, cheese</td></tr><tr><td>4</td><td>bread, yogurt, milk, cereal</td></tr><tr><td>5</td><td>bread, yogurt, milk, cheese</td></tr></tbody></table></div>
+<ul>
+<li><strong>Itemset 项集：</strong>物品的任意子集，如 {bread}、{bread, yogurt}。<strong>k-itemset</strong> 是恰好含 k 个物品的项集，如 {bread, milk, cereal} 是 3-itemset。</li>
+<li><strong>Support count SC：</strong>包含该项集<em>全部</em>物品的交易数。SC({bread, yogurt, milk}) = 2（T4、T5）。</li>
+<li><strong>Support S：</strong>SC 除以交易总数 N。S({bread, yogurt, milk}) = 2/5 = 0.4。</li>
+<li><strong>Frequent itemset 频繁项集：</strong>S ≥ minsup 的项集。注意是“大于<strong>或等于</strong>”。</li>
+<li><strong>Association rule：</strong>X → Y，X、Y 都是非空项集且 X ∩ Y = ∅，例如 {yogurt, milk}→{bread}。</li>
+</ul>
+<div class="formula">S(X → Y) = SC(X ∪ Y) / N<br>C(X → Y) = S(X ∪ Y) / S(X) = SC(X ∪ Y) / SC(X)</div>
+<div class="example"><span class="label">讲义例题展开</span><p>规则 {yogurt, milk}→{bread}：X∪Y = {bread, yogurt, milk}，SC = 2，所以 S = 2/5 = <strong>0.4</strong>。含 {yogurt, milk} 的交易是 T3、T4、T5，SC(X) = 3，所以 C = 2/3 ≈ <strong>0.667</strong>。读法：“同时买酸奶和牛奶的篮子里，约 2/3 也有面包。”</p></div>
+<p>容易混的一点：“X ∪ Y” 写成并集，意思却是“X 的物品<strong>和</strong> Y 的物品同时出现”。它是物品集合的并，对应交易集合的<strong>交</strong>。</p>
+<h4>支持度 × 置信度 四象限（p.21）</h4>
+<div class="table-wrap"><table class="mini"><thead><tr><th></th><th>低置信度</th><th>高置信度</th></tr></thead><tbody>
+<tr><th>低支持度</th><td>X∪Y 很少一起出现；即使 X 出现，也常常没有 Y</td><td>X∪Y 很少一起出现；但一旦 X 出现，通常有 Y（规则可靠但覆盖面小）</td></tr>
+<tr><th>高支持度</th><td>X∪Y 经常一起出现；但 X 出现时也常常没有 Y</td><td>X∪Y 经常一起出现，X 出现时通常伴随 Y —— <strong>我们想要的“有趣规则”</strong></td></tr>
+</tbody></table></div>
+<div class="example"><span class="label">Quick Quiz · p.22（答案 C）</span><p>对任意规则 R，有 <strong>S(R) ≤ C(R)</strong>。因为 C(R) = S(X∪Y)/S(X)，而 0 &lt; S(X) ≤ 1，除以一个不超过 1 的数只会让值变大或不变。仅当 X 出现在所有交易中（S(X) = 1）时二者相等，所以 “&lt;” 不总是成立，“≤” 才对。</p></div>
+</div></details>
+
+<details><summary>③ 暴力法到底有多贵：规则数公式的推导<span class="pg">p.13, 24–26, 30–31</span></summary><div>
+<p><strong>暴力算法：</strong>列出所有可能规则，逐条算 S 和 C，淘汰不达标的。讲义 p.24 写的是 “S &lt; minsup <em>and</em> C &lt; minconf 时丢弃”，按目标（两个阈值都要满足）应理解为：<strong>任一个</strong>不达标就丢弃。</p>
+<h4>为什么 d 个物品有 3<sup>d</sup> − 2<sup>d+1</sup> + 1 条规则？</h4>
+<p>每个物品有三种去向：放进 X、放进 Y、或都不放。共 3<sup>d</sup> 种分配。其中要扣掉 X 为空的分配（每个物品只能去 Y 或不放：2<sup>d</sup> 种），再扣掉 Y 为空的 2<sup>d</sup> 种；X、Y 同时为空的那 1 种被扣了两次，要加回：</p>
+<div class="formula">#rules = 3<sup>d</sup> − 2·2<sup>d</sup> + 1 = 3<sup>d</sup> − 2<sup>d+1</sup> + 1 ∈ O(3<sup>d</sup>)<small>d = 6：729 − 128 + 1 = 602。</small></div>
+<p>讲义引用的数据：2019 年美国超市平均商品种类约 <strong>28,112</strong> 种，3<sup>28112</sup> 显然无法枚举；图中 d 从 2 增到 10，规则数已接近 6×10<sup>4</sup>。</p>
+<h4>只看“真实出现过”的规则（p.26）</h4>
+<p>一条规则只有在某笔交易同时包含 X 和 Y 时支持度才大于 0。令 w 为单笔交易最多物品数，每笔交易最多贡献 3<sup>w</sup> − 2<sup>w+1</sup> + 1 条规则，总计 O(N·(3<sup>w</sup> − 2<sup>w+1</sup> + 1))，通常 w ≪ d。</p>
+<div class="example"><span class="label">讲义数字</span><p>N = 5、w = 4：每笔最多 81 − 32 + 1 = 50 条，合计 ≤ <strong>250</strong>。这里 250 与 602 差距不大，只因玩具例子里 d = 6 与 w = 4 同一量级；而且 250 重复计算了不同交易产生的相同规则，<strong>去重后真实不同规则数为 154</strong>。</p></div>
+<h4>暴力统计频繁项集（p.30–31）</h4>
+<pre class="code">全局计数器 counter = {}
+for 每笔交易 T:
+    for k = 1, 2, …, |T|:
+        for T 的每个 k-子集 s:
+            counter[s] += 1</pre>
+<p>每笔交易有至多 M = 2<sup>w</sup> 个子集，所以复杂度 O(N · 2<sup>w</sup>)。降低成本的两条路：对交易<strong>抽样</strong>（减小 N），或用 <strong>Apriori</strong> 少检查项集（减小实际枚举量）。</p>
+<p><strong>讲义提问：规则至少要 2 个物品，为什么还要统计 1-itemset？</strong>因为置信度的分母 SC(X) 与 lift 中的 S(Y) 可能就是单个物品的计数，例如 C({cereal}→{milk}) = SC({cereal, milk}) / SC({cereal})。此外 F<sub>1</sub> 也是 Apriori 生成 L<sub>2</sub> 的起点。</p>
+</div></details>
+
+<details><summary>④ 拆成两步：为什么先找频繁项集就够了<span class="pg">p.27–29</span></summary><div>
+<p><strong>Observation 1：</strong>S(X → Y) = S(X ∪ Y) 只取决于并集，与怎样拆成 X、Y 无关。所以如果 X∪Y 不是频繁项集，从它拆出的<em>每一条</em>规则都支持度不足，根本不用算置信度。</p>
+<ol><li><strong>Part 1 · 频繁项集生成：</strong>找出所有 S ≥ minsup 的项集。候选“只有” 2<sup>d</sup> − 1 个非空项集，比 3<sup>d</sup> 条规则少得多。</li><li><strong>Part 2 · 规则生成：</strong>对每个频繁项集做二分，只保留 C ≥ minconf 的规则。</li></ol>
+<p><strong>Itemset lattice（项集格）：</strong>每个节点是一个项集，边表示包含关系（{ABCD} 包含 {ABC}）。d = 5 时共 2<sup>5</sup> − 1 = 31 个节点。Apriori 的剪枝就是在这张格上“整片剪掉”。</p>
+</div></details>
+
+<details><summary>⑤ Apriori 原理：反单调性的两个方向<span class="pg">p.34–36</span></summary><div>
+<div class="formula">X ⊆ Y ⇒ S(X) ≥ S(Y)</div>
+<p>讲义例子：S({bread, yogurt}) = 3/5，而多加一个 milk 后 S({bread, yogurt, milk}) = 2/5。要求越多，满足的交易只会更少或相等。由此得到两句话（互为逆否）：</p>
+<ul><li><strong>向下：</strong>若 {B,C,D,E} 频繁，则它的所有子集（{B,D,E}、{C,E} ……）都频繁。</li><li><strong>向上：</strong>若 {A,B} 不频繁，则它的所有超集（{A,B,D}、{A,B,C,D} ……）都不频繁 —— 在项集格上把以 {A,B} 为根的整个上方区域剪掉。</li></ul>
+<p>“反单调（anti-monotone）”说的是：项集变大，支持度不增。Apriori 利用的正是第二个方向。</p>
+</div></details>
+
+<details><summary>⑥ Apriori 完整手算：minsup = 0.4 的整张表<span class="pg">p.37–43</span></summary><div>
+<p>记号：L<sub>k</sub> 为<strong>候选</strong> k-项集，F<sub>k</sub> 为<strong>频繁</strong> k-项集（F<sub>k</sub> ⊆ L<sub>k</sub>）。循环 k = 1…w：Generate L<sub>k</sub> → Prune → Calculate SC → Filter 得 F<sub>k</sub> → 若 F<sub>k</sub> 为空则停止。</p>
+<p>N = 5，minsup = 0.4 ⇒ 最小支持计数 = 0.4 × 5 = <strong>2</strong>。</p>
+<h4>k = 1</h4>
+<p>bread 4、cereal 3、cheese 2、<s>eggs 1</s>、milk 4、yogurt 4。eggs 被过滤，F<sub>1</sub> 有 5 个物品。</p>
+<h4>k = 2（L<sub>2</sub> = F<sub>1</sub> 两两组合，C(5,2) = 10 个）</h4>
+<div class="table-wrap"><table class="mini"><thead><tr><th>候选</th><th>SC</th><th>出现在</th><th>结果</th></tr></thead><tbody>
+<tr><td>{bread, cereal}</td><td>2</td><td>T2, T4</td><td>✔</td></tr><tr><td>{bread, cheese}</td><td>1</td><td>T5</td><td>✘</td></tr><tr><td>{bread, milk}</td><td>3</td><td>T2, T4, T5</td><td>✔</td></tr><tr><td>{bread, yogurt}</td><td>3</td><td>T1, T4, T5</td><td>✔</td></tr><tr><td>{cereal, cheese}</td><td>1</td><td>T3</td><td>✘</td></tr><tr><td>{cereal, milk}</td><td>3</td><td>T2, T3, T4</td><td>✔</td></tr><tr><td>{cereal, yogurt}</td><td>2</td><td>T3, T4</td><td>✔</td></tr><tr><td>{cheese, milk}</td><td>2</td><td>T3, T5</td><td>✔</td></tr><tr><td>{cheese, yogurt}</td><td>2</td><td>T3, T5</td><td>✔</td></tr><tr><td>{milk, yogurt}</td><td>3</td><td>T3, T4, T5</td><td>✔</td></tr>
+</tbody></table></div>
+<p>F<sub>2</sub> 共 8 个项集。k = 2 时所有 1-子集都在 F<sub>1</sub> 里，Prune 删不掉任何候选。</p>
+<h4>k = 3</h4>
+<p>先生成候选，再检查每个 2-子集是否都在 F<sub>2</sub>。例如 {bread, cheese, milk} 含 {bread, cheese} ∉ F<sub>2</sub>，<strong>不扫数据库就删除</strong>。剪枝后剩 5 个，扫描得：</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>候选（剪枝后）</th><th>SC</th><th>结果</th></tr></thead><tbody>
+<tr><td>{bread, cereal, milk}</td><td>2（T2, T4）</td><td>✔</td></tr><tr><td>{bread, cereal, yogurt}</td><td>1（T4）</td><td>✘</td></tr><tr><td>{bread, milk, yogurt}</td><td>2（T4, T5）</td><td>✔</td></tr><tr><td>{cereal, milk, yogurt}</td><td>2（T3, T4）</td><td>✔</td></tr><tr><td>{cheese, milk, yogurt}</td><td>2（T3, T5）</td><td>✔</td></tr>
+</tbody></table></div>
+<h4>k = 4</h4>
+<p>候选 {bread, cereal, milk, yogurt} 含 {bread, cereal, yogurt} ∉ F<sub>3</sub>；{bread, cheese, milk, yogurt} 的 3-子集中只有 {bread, milk, yogurt} 在 F<sub>3</sub>；其余候选同理。<strong>全部被剪掉，F<sub>4</sub> 为空，算法停止，本轮一次数据库扫描都不需要。</strong></p>
+<p><strong>输出：</strong>所有 |F<sub>i</sub>| &gt; 0 且 i ≥ 2 的频繁项集（单个物品无法构成规则），即 F<sub>2</sub> 的 8 个与 F<sub>3</sub> 的 4 个，连同它们的 SC 一起保存，供 Part 2 使用。</p>
+<div class="example"><span class="label">Quick Quiz · p.38（答案 C）</span><p>四步中最贵的是 <strong>Calculate</strong>：计算 SC 需要完整扫描数据库，对每笔交易检查每个候选。Generate、Prune、Filter 都只在内存里的候选集合上操作。Apriori 的全部意义就是让进入这一步的候选尽量少。</p></div>
+</div></details>
+
+<details><summary>⑦ 从 F<sub>k−1</sub> 到 L<sub>k</sub>：两种候选生成法<span class="pg">p.44–46</span></summary><div>
+<h4>方法一：F<sub>k−1</sub> × F<sub>1</sub></h4>
+<p>把每个频繁 (k−1)-项集与每个频繁物品合并，得到所有可能的 k-项集。以 k = 3 为例，讲义得到 10 个候选：{bread, cereal, cheese}、{bread, cereal, milk}、{bread, cereal, yogurt}、{bread, cheese, milk}、{bread, cheese, yogurt}、{bread, milk, yogurt}、{cereal, cheese, milk}、{cereal, cheese, yogurt}、{cereal, milk, yogurt}、{cheese, milk, yogurt}。剪枝后剩 5 个（见上一节表格）。</p>
+<h4>方法二：F<sub>k−1</sub> × F<sub>k−1</sub></h4>
+<p>只合并<strong>恰好重叠 k−2 个物品</strong>的两个频繁 (k−1)-项集。k = 3 时，两个 2-项集需要共享 1 个物品，例如 {bread, cereal} + {bread, milk} → {bread, cereal, milk}。这一步本身就利用了“两个子集都频繁”，候选通常更少；讲义得到 9 个（同一候选可能由不同对生成，如 {cheese, milk, yogurt}，需去重），剪枝后同样剩 5 个。</p>
+<p class="notice">常见实现 <span class="supp">补充</span>：把物品按固定顺序排好，只合并<strong>前 k−2 个物品完全相同</strong>的两个项集，这样每个候选只会被生成一次，无需去重。</p>
+<h4>Prune 规则（两种方法相同）</h4>
+<p>删除任何一个 (k−1)-子集不在 F<sub>k−1</sub> 中的 k-项集。一个 k-项集有 k 个 (k−1)-子集，都要检查。</p>
+<h4>Calculate：计算支持计数</h4>
+<p>对每笔交易 T、每个候选 s，若 s ⊆ T 就给 s 的计数器加一。这需要完整扫描数据库，是要尽量减少的一步。高效实现（如哈希树）属于实现层面，本课不要求。</p>
+</div></details>
+
+<details><summary>⑧ 规则生成：置信度剪枝与讲义伪代码<span class="pg">p.47–54</span></summary><div>
+<p>对每个频繁项集 S，候选规则是 S 的二分 X → Y，其中 Y = S − X，X、Y 都非空，共 <strong>2<sup>|S|</sup> − 2</strong> 条（|S| = 4 时 14 条）。置信度 C = SC(S)/SC(X)，两个计数在 Part 1 已算好 —— <strong>不需要再访问数据库</strong>，所以很快。</p>
+<h4>为什么可以剪枝（p.49）</h4>
+<p>取同一个 S 拆出的两条规则 X<sub>1</sub>→Y<sub>1</sub>、X<sub>2</sub>→Y<sub>2</sub>（X<sub>1</sub>∪Y<sub>1</sub> = X<sub>2</sub>∪Y<sub>2</sub> = S）：</p>
+<div class="formula">C(X₁→Y₁) = S(S)/S(X₁)，C(X₂→Y₂) = S(S)/S(X₂)<br>X₁ ⊆ X₂ ⇒ S(X₁) ≥ S(X₂) ⇒ C(X₁→Y₁) ≤ C(X₂→Y₂)</div>
+<p>前件越小（后件越大），置信度越低。所以若 {A,B,C}→{D} 置信度不足，则所有后件包含 D 的规则 {A}→{B,C,D}、{B}→{A,C,D}、{C}→{A,B,D}、{A,B}→{C,D}、{A,C}→{B,D}、{B,C}→{A,D} 都不足。在<strong>规则格</strong>上（p.50）：若 BCD→A 不合格，则后件包含 A 的整片规则都剪掉。</p>
+<h4>讲义伪代码（单个项集 S）</h4>
+<pre class="code">YS = { {s} | s ∈ S }              # 从单物品后件开始
+repeat:
+    YS_valid = evaluate(S, YS, minconf)
+    YS = generate(YS_valid)        # 用合格后件合并出大一号的后件
+until |YS| = 0
+
+evaluate(S, YS, minconf):
+    YS_obsolete = {}
+    for each Y in YS:
+        X = S − Y
+        if C(X → Y) ≥ minconf: 输出 X → Y
+        else: YS_obsolete ∪= {Y}
+    return YS − YS_obsolete</pre>
+<div class="example"><span class="label">讲义逐步演示 · S = {A,B,C,D}</span><ol>
+<li>YS = {{A},{B},{C},{D}}。BCD→A 不合格，{A} 作废；ACD→B、ABD→C、ABC→D 合格。YS_valid = {{B},{C},{D}}。</li>
+<li>generate：只用合格的后件合并 → YS = {{B,C},{B,D},{C,D}}，任何含 A 的后件都不会出现。三条 AD→BC、AC→BD、AB→CD 都合格。</li>
+<li>generate → YS = {{B,C,D}}；A→BCD 合格。</li>
+<li>再 generate 得空集，结束。</li></ol><p>14 条候选中只评估了 4 + 3 + 1 = 8 条。</p></div>
+<div class="example"><span class="label">用讲义数据练一次</span><p>取 S = {bread, milk, yogurt}，SC = 2；SC(bread) = SC(milk) = SC(yogurt) = 4，SC(bread, milk) = SC(bread, yogurt) = SC(milk, yogurt) = 3。设 minconf = 0.6：</p><ul><li>单物品后件：{bread, milk}→{yogurt}、{bread, yogurt}→{milk}、{milk, yogurt}→{bread}，置信度都是 2/3 ≈ 0.667，<strong>合格</strong>。</li><li>两物品后件：{bread}→{milk, yogurt} 等，置信度都是 2/4 = 0.5，<strong>不合格</strong>。</li></ul><p>另一个例子：{cereal}→{milk} 的置信度 = 3/3 = <strong>1.0</strong>，支持度 0.6，正是讲义总结页的示例规则。</p></div>
+</div></details>
+
+<details><summary>⑨ Lift：控制后件本身的流行度<span class="pg">p.56–58</span></summary><div>
+<div class="formula">L(X → Y) = C(X → Y) / S(Y) = S(X ∪ Y) / [S(X) · S(Y)]</div>
+<p>注意讲义 p.56 的交易表把 T2、T4 的物品顺序换了写法，但集合相同。</p>
+<div class="example"><span class="label">讲义例题展开</span><p>L({cereal}→{bread}) = S({cereal, bread}) / [S({cereal}) · S({bread})] = 0.4 / (0.6 × 0.8) ≈ <strong>0.833</strong>。</p><p>换个角度：随便抽一笔交易，含面包的概率是 S({bread}) = 0.8；已知含麦片时，含面包的概率是 C({cereal}→{bread}) = 2/3 ≈ 0.667。<strong>麦片的出现反而降低了面包的概率</strong>，所以 lift &lt; 1。只看 0.667 的置信度，会误以为这条规则还不错。</p></div>
+<ul><li><strong>对称性</strong> <span class="supp">补充</span>：分子分母关于 X、Y 对称，所以 L(X→Y) = L(Y→X)，而置信度没有这个性质。</li><li><strong>用途：</strong>对 Apriori 输出的规则做进一步过滤和排序；lift &lt; 1 可用于寻找“<strong>替代品</strong>”。</li><li><strong>为什么 Apriori 不用 lift：</strong>lift 不满足反单调性，项集变大 lift 可以变大也可以变小，无法据此安全剪枝。</li></ul>
+<div class="example"><span class="label">Quick "Quiz" · p.58（答案 B）</span><p>四条规则 {cereal}→{milk}、{coke}→{pepsi}、{milo}→{nutella}、{banana}→{grapes} 中，<strong>{coke}→{pepsi}</strong> 的 lift 预计最小：可乐和百事互为替代品，买了一种通常就不再买另一种，同时出现的概率低于独立假设，lift &lt; 1。其余三组更像互补或无关商品。</p></div>
+</div></details>
+
+<details><summary>⑩ 讨论：基本设定遗漏了什么？<span class="pg">p.32, 60–61</span></summary><div>
+<p>课堂活动问：“交易 = 物品集合” 的设定缺少哪些购物行为信息？讲义 p.60 给出的方向：</p>
+<ul><li><strong>物品属性：</strong>数量、价格（买 1 瓶和买 12 瓶牛奶被视为一样）。</li><li><strong>顺序：</strong>加入购物车的先后（线上商店可记录）。</li><li><strong>类别层级：</strong>milk 与 yogurt 都是 dairy；在更粗的层级上可能出现更强的规则。</li><li><strong>用户信息：</strong>把多笔交易关联到同一用户，才能发现跨次购物的模式。</li></ul>
+<p>其他衡量规则“是否有趣”的指标：conviction、all-confidence、collective strength、leverage。常见定义 <span class="supp">补充</span>：</p>
+<div class="formula">Leverage(X→Y) = S(X∪Y) − S(X)S(Y)<br>Conviction(X→Y) = [1 − S(Y)] / [1 − C(X→Y)]<br>All-confidence(Z) = S(Z) / max<sub>i∈Z</sub> S({i})</div>
+<p>Leverage 用“差”而不是“比”衡量偏离独立的程度；conviction 在 C = 1 时趋于无穷；all-confidence 是项集层面的指标，并且具有反单调性。</p>
+<div class="pitfall"><b>再强调一次：</b>规则反映的是相关/共现，<strong>不是因果</strong>。{uni-grad, ≥30}→{high-income} 不说明读大学“导致”高收入。</div>
+<h4>本讲总结（p.61）</h4>
+<ul><li>关心的模式：X → Y，根据一些物品的出现预测另一些物品的出现；适用于各种交易型数据。</li><li>用 support、confidence、lift 等指标判断规则是否有用。</li><li>处理复杂度：把支持度与置信度的计算解耦；用 Apriori 完成频繁项集生成和规则生成两部分。</li></ul>
+</div></details>
+</section>
+<div class="quiz-section" data-quiz="3"></div><p class="source">依据：cs5228-lecture03-post.pdf · 定义 p.15–22；Apriori p.27–54；Lift p.56–57；讨论 p.60。第 24 页淘汰条件的文字应结合“两阈值均满足”的目标理解。</p></section>
+
+<section class="page lesson" id="lecture4" data-title="分类与决策树" hidden>
+<header class="lesson-head"><div class="eyebrow">LECTURE 04 / CLASSIFICATION & REGRESSION I</div><h1>预测之后，怎样判断做得好？</h1><p>分类预测类别，回归预测数值。先弄清评价指标，再理解 KNN 和决策树如何从带标签的数据中学习。</p><div class="tags"><span class="tag">评价指标</span><span class="tag">KNN</span><span class="tag">CART</span><span class="tag">过拟合</span></div></header>
+<h2>1. 混淆矩阵：先读坐标轴</h2><p>本课矩阵按<strong>行=预测、列=真实</strong>展示。TP 是预测正且真实正；FP 是误报；FN 是漏报；TN 是正确识别负类。不要只凭记忆认矩阵里的位置。</p><div class="formula">Accuracy = (TP + TN) / N<br>Precision = TP / (TP + FP)<br>Recall = Sensitivity = TP / (TP + FN)<br>Specificity = TN / (TN + FP)<br>F1 = 2PR / (P + R) = 2TP / (2TP + FP + FN)</div><p>Precision 问：“我判为正的，有多少是真的？”Recall 问：“真正为正的，我找出了多少？”F1 是调和平均，会惩罚一高一低的情况。</p>
+<div class="lab"><span class="label">INTERACTIVE 03 / 混淆矩阵</span><h3>改变误报和漏报，观察评价指标</h3><p>所有计数应为非负整数。分母为 0 时显示“未定义”，不偷偷替换成 0。</p><div class="controls"><label>TP <input id="cm-tp" type="number" min="0" step="1" value="40"></label><label>FP <input id="cm-fp" type="number" min="0" step="1" value="10"></label><label>FN <input id="cm-fn" type="number" min="0" step="1" value="20"></label><label>TN <input id="cm-tn" type="number" min="0" step="1" value="130"></label></div><div class="table-wrap"><table><thead><tr><th>预测 ↓ / 真实 →</th><th>正类 1</th><th>负类 0</th></tr></thead><tbody><tr><th>正类 1</th><td id="cm-cell-tp"></td><td id="cm-cell-fp"></td></tr><tr><th>负类 0</th><td id="cm-cell-fn"></td><td id="cm-cell-tn"></td></tr></tbody></table></div><div class="readout" id="cm-status" aria-live="polite"></div></div>
+<div class="pitfall"><b>类别不平衡：</b>如果 99% 的样本为负，永远预测负也有 99% accuracy，但正类 recall=0。指标要结合类别比例以及 FP、FN 的代价判断。</div><h3>多分类：Micro 和 Macro</h3><p>先把每个类别视作“正类”，其他类别视作“负类”，得到 One-vs-Rest 矩阵。<strong>Micro</strong> 先汇总各类 TP、FP、FN 再算指标，样本多的类影响更大；<strong>Macro</strong> 先分别算每类指标再取平均，各类权重相同。</p><p>对覆盖全部类别的单标签多分类，micro-precision = micro-recall = micro-F1 = accuracy。Macro-F1 则是各类 F1 的平均，不是把 macro-P 和 macro-R 代入 F1 公式。</p><div class="notice">补充辨析：两项任务的 F1 同为 0.6，不能仅凭类别数严谨判断哪个模型更好，还要知道类别分布、基线、平均方式和任务难度。</div>
+<h2>2. KNN：用邻居的答案来预测</h2><p>预测新样本时，找训练集中最近的 k 个点。分类通常用多数投票，回归通常取目标值均值。基本 KNN 几乎没有参数拟合过程，主要计算开销出现在预测时。</p><div class="table-wrap"><table><thead><tr><th>设置</th><th>结果倾向</th><th>风险</th></tr></thead><tbody><tr><td>k 很小</td><td>边界复杂，能拟合局部变化</td><td>高方差，对噪声敏感</td></tr><tr><td>k 很大</td><td>边界平滑</td><td>高偏差，可能忽略局部结构</td></tr></tbody></table></div><div class="example"><span class="label">手算例题</span><p>某查询的 3 个最近邻标签为 Yes、No、Yes，分类结果为 Yes。如果对应回归目标为 10、13、16，则预测为 (10+13+16)/3=<strong>13</strong>。</p></div><p>距离的意义依赖特征表示和尺度。高维空间中距离可能趋于相似，最近邻不再“明显更近”，这是维度灾难的一种表现。奇数 k 只帮助避免二分类的等票；多分类仍可能出现平票。</p>
+<h2>3. 决策树：选出让子节点更纯的分裂</h2><p>分类树叶节点通常预测多数类；回归树叶节点通常预测均值。CART 每次贪心选择当前最好的二叉分裂，并不保证整棵树全局最优。</p><div class="formula">Gini(t) = 1 − ∑<sub>c</sub> p(c | t)²<br>Entropy(t) = −∑<sub>c</sub> p(c | t) log₂ p(c | t)<br>I<sub>split</sub> = ∑<sub>j</sub> (N<sub>j</sub> / N) I(t<sub>j</sub>)<br>Gain = I(parent) − I<sub>split</sub><small>约定 0 log 0 = 0。纯节点的 Gini 和 Entropy 都为 0。子节点必须按样本数加权。</small></div><div class="example"><span class="label">讲义例题 / p.78</span><p>父节点 5 Yes、4 No，Gini = 1−(5/9)²−(4/9)² = <strong>40/81 ≈ 0.49383</strong>。</p><p>按 Education 分裂：左边 0 Yes、3 No（纯）；右边 5 Yes、1 No，Gini=5/18。加权后为 (3/9)×0+(6/9)×(5/18)=<strong>5/27≈0.18519</strong>，增益 = <strong>25/81≈0.30864</strong>。</p><p>按 Marital Status 分成 (3 Yes,2 No) 和 (2 Yes,2 No)，加权 Gini=22/45≈0.48889，增益≈<strong>0.00494</strong>。因此 Education 明显更好。讲义把这两个增益四舍五入为 0.3 和 0；手算别过早舍入。</p></div>
+<h3>候选分裂和回归树</h3><ul><li>连续特征：排序后在相邻不同值之间尝试阈值。</li><li>有 d 个值的名义特征：不区分左右顺序的非空二分有 2<sup>d−1</sup>−1 种。</li><li>有 d 个等级的有序特征：若保留顺序，只有 d−1 个切分位置。</li></ul><div class="formula">RSS<sub>split</sub> = ∑<sub>j</sub> ∑<sub>i∈child j</sub> (y<sub>i</sub> − ȳ<sub>j</sub>)²</div><p>回归树选使子节点 RSS 总和最小的分裂。不应直接无权相加各节点的方差，因为方差除以了各节点样本数，会改变节点大小的影响。</p>
+<h2>4. 过拟合：树可以记住数据</h2><p>如果不存在“特征完全相同而目标冲突”的记录，一棵足够深的树可能把训练数据拟合得很完美。代价是对训练样本的微小变化非常敏感，即高方差。</p><ul><li><strong>Pre-pruning：</strong>限制最大深度、最小分裂样本数或叶节点最小样本数。</li><li><strong>Post-pruning：</strong>先长树，再依据验证表现等准则删除无益分裂。</li></ul><p>N 个可分开的样本，每次分裂出一个样本，树可退化成链，最大深度为 <strong>N−1</strong>（根深度记为 0）。</p><section class="deep" aria-labelledby="deep4"><div class="deep-head"><span class="label">教材精讲</span><h2 id="deep4">按讲义顺序，把每一步讲透</h2></div><p class="deep-intro">以下内容按 cs5228-lecture04 讲义页码展开，补全讲义图表里的数字、完整算例和所有 Quick Quiz 的官方解析。标 <span class="supp">补充</span> 的内容超出讲义，仅供理解。</p>
+
+<details><summary>① 监督学习的基本设定：分类 vs 回归、训练集与测试集<span class="pg">p.7–15</span></summary><div>
+<p>分类和回归是监督学习的两大核心任务：<strong>训练</strong>时在数据中找出自变量（特征）与因变量（标签）之间的模式；<strong>预测</strong>时用这些模式为新数据赋值。区别只在因变量：<strong>类别型 → 分类</strong>（Credit Approval: Yes/No），<strong>连续型 → 回归</strong>（Credit Limit: S$7,000）。</p>
+<p><strong>应用：</strong>组屋价格预测（回归，也用来理解各属性的重要性）；心脏病预测（分类，诊断支持、识别风险因素）；自动驾驶——加速度、转向角、事件概率是回归，障碍物检测、路标识别是分类。</p>
+<p><strong>数据划分（p.13）：</strong>数据集 D = {(x, y)}，x 是特征，y 是标签。划分为 D<sub>train</sub>（训练）和 D<sub>test</sub>（评价），并且 <strong>D<sub>train</sub> ∩ D<sub>test</sub> = ∅</strong>——测试数据在训练中不允许被使用。</p>
+<h4>回归怎么评价（p.15）</h4>
+<div class="formula">RMSE = √[(1/N) ∑<sub>i</sub> (ŷ<sub>i</sub> − y<sub>i</sub>)²]</div>
+<div class="example"><span class="label">用讲义表格算一次</span><p>预测/真实额度：9,000/10,000、4,000/4,000、5,800/6,000、10,000/12,000、11,000/10,000、3,500/3,000。误差 1000、0、200、2000、1000、500，平方和 = 6,290,000，除以 6 再开方 ≈ <strong>S$1,024</strong>。</p><p>同表的分类结果：No/No、Yes/Yes、No/Yes、Yes/Yes、No/No、Yes/No，6 个中对了 4 个。但“对了几个”太粗糙，于是引出混淆矩阵。</p></div>
+</div></details>
+
+<details><summary>② 混淆矩阵与指标：讲义的全部数字<span class="pg">p.16–21</span></summary><div>
+<p>本课矩阵约定：<strong>行 = 预测标签，列 = 真实标签</strong>，左上角是 TP。</p>
+<div class="example"><span class="label">COVID 测试例子 · p.16</span><p>6 个人：测试结果 ŷ = 0,0,0,1,0,1；是否感染 y = 0,0,1,1,0,0。逐对统计：(ŷ=1, y=1) 1 次 → TP = 1；(1, 0) 1 次 → FP = 1；(0, 1) 1 次 → FN = 1；(0, 0) 3 次 → TN = 3。</p><p>由此：Accuracy = 4/6 ≈ 0.667；Precision = 1/2；Recall = 1/2；Specificity = 3/4。</p></div>
+<div class="formula">Sensitivity = Recall = TP/(TP+FN)　Specificity = TN/(TN+FP)<br>F1 = 2·P·R/(P+R)</div>
+<div class="example"><span class="label">Quiz · p.19：为什么用调和平均？</span><p>调和平均会惩罚很低的 precision 或 recall。例子：Recall = 0.0、Precision = 1.0 时，F1 = <strong>0</strong>，而算术平均 = 0.5，会让一个什么也没找到的模型看起来“一半好”。</p></div>
+<div class="example"><span class="label">类别极不平衡 · p.20</span><p>人群中 200 人感染、10,000 人未感染，测试<strong>永远</strong>返回阴性：TP = 0、FP = 0、FN = 200、TN = 10,000。</p><p>Accuracy = 10,000/10,200 ≈ <strong>98%</strong>，Specificity = 10,000/10,000 = <strong>100%</strong>，但 Recall = <strong>0</strong>，Precision = 0/0 未定义。一个“无用”的测试仍得到很高的数值。</p></div>
+<h4>FP 与 FN 的代价不对等（p.21）</h4>
+<ul><li><strong>心脏病预测：</strong>漏掉高风险病人（FN）很糟，把健康人误判（FP）尚可 → 更看重 <strong>Recall</strong>。</li><li><strong>新闻分类（Google News）：</strong>把文章放错类别（FP）很糟，漏掉一篇相关文章（FN）可以接受 → 更看重 <strong>Precision</strong>。</li></ul>
+</div></details>
+
+<details><summary>③ 多分类：One-vs-Rest、Micro 与 Macro 的完整算例<span class="pg">p.22–27</span></summary><div>
+<p>3 个类别、50 个样本的混淆矩阵（行 = 预测，列 = 真实）：</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>预测 ↓ / 真实 →</th><th>2</th><th>1</th><th>0</th></tr></thead><tbody><tr><th>2</th><td>8</td><td>6</td><td>0</td></tr><tr><th>1</th><td>3</td><td>12</td><td>1</td></tr><tr><th>0</th><td>4</td><td>2</td><td>14</td></tr></tbody></table></div>
+<p><strong>拆成 One-vs-Rest：</strong>对类别 c，TP = 对角元；FP = 该<em>行</em>其余元素之和；FN = 该<em>列</em>其余元素之和；TN = 其余全部。</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>类别</th><th>TP</th><th>FP</th><th>FN</th><th>TN</th><th>F1 = 2TP/(2TP+FP+FN)</th></tr></thead><tbody>
+<tr><td>2-vs-Rest</td><td>8</td><td>6</td><td>7</td><td>29</td><td>16/29 ≈ 0.55</td></tr>
+<tr><td>1-vs-Rest</td><td>12</td><td>4</td><td>8</td><td>26</td><td>24/36 ≈ 0.67</td></tr>
+<tr><td>0-vs-Rest</td><td>14</td><td>6</td><td>1</td><td>29</td><td>28/35 = 0.80</td></tr></tbody></table></div>
+<ul><li><strong>Micro（p.24）：</strong>先平均计数：TP = (8+12+14)/3 ≈ 11.33，FP = (6+4+6)/3 ≈ 5.33，FN = (7+8+1)/3 ≈ 5.33，TN = 28；再算 F1 = 22.67/(22.67+5.33+5.33) ≈ <strong>0.68</strong>。它恰好等于 accuracy = (8+12+14)/50 = 0.68。</li><li><strong>Macro（p.25）：</strong>先各自算 F1 再平均：(0.55 + 0.67 + 0.80)/3 ≈ <strong>0.67</strong>。</li></ul>
+<p>讲义 p.25 中 0-vs-Rest 矩阵把 FP 与 FN 的位置写反了（6 与 1 对调），但 F1 公式里 FP、FN 对称，结果不受影响。</p>
+<p><strong>区别（p.26）：</strong>Micro 对计数求平均，<strong>偏向大类</strong>；Macro 对归一化后的指标求平均，<strong>各类平等</strong>。小类表现差时，macro 会明显更低。</p>
+<div class="example"><span class="label">Quick Quiz · p.27（官方答案 B）</span><p>2 类和 10 类分类器的 F1 都是 0.6，哪个更好？讲义答案：<strong>10 类分类器</strong>——它的任务可以说“更难”（随机猜只有约 0.1），而 2 类分类器的 0.6 比随机猜（约 0.5）好不了多少。严格来说还要看类别分布与平均方式，所以上文说“不能仅凭类别数严谨判断”；但考试按讲义思路作答。</p></div>
+</div></details>
+
+<details><summary>④ KNN：算法、距离、k 的选择与 Quiz<span class="pg">p.29–41</span></summary><div>
+<p><strong>直觉：</strong>相似的数据点有相似的标签。“训练”只是记住训练数据；预测时计算到所有训练点的距离，取最近的 k 个：分类取多数标签，回归取目标值的平均。k 通常取奇数以降低二分类平票的概率。</p>
+<div class="formula">Euclidean： d = √∑<sub>i</sub>(x<sub>i</sub> − y<sub>i</sub>)²<br>Manhattan： d = ∑<sub>i</sub>|x<sub>i</sub> − y<sub>i</sub>|<br>Chebyshev： d = max<sub>i</sub>|x<sub>i</sub> − y<sub>i</sub>|</div>
+<p>还可以用余弦相似度、Jaccard 相似度或自定义度量。例：(0,0) 与 (3,4) 的三种距离分别是 5、7、4 <span class="supp">补充</span>。</p>
+<div class="example"><span class="label">Quick "Quiz" · p.31（答案 B）</span><p>k 要不要取质数（避免 k = 9 时 3/3/3 平票）？<strong>没必要，但也无害。</strong>只用质数会很快限制 k 的选择；三个及以上类别打平的情况本应很少，真出现了往往说明数据本身很“乱”。</p></div>
+<h4>Iris 分类例子（p.33–36）</h4>
+<p>3 类各 50 个样本，4 个连续特征，只用萼片长度和宽度 2 个。120 个训练样本（40 红、39 绿、41 蓝），30 个测试样本。EDA：红类分得很开，绿蓝重叠很多。不同 k 的规律：</p>
+<ul><li>k 很小：对噪声和离群点极其敏感；</li><li>k 较大：容量不足，无法恰当地分开类别；</li><li>k 非常大：训练数据中最多的类开始主导所有预测。</li></ul>
+<p><strong>1-NN 与 Voronoi 图（p.35）：</strong>把空间划分为单元格，每个单元格是离某个训练点最近的所有位置。1-NN 的决策边界就是相邻单元格属于不同类别处的 Voronoi 边。</p>
+<h4>KNN 回归（p.37–39）</h4>
+<p>“age vs weight” 数据：257 名男性，200 训练、57 测试。k 很小时预测曲线剧烈抖动；k 很大时对太多邻居求平均；k 极大时预测收敛到全体训练数据的均值（一条水平线）。</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th></th><th>k 太小</th><th>k 太大</th></tr></thead><tbody><tr><td>表现</td><td>对噪声/离群点敏感；决策边界（回归线）非常不平滑</td><td>抓不住局部模式；边界（回归线）过于平滑</td></tr><tr><td>风险</td><td><strong>过拟合</strong></td><td><strong>欠拟合</strong></td></tr></tbody></table></div>
+<div class="example"><span class="label">课堂活动 · p.41</span><p>k = 1 的 Iris 图中，有几个<em>训练</em>点落在别的颜色区域里。按理 1-NN 对训练点的最近邻就是它自己，怎么会分错？原因：只用了 2 个特征，并且测量值精度有限，<strong>有些点坐标完全相同却标签不同</strong>（在这个二维投影里重合）。这时最近邻平票，只能有一个标签“获胜”。这也说明：训练集上 1-NN 的准确率并不一定是 100%。</p></div>
+</div></details>
+
+<details><summary>⑤ KNN 的优缺点与四个 Caveat（含归一化算例）<span class="pg">p.43–50</span></summary><div>
+<p><strong>优点：</strong>简单直观、效果常常出奇地好；通用——只要距离能“有意义地”度量就能用；可产生任意形状（分段线性）的决策边界；没有训练时间。<strong>缺点：</strong>测试时找邻居可能很慢（实践中用专门数据结构加速）；必须存储全部训练数据。</p>
+<div class="example"><span class="label">Caveat 1：量纲 · p.44–45</span><p>A = (80 kg, 165 cm, male)，B = (55 kg, 180 cm, female)，C = (70 kg, 180 cm, ?)。</p><ul><li>身高用 cm：d(A,C) = √(10² + 15²) ≈ <strong>18.0</strong>，d(B,C) = √(15² + 0²) = <strong>15.0</strong> → C 判为 <strong>female</strong>。</li><li>身高用 m：d(A,C) = √(10² + 0.15²) ≈ <strong>10.0</strong>，d(B,C) ≈ <strong>15.0</strong> → C 判为 <strong>male</strong>。</li></ul><p>只换了单位，结论就反了。用 z-score（总体标准差）：体重均值 68.33、σ ≈ 10.27 → A 1.14、B −1.30、C 0.16；身高均值 1.75、σ ≈ 0.0707 → A −1.41、B 0.71、C 0.71。于是 d(A,C) ≈ <strong>2.33</strong>，d(B,C) ≈ <strong>1.46</strong> → C 判为 <strong>female</strong>，且与单位无关。</p></div>
+<p>p.46 注意：归一化隐含假设<strong>所有特征同等重要</strong>，这不一定成立。</p>
+<h4>Caveat 2：维度灾难（p.47–48）</h4>
+<p>N 个点均匀分布在 d 维单位立方体中，包含某点 k 个最近邻的最小立方体边长 L 满足 L<sup>d</sup> ≈ k/N，即 <strong>L = (k/N)<sup>1/d</sup></strong>。N = 1,000、k = 10 时 k/N = 0.01：</p>
+<div class="table-wrap"><table class="mini"><thead><tr><th>d</th><td>2</td><td>3</td><td>10</td><td>100</td><td>1,000</td><td>10,000</td></tr></thead><tbody><tr><th>L</th><td>0.100</td><td>0.215</td><td>0.631</td><td>0.955</td><td>0.995</td><td>0.999</td></tr></tbody></table></div>
+<p>d = 100 时，装下 10 个“最近”邻居的立方体几乎就是整个单位立方体——“近邻”已经不近了。p.48 的直方图显示：维度越高，1,000 个随机点的两两距离越集中于同一个值，最近与最远的差别消失。</p>
+<h4>Caveat 3：非数值数据（p.49）</h4>
+<p>实际特征常是类别型（ordinal：学历、成绩；nominal：性别、婚姻状况）。基本做法是编码成数值，但编码<strong>不保证</strong>能合理表达距离/相似度，也不自动带来好结果，还可能增加维度（one-hot）。讲义表格里 “make”（应为 male）这类拼写错误也提醒要先清洗。</p>
+<h4>Caveat 4：语义相似 vs 底层相似（p.50）</h4>
+<p>非结构化数据（文本、图像、视频、音频）的对象往往“不止是各部分之和”。讲义的狗粮广告例子：两张图逐像素相似度很高、容易计算，但语义相似度很低。</p>
+</div></details>
+
+<details><summary>⑥ 决策树：结构、预测、同一数据的不同树 + Quiz<span class="pg">p.52–58</span></summary><div>
+<p><strong>组成：</strong>内部节点 = 对单个特征的测试；分支 = 测试结果（某个值或值域）；叶子 = 标签（分类）或实数（回归）。</p>
+<p><strong>预测新样本（p.54）：</strong>50 岁、PhD、Single、70k → Marital Status = Single → Annual Income ≥ 65k → <strong>YES</strong>。</p>
+<p><strong>同一数据，不同的树（p.55）：</strong>Education = Bachelor → NO；否则看 Age：&lt; 50 → YES，≥ 50 → NO。这棵树也完全拟合 9 条训练记录，但对同一新样本（50 岁 PhD Single 70k）给出 <strong>NO</strong>。两棵树在训练数据上都正确，哪棵更好只能靠未见数据（验证/测试）判断 —— 这正是泛化问题。</p>
+<div class="example"><span class="label">Quick Quiz · p.57：遇到未知取值怎么办？</span><p>例如 Education = “Poly” 在训练时从未出现（若路径需要测试 Education 就会卡住）。讲义给出的几种做法：</p><ul><li>直接报错；</li><li>在当前节点停下，使用该节点的<strong>多数标签</strong>（分类）或<strong>均值</strong>（回归）；</li><li>使用 <strong>surrogate split</strong>（替代分裂）：用与原分裂结果最相似的另一个特征来分。</li></ul></div>
+<p><strong>多样性（p.58）：</strong>分支数可以不同（Education 三路分裂；Age 分成 &lt;20、[20,40)、[40,60)、≥60）；深度可以不同。叶子可以包含多个标签——由数据决定，或者主动选择（剪枝）——此时输出多数标签或均值。例：Education = Bachelor 叶子 3×NO；Master/PhD 叶子 5×YES、1×NO → 输出 YES。</p>
+</div></details>
+
+<details><summary>⑦ CART 建树逐步演示 + 候选分裂的数量<span class="pg">p.60–72</span></summary><div>
+<p><strong>通用过程：</strong>D<sub>t</sub> 为到达节点 t 的记录。若 |D<sub>t</sub>| = 1 或 D<sub>t</sub> 中所有记录标签（值）相同 → t 为叶子；否则选一个测试（特征 + 条件）把 D<sub>t</sub> 拆小，递归处理。<strong>CART 只做二叉分裂。</strong></p>
+<div class="example"><span class="label">Quick Quiz · p.60：为什么只考虑二叉分裂？</span><p>需要考虑的候选分裂数量有限；如果允许多路，“分几路”又成了一个额外要决定的因素。</p></div>
+<div class="example"><span class="label">逐步演示 · p.61–69（9 条信用审批记录）</span><ol><li>根节点 {1,…,9}，按 Education 分：Bachelor → {2, 5, 7}，Master/PhD → {1, 3, 4, 6, 8, 9}。（讲义根节点把集合写成 1,2,3,4,6,7,8,9，漏了 5。）</li><li>{2, 5, 7} 全是 No → 叶子 <strong>NO</strong>。</li><li>{1, 3, 4, 6, 8, 9} 标签不同 → 继续分，选 Age、阈值 50：&lt; 50 → {1, 3, 4, 8, 9}，≥ 50 → {6}。</li><li>{1, 3, 4, 8, 9} 全是 Yes → 叶子 <strong>YES</strong>；{6} 只有一条记录 → 叶子 <strong>NO</strong>。</li><li>所有记录都被覆盖，完成。</li></ol></div>
+<h4>候选分裂有多少个？</h4>
+<ul><li><strong>数值特征（p.70）：</strong>Age 取值排序后为 18, 23, 26, 28, 30, 35, 41, 55（35 出现两次只算一次），在相邻不同值之间放阈值，共 <strong>7</strong> 个候选。</li><li><strong>名义特征（p.71）：</strong>d 个值分成两个非空子集，共 <strong>2<sup>d−1</sup> − 1</strong> 种。推导：所有子集（幂集）有 2<sup>d</sup> 个；去掉左或右为空的 2 种；左右对调不算新分裂，再除以 2 → (2<sup>d</sup> − 2)/2 = 2<sup>d−1</sup> − 1。d = 3（Bachelor, Master, PhD）时 3 种。</li><li><strong>有序特征：</strong>分割必须保持自然顺序，只能在相邻等级之间切，共 <strong>d − 1</strong> 种。</li></ul>
+<div class="example"><span class="label">Quick Quiz · p.72（答案 B）</span><p>建筑能耗评级 A、B、C、D 是有序的。{A, D} vs {B, C} 打乱了自然顺序，一般不是合适的分裂；{A,B}|{C,D}、{A}|{B,C,D}、{A,B,C}|{D} 都保持顺序。</p></div>
+</div></details>
+
+<details><summary>⑧ 选最佳分裂：Gini、Entropy、RSS 的讲义算例<span class="pg">p.73–81</span></summary><div>
+<p>全局最优（准确率最高的树）是 <strong>NP-complete</strong>，大数据上不可行；所以用<strong>贪心</strong>：每步选让子节点不纯度最小的分裂，快但不保证最优。</p>
+<div class="example"><span class="label">节点不纯度 · p.75</span><p>(0 YES, 6 NO)：Gini = 1 − (0² + 1²) = <strong>0</strong>；Entropy = −(0·log 0 + 1·log 1) = <strong>0</strong>。</p><p>(4 YES, 2 NO)：Gini = 1 − [(4/6)² + (2/6)²] = 1 − 20/36 ≈ <strong>0.44</strong>；Entropy = −(4/6·log₂4/6 + 2/6·log₂2/6) ≈ <strong>0.92</strong>。</p></div>
+<p><strong>p.76：</strong>二分类时，两者都在 p = 0.5 取最大值（Gini 0.5，Entropy 1），在 p = 0 或 1 为 0；曲线形状相似，常常选出相同的分裂。</p>
+<p><strong>分裂的不纯度（p.77）：</strong>子节点不纯度按样本数加权求和：I<sub>split</sub> = ∑ (n<sub>i</sub>/n)·I(t<sub>i</sub>)。信息增益 IG = I(t) − I<sub>split</sub>，选使 I<sub>split</sub> 最小（即 IG 最大）的分裂；要求 IG &gt; 0 才值得分裂。p.78 的 Gini 算例见本讲正文第 3 节。</p>
+<h4>回归：RSS（p.79–81）</h4>
+<div class="formula">RSS<sub>split</sub> = ∑<sub>k=1</sub><sup>K</sup> ∑<sub>i∈R<sub>k</sub></sub> (y<sub>i</sub> − μ<sub>R<sub>k</sub></sub>)²</div>
+<div class="example"><span class="label">讲义算例：预测 Annual Income</span><p><strong>按 Marital Status = Single：</strong>左 [75, 70, 95, 40, 60]，均值 68；右 [50, 85, 60, 65]，均值 65。RSS = (49 + 4 + 729 + 784 + 64) + (225 + 400 + 25 + 0) = 1630 + 650 = <strong>2280</strong>。</p><p><strong>按 Education = Bachelor：</strong>左 [50, 40, 60]，均值 50；右 [75, 70, 95, 85, 60, 65]，均值 75。RSS = 200 + 850 = <strong>1050</strong>。</p><p>1050 &lt; 2280 → 选 <strong>Education</strong>。（单位：k。）</p></div>
+<div class="example"><span class="label">Quick Quiz · p.79：为什么不用方差之和？</span><p>方差对样本数做了 1/N 归一化，会抹掉节点大小的影响；而我们希望像分类时一样，<strong>大节点的不纯度更有分量</strong>。本例：方差和分别为 1630/5 + 650/4 = 488.5 和 200/3 + 850/6 ≈ 208.3，结论恰好相同，但一般情况下不能保证。</p></div>
+</div></details>
+
+<details><summary>⑨ 决策树的优缺点、过拟合与剪枝 + 深度 Quiz<span class="pg">p.82–94</span></summary><div>
+<div class="table-wrap"><table class="mini"><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>训练和预测都便宜<br>易于解释（树不太大时）<br>能处理类别和数值数据</td><td>对训练数据的小变化敏感（层次结构：早期的错误会一路向下传播）<br>贪心，不保证最优树<br>每次决策只涉及一个特征，不考虑特征之间的交互</td></tr></tbody></table></div>
+<p><strong>特征交互（p.83）：</strong>最优边界是一条斜线时，决策树只能用<strong>与坐标轴平行的分段线性</strong>边界（阶梯）去逼近。</p>
+<h4>欠拟合与过拟合（p.85–87）</h4>
+<ul><li><strong>欠拟合：</strong>训练分数和测试分数都（很）低。</li><li><strong>过拟合：</strong>训练分数继续上升，测试分数开始下降。</li><li>二者之间是“sweet spot”。</li></ul>
+<p><strong>决策树总能完美拟合训练数据</strong>（前提：没有特征相同但标签不同的重复记录）：一直分到每个叶子只有一个样本，每个叶子都 100% 纯。解决办法是限制树的大小——<strong>剪枝</strong>：</p>
+<ul><li><strong>Pre-pruning · 最大深度：</strong>到达最大深度就停止（讲义例：max depth = 3，更深的节点根本不会被生成）。</li><li><strong>Pre-pruning · 最小样本数：</strong>节点样本少于阈值就不再分裂（讲义例：16）。</li><li><strong>Post-pruning：</strong>先长完整的树，再逐个检查分裂：如果在<strong>验证集</strong>上去掉该分裂不变差（或更好），就删掉，继续检查下一个。</li><li>也可以组合多种方法。</li></ul>
+<div class="example"><span class="label">Quick Quiz · p.92–93（答案：N − 1）</span><p>树可能退化成一个“列表”：每个内部节点只“切走”一个样本。N = 8 时深度为 7 = N − 1。</p></div>
+<h4>本讲总结（p.94）</h4>
+<ul><li>分类器的评价（回归较直接）：不同指标有不同含义，适用性取决于数据和任务。</li><li>KNN：非常直观；主要计算在<strong>预测</strong>阶段，对超大数据集适用性有限；k 的选择关系到过拟合与欠拟合。</li><li>决策树：直观、可解释；能处理类别和数值数据（实践中有技巧）；通常“好但不够出色” → 第 6 讲的树集成模型。</li></ul>
+</div></details>
+</section>
+<div class="quiz-section" data-quiz="4"></div><p class="source">依据：cs5228-lecture04-post.pdf · 评价指标 p.15–27；KNN p.29–50；决策树 p.52–93。计算保留中间精度；多分类指标与跨任务比较补充了适用条件。</p></section>
+
+<section class="page lesson" id="lecture5" data-title="线性与逻辑回归" hidden>
+<header class="lesson-head"><div class="eyebrow">LECTURE 05 / CLASSIFICATION & REGRESSION II</div><h1>模型、损失、优化，分开理解。</h1><p>模型规定能表达什么；损失衡量错得多严重；优化寻找合适参数。线性回归和逻辑回归共享这个学习框架。</p><div class="tags"><span class="tag">Normal Equation</span><span class="tag">Gradient Descent</span><span class="tag">Regularization</span><span class="tag">Validation</span></div></header>
+<h2>1. 线性回归：预测连续数值</h2><div class="formula">ŷ = θ₀ + θ₁x₁ + ⋯ + θ<sub>d</sub>x<sub>d</sub> = xᵀθ<br>L(θ) = (1/n) ∑<sub>i</sub> (ŷ<sub>i</sub> − y<sub>i</sub>)² = (1/n) ‖Xθ − y‖²<small>把截距并入向量时，x 的第 0 项为 1；X 的尺寸是 n × (d+1)。这里按讲义使用 1/n，而非 1/(2n)。</small></div><p>θ<sub>j</sub> 的含义：<strong>其他特征保持不变</strong>时，x<sub>j</sub> 增加一个单位，预测值改变 θ<sub>j</sub>。它描述模型内的条件关联，不能直接读成因果效应。</p>
+<h3>两条求解路线</h3><div class="twocol"><div class="panel"><h3>解析解：Normal Equation</h3><div class="formula">θ = (XᵀX)⁻¹Xᵀy</div><p>将梯度设为 0 得到正规方程。上述逆矩阵表达式要求 X 满列秩。特征线性相关、或参数数超过样本数，都会导致 XᵀX 不可逆。</p><p>更一般可用 Moore–Penrose 伪逆 θ=X⁺y。矩阵求逆这一步约为 O(d³)，构造矩阵也要计算成本。</p></div><div class="panel"><h3>迭代解：Gradient Descent</h3><div class="formula">∇L = (2/n) Xᵀ(Xθ − y)<br>θ ← θ − η∇L</div><p>梯度指向最陡上升方向，所以要减去它。η 是学习率：过大可能振荡/发散，过小可能收敛很慢。</p><p>每一步同时使用旧参数计算全部分量，再更新参数。</p></div></div><div class="example"><span class="label">手算一轮梯度下降</span><p>数据 (x,y)={(1,2),(2,3)}，初始 θ₀=θ₁=0，η=0.1。预测误差为 −2、−3。</p><p>∂L/∂θ₀ = (2/2)(−2−3)=<strong>−5</strong>；∂L/∂θ₁=(2/2)(−2×1−3×2)=<strong>−8</strong>。更新得 θ₀=<strong>0.5</strong>，θ₁=<strong>0.8</strong>。若题目损失用了 1/(2n)，梯度就会少一个 2。</p></div><p>Batch GD 每步看全部训练数据；SGD 每步看一个样本；Mini-batch 每步看一小批。它们都是沿梯度更新，只是梯度估计的样本范围不同。普通最小二乘是凸问题；慢收敛不是“卡在坏的局部极小值”的证据。</p>
+<h2>2. 多项式回归：曲线仍然可以是线性模型</h2><div class="formula">ŷ = θ₀ + θ₁x + θ₂x² + ⋯ + θ<sub>p</sub>x<sup>p</sup></div><p>这里“线性”指<strong>对参数 θ 线性</strong>，不是对原始输入 x 画出来必须是直线。将 x²、x³ 看成新特征后，仍能用同样的优化方法。</p><p>两个原始特征、二次多项式可用 {1,x₁,x₂,x₁²,x₁x₂,x₂²}。包含全部不超过 p 次的项时，总项数（含常数）为组合数 C(d+p,p)。维度随 d 和 p 增长很快。</p><div class="formula">L<sub>reg</sub> = (1/n)‖Xθ−y‖² + (λ/n)∑<sub>j=1</sub><sup>d</sup>θ<sub>j</sub>²<br>θ = (XᵀX + λD)⁻¹Xᵀy，D = diag(0,1,…,1)<small>此处 d 表示设计矩阵中除截距外的特征数。常见约定不惩罚 θ₀；正则梯度为 (2λ/n)Dθ。</small></div><p>正则化惩罚大系数，限制模型复杂度；λ 太大可能欠拟合。它可能改善验证误差，但不会让已全局最优的无正则训练 MSE 再降低。缩放特征会改变系数和惩罚的相对大小，因此正则化时尤其要注意尺度。</p>
+<h2>3. 逻辑回归：预测为正类的概率</h2><div class="formula">z = xᵀθ，p = σ(z) = 1/(1+e<sup>−z</sup>)<br>P(y | x) = p<sup>y</sup>(1−p)<sup>1−y</sup><br>L = −(1/n)∑<sub>i</sub>[y<sub>i</sub> ln p<sub>i</sub> + (1−y<sub>i</sub>)ln(1−p<sub>i</sub>)]<br>∇L = (1/n) Xᵀ(p − y)</div><p>它名字里有 Regression，但常用于分类。先计算概率，再按阈值决定类别。阈值为 0.5 时，边界对应 xᵀθ=0；加入多项式特征可以得到原空间中的非线性边界。</p><p>交叉熵来自最大化真实标签的似然。y=1 时损失为 −ln p；y=0 时为 −ln(1−p)。<strong>自信地预测错</strong>会受到很大惩罚；分类正确也不代表损失为 0。</p>
+<div class="lab"><span class="label">INTERACTIVE 04 / SIGMOID & LOSS</span><h3>“分对了”与“概率足够好”是两回事</h3><p>固定真实标签 y=1。拖动模型得分 z 或分类阈值，观察概率、类别和损失。</p><div class="controls"><label for="lr-z">得分 z <input id="lr-z" type="range" min="-6" max="6" step="0.1" value="0.5"><output id="lr-z-value">0.5</output></label><label for="lr-th">阈值 <input id="lr-th" type="range" min="0.1" max="0.9" step="0.05" value="0.5"><output id="lr-th-value">0.50</output></label></div><svg id="lr-chart" viewBox="0 0 700 260" role="img" aria-label="逻辑函数曲线，横轴为模型得分 z，纵轴为正类概率"></svg><div class="readout" id="lr-status" aria-live="polite"></div></div><div class="pitfall"><b>严谨理解凸性：</b>标准逻辑回归的交叉熵对参数是凸的，但“凸”本身不保证存在唯一的有限最小值。例如，无正则且数据完全线性可分时，参数可不断增大，损失趋近下确界。讲义 p.63 的“总有唯一最小值”需要额外条件。</div>
+<h2>4. 验证流程：别让答案提前泄漏</h2><div class="path"><span>训练集：学习参数</span><i>→</i><span>验证集：选模型/超参数</span><i>→</i><span>测试集：最终评价</span></div><p>k、树深度、λ、学习率等属于超参数。反复依据测试集表现调整它们，相当于间接“学过”测试集，最终指标会过于乐观。</p><p><strong>K-fold cross-validation：</strong>把可用于模型开发的数据分成 K 折，轮流用一折验证、其余训练，汇总各折结果。调参后可以在全部开发数据上重新拟合，最后只用保留的测试集评价。</p><div class="example"><span class="label">归一化的正确顺序</span><p>① 切分数据 → ② 用训练集求 μ、σ → ③ 用同一组 μ、σ 变换训练、验证、测试集 → ④ 训练与评价。在交叉验证中，每一折也必须只在该折训练部分拟合预处理。</p></div><div class="quiz-section" data-quiz="5"></div><p class="source">依据：cs5228-lecture05-post.pdf · 线性回归与优化 p.8–36；多项式与正则化 p.38–48；逻辑回归 p.50–67；验证与泄漏 p.69–72。伪逆、凸性条件与正则梯度的截距处理作了严谨补充。</p></section>
+
+<section class="page lesson" id="lecture6" data-title="集成学习" hidden>
+<header class="lesson-head"><div class="eyebrow">LECTURE 06 / CLASSIFICATION & REGRESSION III</div><h1>多个模型，怎样比一个更好？</h1><p>集成的价值不只在数量，而在模型是否提供互补信息。若所有模型都在同样的样本上犯同样的错，投票也很难改善结果。</p><div class="tags"><span class="tag">Bagging</span><span class="tag">Random Forest</span><span class="tag">AdaBoost</span><span class="tag">Gradient Boosting</span></div></header>
+<h2>1. 先区分四种组合方式</h2><div class="table-wrap"><table><thead><tr><th>方式</th><th>组合思路</th></tr></thead><tbody><tr><td>Voting</td><td>多个模型独立预测，投票或平均</td></tr><tr><td>Stacking</td><td>让另一个模型学习如何组合基模型的预测；训练元模型时要防止泄漏</td></tr><tr><td>Bagging</td><td>在不同 bootstrap 样本上独立训练，再聚合结果</td></tr><tr><td>Boosting</td><td>后续模型依赖前面模型，逐步修正当前不足</td></tr></tbody></table></div>
+<h2>2. Bagging 与 Random Forest：减少方差</h2><p>决策树对训练数据的小变化很敏感。Bagging 对原始 N 条训练记录进行<strong>有放回抽样 N 次</strong>，形成一个 bootstrap 数据集，再训练一棵树。重复多次，分类时投票，回归时平均。</p><p>有放回意味着一个数据集可能出现重复记录，也可能缺少某些原始记录。各棵树可独立训练，容易并行。</p><div class="formula">Random Forest = Bootstrap sampling + 每次分裂的随机特征子集</div><p>如果每棵树都能看到很强的同一个特征，它们的顶层分裂可能十分相似。随机森林在<strong>每个节点的分裂</strong>只考虑随机抽到的一部分特征，减少树之间的相关性，让平均更有效。</p><div class="pitfall"><b>不要混淆：</b>标准随机森林不是为整棵树永久固定一组特征。“树越多一定越过拟合”通常也不成立；单树深度、特征、数据与树间相关性都更值得分析。更多树仍会增加计算成本。</div>
+<h2>3. AdaBoost：提高被分错样本的权重</h2><p>初始每条样本权重为 1/N。每轮训练一个弱分类器，用<strong>当前权重</strong>计算错误率，并决定这个分类器有多大的投票权。</p><div class="formula">ε<sub>m</sub> = ∑<sub>i</sub>w<sub>i</sub> · 𝟙[h<sub>m</sub>(x<sub>i</sub>) ≠ y<sub>i</sub>]<br>α<sub>m</sub> = ½ ln[(1−ε<sub>m</sub>) / ε<sub>m</sub>]<br>w<sub>i</sub> ← w<sub>i</sub>e<sup>αₘ</sup>（分错）；w<sub>i</sub> ← w<sub>i</sub>e<sup>−αₘ</sup>（分对）<br>最后归一化：w<sub>i</sub> ← w<sub>i</sub> / ∑<sub>j</sub>w<sub>j</sub></div><p>后续学习器更关注难分的样本。讲义通过按权重重新采样实现；也可以用支持样本权重的学习器。最终对各类别累加 α 加权投票，而不是简单数树的数量。</p><div class="example"><span class="label">手算例题</span><p>若 ε=0.2，则 α=½ln4≈<strong>0.693</strong>。错分样本权重乘 2，正确样本乘 0.5，再统一归一化；两者的相对权重比放大 <strong>4 倍</strong>。</p><p>当 ε=0.5，α=0，没有正向投票贡献；ε&gt;0.5 时 α 为负，需处理该弱分类器。ε=0 时公式出现无穷，实践中需停止或作数值保护。</p></div>
+<h2>4. Gradient Boosting：下一棵树学习残差</h2><p>对于平方损失回归，可以从目标均值开始预测。每轮计算当前残差，训练一棵回归树预测它，再把预测残差的一部分加回原模型。</p><div class="formula">F₀(x) = mean(y)<br>r<sub>im</sub> = y<sub>i</sub> − F<sub>m−1</sub>(x<sub>i</sub>)<br>h<sub>m</sub> ← 拟合 (x<sub>i</sub>, r<sub>im</sub>)<br>F<sub>m</sub>(x) = F<sub>m−1</sub>(x) + ηh<sub>m</sub>(x)</div><div class="example"><span class="label">讲义例题 / p.40–41</span><p>一条记录真实值为 1400，当前预测 1000，因此残差 400。新树给它的预测残差是 350，η=0.1，则新预测为 1000+0.1×350=<strong>1035</strong>，新残差为 <strong>365</strong>。</p><p>注意：加的是“树预测的残差”，不是该样本的真实残差；否则测试时就需要知道真实答案。</p></div><p>一般的 Gradient Boosting 拟合的是损失对当前预测的<strong>负梯度</strong>。平方损失下它对应残差；分类时通常在分数空间迭代，再通过 sigmoid/softmax 得到概率，不能把所有损失都机械理解为 y−ŷ。</p><div class="table-wrap"><table><thead><tr><th>比较</th><th>Bagging / Random Forest</th><th>Boosting</th></tr></thead><tbody><tr><td>训练关系</td><td>各模型独立</td><td>前后轮次有依赖</td></tr><tr><td>核心机制</td><td>增加多样性，再平均/投票</td><td>逐步修正已有模型</td></tr><tr><td>并行</td><td>可并行训练不同树</td><td>轮次通常串行，但树内部工作可并行</td></tr><tr><td>风险</td><td>树高度相关，平均收益有限</td><td>过深、过多迭代、学习率过大或噪声可能导致过拟合</td></tr></tbody></table></div>
+<h2>5. 三种提升树：记住改进方向</h2><div class="table-wrap"><table><thead><tr><th>方法</th><th>本讲重点</th><th>直觉</th></tr></thead><tbody><tr><td>XGBoost</td><td>二阶导数（Hessian）、树复杂度正则化、行列采样</td><td>优化时考虑曲率，并控制树复杂度</td></tr><tr><td>LightGBM</td><td>直方图分裂、leaf-wise 生长、GOSS、EFB</td><td>压缩候选与数据，优先分裂收益最大的叶子</td></tr><tr><td>CatBoost</td><td>Ordered target encoding、ordered boosting、对称树</td><td>减少目标编码泄漏与 prediction shift</td></tr></tbody></table></div><div class="formula">XGBoost: Objective = ∑<sub>i</sub>ℓ(y<sub>i</sub>, ŷ<sub>i</sub>) + ∑<sub>m</sub>Ω(f<sub>m</sub>)<br>Ω(f) = γT + (λ/2)∑<sub>j=1</sub><sup>T</sup>w<sub>j</sub>²<small>T 为叶节点数，wⱼ 为叶节点预测值；γ 惩罚太多叶子，λ 惩罚过大的叶值。</small></div><details><summary>展开理解 GOSS、EFB 与 Ordered Encoding</summary><div><p><strong>GOSS：</strong>保留大梯度样本，从小梯度样本中抽样并重新加权；不是把所有小梯度样本直接丢掉。</p><p><strong>EFB：</strong>将很少同时非零的稀疏特征打包，减少处理的特征数。</p><p><strong>Ordered target encoding：</strong>先给样本一个随机排列，编码当前样本的类别时，只使用排在它前面的同类样本目标统计，并作平滑，避免直接使用自己的标签。</p><p><strong>Ordered boosting：</strong>用未训练过当前样本的前缀模型来构造其训练信号，缓解 prediction shift；实际实现通过共享结构等方式节约计算。</p><p><strong>对称树：</strong>同一深度的所有内部节点使用同一个分裂规则，结构规整、预测高效，也限制了模型复杂度。</p></div></details><div class="quiz-section" data-quiz="6"></div><p class="source">依据：cs5228-lecture06-post.pdf · 集成与随机森林 p.7–28；AdaBoost p.29–37；Gradient Boosting p.39–48；变体 p.51–63。产品能力会演进，此处对照用于理解本讲算法设计，不作为版本功能清单。</p></section>
+
+<section class="page lesson" id="review" data-title="考前速查" hidden><header class="lesson-head"><div class="eyebrow">RECALL / CONNECT / PRACTICE</div><h1>合上讲义，你还能解释这些吗？</h1><p>复习的最后一步是主动回忆。先尝试口述或手算，再展开公式对照。</p></header><div class="sectionhead"><h2>公式闪卡</h2><small>点击展开 · 建议先默写</small></div><div class="flash-grid" id="flashcards"></div><h2>六组最容易混淆的概念</h2><div class="table-wrap"><table><thead><tr><th>概念对</th><th>关键区别</th></tr></thead><tbody><tr><td>K-Means / KNN</td><td>前者是无监督聚类，K 是簇数；后者是监督预测，k 是邻居数</td></tr><tr><td>Support / Confidence</td><td>前者是共同出现比例，后者以出现前件为条件</td></tr><tr><td>Precision / Recall</td><td>前者分母是预测正类数，后者分母是真实正类数</td></tr><tr><td>Linear / Logistic Regression</td><td>前者常用 MSE 预测数值；后者用 sigmoid 和交叉熵预测类别概率</td></tr><tr><td>参数 / 超参数</td><td>参数由训练拟合；超参数由开发过程选择，不能用测试集反复调</td></tr><tr><td>AdaBoost / Gradient Boosting</td><td>前者调整样本权重并加权投票；后者拟合负梯度并累加模型</td></tr></tbody></table></div><h2>会做，才勾选</h2><div class="panel checklist" id="checklist"></div><h2>时间紧时怎么安排</h2><div class="panel"><p><strong>第一轮：</strong>通读每讲第一段和概念对照，能说出每种方法的输入、输出、优化目标和主要假设。</p><p><strong>第二轮：</strong>不看答案，重做本页 24 道自测；对计算题写出中间步骤，尤其别丢掉分母、权重和梯度系数。</p><p><strong>第三轮：</strong>专门练“改一个条件会怎样”：增大 k、改变 ε、提高分类阈值、增大 λ、改变学习率；能解释结果与局限。</p><p>以上顺序按知识依赖和练习价值安排，不代表老师公布的题型或分值。</p></div><div class="notice">内容来自用户提供的 Lecture 1–6 课后版。页面是中文讲解与原创练习，未复制整套幻灯片。各章末尾列出原文件名与页码，可回原讲义核对。部分简化表述补充了成立条件。</div></section>
+<footer class="footer">CS5228 STUDY COMPANION · 让每一个公式，都有一个可以解释的理由。</footer>
+</main></div>
+<script>
+'use strict';
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const storeKey='cs5228-study-v1';let saved={};try{saved=JSON.parse(localStorage.getItem(storeKey)||'{}')||{}}catch{}
+let completed=Array.isArray(saved.completed)?saved.completed.filter(n=>Number.isInteger(n)&&n>=1&&n<=6):[];
+let answers=saved.answers&&typeof saved.answers==='object'?saved.answers:{};let checks=Array.isArray(saved.checks)?saved.checks:[];
+function save(){try{localStorage.setItem(storeKey,JSON.stringify({completed,answers,checks}))}catch{}}
+const quizData={
+1:[['学生 ID 为整数，应当把它视为哪类属性？',['Ratio，因为是数字','Nominal，因为主要用于标识','Ordinal，因为可以排序'],1,'属性类型由语义决定。ID 的差值、倍数通常没有分析意义。'],['训练集最小值为 10、最大值为 50，测试值 60 做 min–max 变换后是多少？',['1，因为必须截断','1.25','应使用测试集的最大值重算'],1,'使用训练参数：(60−10)/(50−10)=1.25。超出训练范围的测试数据不一定在 [0,1] 内。'],['对于离群点，哪种说法正确？',['所有离群点都应删除','可能是噪声，也可能是分析目标','箱线图必然能发现所有离群点'],1,'欺诈等异常检测恰恰关注离群点；处理方式取决于任务和成因。'],['One-hot encoding 最直接解决什么问题？',['把名义类别变成数值表示，避免强加大小顺序','保证数据呈正态分布','保证降低特征维度'],0,'One-hot 用二元指示特征表示类别，通常会增加特征维度；它不改变分布为正态。']],
+2:[['K-Means 中，簇内数据为 {1,2,3}，更新中心到哪里？',['1，必须是第一个样本','2，簇内均值','3，最右边的样本'],1,'均值为 (1+2+3)/3=2，它最小化固定簇内的平方误差。中心通常不必是实际样本点。'],['本课 DBSCAN 的 MinPts=4。一个点半径 ε 内有 3 个其他点，它是？',['核心点','必然是边界点','噪声点'],0,'讲义明确包含自身，所以邻域总数为 4，满足核心点条件。'],['A={1,2}，B={6,8} 的 complete linkage 距离为？',['4','5.5','7'],2,'跨簇距离 5、7、4、6，complete 取最大值 7。'],['K-Means 的正确陈述是？',['每次都能得到全局最优','Assignment 和 Update 都不会增加 SSE','K-Means++ 每次固定选最远点'],1,'在标准平方欧氏距离目标下，两步均不增加 SSE。K-Means++ 按距离平方概率抽样。']],
+3:[['100 笔交易中 X 出现 40 次、Y 出现 80 次、XY 出现 30 次。X→Y 的 lift 是？',['0.9375','0.75','1.875'],0,'Confidence=30/40=0.75，S(Y)=0.8，所以 lift=0.75/0.8=0.9375。'],['如果 {A,B} 不频繁，能推出什么？',['{A} 一定不频繁','{A,B,C} 一定不频繁','{B,C} 一定不频繁'],1,'包含 AB 的超集支持度不可能更高；不能据此推断其子集或无包含关系的项集。'],['固定项集 S={A,B,C,D}，ABC→D 的置信度不足。哪条也必定不足？',['AB→CD','D→ABC','来自另一个项集的 AB→E'],0,'固定并集 S，扩大后件、缩小前件只会让置信度不升。此条件不能省略。'],['频繁 3 项集可拆出多少条两侧非空的规则？',['3','6','8'],1,'每个非空真子集都能做前件，共 2³−2=6。空前件和空后件不计。']],
+4:[['TP=40、FP=10、FN=20、TN=130。F1 约为多少？',['0.85','0.7273','0.8'],1,'F1=80/(80+10+20)=80/110≈0.7273。Accuracy 是 0.85，Precision 是 0.8。'],['父节点 5 Yes/4 No，分成 0 Yes/3 No 与 5 Yes/1 No。加权 Gini 约为？',['0.1852','0.2778','0.4938'],0,'右子节点 Gini=5/18，按 6/9 加权得 5/27≈0.1852；左节点纯，不贡献不纯度。'],['基本 KNN 中，k 从很小逐步增大，通常会怎样？',['边界更平滑，但可能欠拟合','训练误差必然降为 0','一定变得更易过拟合'],0,'k 大会平均更多邻居，减少局部变化和对噪声的敏感性，但可能丢失真实局部结构。'],['Macro-F1 怎样算？',['先计算每类 F1，再等权平均','汇总 TP、FP、FN 后算 F1','对 macro-precision 和 macro-recall 求调和平均'],0,'Macro-F1 是逐类 F1 的算术平均。后两项分别是 micro-F1 思路和常见误用。']],
+5:[['ŷ=θ₀+θ₁x+θ₂x² 属于线性模型吗？',['属于，因为对参数 θ 线性','不属于，因为图形是曲线','只有 θ₂=0 才属于'],0,'线性模型的线性指参数进入模型的方式，输入可以经过多项式特征变换。'],['真实 y=1，预测概率 p=0.8，交叉熵损失是多少？',['0，因为分类正确','−ln(0.8)≈0.2231','0.8'],1,'分类正确只表示超过阈值。有限概率 0.8 仍有非零负对数损失。'],['数据 (1,2)、(2,3)，参数全为 0，MSE 使用 1/n，η=0.1。更新后 (θ₀,θ₁) 为？',['(0.5,0.8)','(−0.5,−0.8)','(0.25,0.4)'],0,'梯度分别为 −5 和 −8。沿负梯度更新得到 (0.5,0.8)；不要忽略 MSE 导数中的 2。'],['哪种流程避免归一化泄漏？',['先全数据标准化，再切分','切分后训练集、测试集分别拟合各自均值方差','只用训练集拟合，再变换训练集和测试集'],2,'训练时不能使用测试分布；测试时必须沿用训练时学得的坐标变换。交叉验证每一折也同理。']],
+6:[['标准随机森林相对普通 Bagging，额外增加什么？',['每次分裂随机选择候选特征子集','让后一棵树学习前一棵树的残差','只在一棵树上增加节点'],0,'在每个分裂处引入特征随机性，有助于降低树间相关性。'],['二分类 AdaBoost 当前加权错误率 ε=0.2，α 是？',['ln4≈1.386','½ln4≈0.693','0.2'],1,'α=½ln((1−ε)/ε)=½ln4。错误率使用当前样本权重计算。'],['当前预测 1000，新树预测残差 350，η=0.1。新预测为？',['1350','1035','350'],1,'F新=F旧+ηh=1000+35=1035。学习率控制每轮修正幅度。'],['Ordered target encoding 怎样编码当前样本？',['用所有同类别样本，包括自身的目标均值','用随机排列中排在它之前的同类别样本统计，并平滑','直接把真实目标值当作特征'],1,'排除当前样本和后续样本的标签信息，是减少编码泄漏的关键。']]
+};
+function htmlEscape(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+for(let n=1;n<=6;n++){
+ const root=$(`[data-quiz="${n}"]`);root.innerHTML=`<div class="sectionhead"><h2>自测 · 先想，再看解析</h2><span class="score" id="score-${n}"></span></div>`;
+ quizData[n].forEach((q,i)=>{const key=`${n}-${i}`;const box=document.createElement('div');box.className='quiz';box.innerHTML=`<fieldset><legend>${i+1}. ${htmlEscape(q[0])}</legend>${q[1].map((o,j)=>`<label><input type="radio" name="q-${key}" value="${j}"><span>${String.fromCharCode(65+j)}. ${htmlEscape(o)}</span></label>`).join('')}</fieldset><button type="button">检查答案</button><div class="feedback" hidden aria-live="polite"></div>`;
+  const show=(choice)=>{const right=choice===q[2];const f=$('.feedback',box);f.hidden=false;f.classList.toggle('wrong',!right);f.textContent=(right?'回答正确。':'还差一点。正确答案：'+String.fromCharCode(65+q[2])+'。')+q[3];};
+  if(Number.isInteger(answers[key])&&answers[key]>=0&&answers[key]<q[1].length){$(`input[value="${answers[key]}"]`,box).checked=true;show(answers[key]);}
+  $('button',box).addEventListener('click',()=>{const a=$('input:checked',box);if(!a){const f=$('.feedback',box);f.hidden=false;f.classList.add('wrong');f.textContent='请先选择一个答案。';return}answers[key]=Number(a.value);save();show(answers[key]);updateScores()});
+  $$('input',box).forEach(x=>x.addEventListener('change',()=>{$('.feedback',box).hidden=true}));root.appendChild(box);
+ });
+ const foot=document.createElement('div');foot.className='lesson-footer';foot.innerHTML=`<a href="#${n===1?'overview':'lecture'+(n-1)}">← ${n===1?'复习总览':'上一讲'}</a><button class="complete-btn" data-complete="${n}" aria-pressed="false">标记本讲已复习</button><a href="#${n===6?'review':'lecture'+(n+1)}">${n===6?'考前速查':'下一讲'} →</a>`;$('#lecture'+n).appendChild(foot);
+}
+function updateScores(){for(let n=1;n<=6;n++){let count=0,right=0;quizData[n].forEach((q,i)=>{let a=answers[`${n}-${i}`];if(Number.isInteger(a)){count++;if(a===q[2])right++}});$(`#score-${n}`).textContent=`已检查 ${count}/4 · 当前答对 ${right}/4`}}
+function updateProgress(){const total=new Set(completed).size;$('#progress-text').textContent=`你的复习进度 · ${total} / 6`;$('#progress-fill').style.width=`${total/6*100}%`;$('.progressbar').setAttribute('aria-valuenow',total);$$('[data-complete]').forEach(b=>{const done=completed.includes(Number(b.dataset.complete));b.classList.toggle('completed',done);b.setAttribute('aria-pressed',String(done));b.textContent=done?'✓ 已复习 · 点击撤销':'标记本讲已复习'});for(let n=1;n<=6;n++){$(`[data-page="lecture${n}"] .done`).textContent=completed.includes(n)?'✓':''}}
+$$('[data-complete]').forEach(b=>b.addEventListener('click',()=>{const n=Number(b.dataset.complete);completed=completed.includes(n)?completed.filter(x=>x!==n):[...completed,n];save();updateProgress()}));
+const flashes=[['标准化和 Min–max','x′=(x−μ)/σ<br>x′=(x−min)/(max−min)'],['K-Means 与 Ward','SSE=∑ₖ∑ₓ∈Cₖ ‖x−μₖ‖²<br>Ward=[nₐnᵦ/(nₐ+nᵦ)]‖μₐ−μᵦ‖²'],['关联规则的三个指标','Support=S(X∪Y)<br>Confidence=S(X∪Y)/S(X)<br>Lift=S(X∪Y)/[S(X)S(Y)]'],['分类评价','Precision=TP/(TP+FP)<br>Recall=TP/(TP+FN)<br>F1=2TP/(2TP+FP+FN)'],['树节点不纯度与分裂','Gini=1−∑p²<br>Entropy=−∑p log₂p<br>I_split=∑(Nⱼ/N)Iⱼ'],['回归损失与梯度','MSE=‖Xθ−y‖²/n<br>RMSE=√MSE<br>∇MSE=2Xᵀ(Xθ−y)/n'],['线性回归解析解','θ=(XᵀX)⁻¹Xᵀy（满列秩）<br>更一般：θ=X⁺y'],['逻辑回归','p=1/(1+e<sup>−xᵀθ</sup>)<br>L=−∑[y ln p+(1−y)ln(1−p)]/n<br>∇L=Xᵀ(p−y)/n'],['AdaBoost','ε=∑wᵢ𝟙[h(xᵢ)≠yᵢ]<br>α=½ln[(1−ε)/ε]<br>错乘 e<sup>α</sup>，对乘 e<sup>−α</sup>，再归一化'],['Gradient Boosting（平方损失）','r=y−F<sub>m−1</sub>(x)<br>F<sub>m</sub>(x)=F<sub>m−1</sub>(x)+ηh<sub>m</sub>(x)']];
+$('#flashcards').innerHTML=flashes.map(f=>`<details><summary>${f[0]}</summary><div><div class="formula">${f[1]}</div></div></details>`).join('');
+const tasks=['能举例区分 nominal、ordinal、interval、ratio。','能手算 K-Means 的分配、中心更新与 SSE，并解释为何不保证全局最优。','能判断 DBSCAN 核心/边界/噪声点，并区分四种常用 linkage。','能算 support、confidence、lift，并完整写出 Apriori 剪枝的前提。','能从任意坐标约定的混淆矩阵计算指标，区分 macro 与 micro。','能按样本数加权计算决策树分裂不纯度，解释过拟合与剪枝。','能手算一轮梯度下降，知道损失前面的系数会影响梯度。','能解释正则化、交叉验证与归一化中的数据泄漏。','能对比 Random Forest、AdaBoost、Gradient Boosting，并完成一次权重/残差更新。'];
+tasks.forEach((t,i)=>{const l=document.createElement('label');const input=document.createElement('input');input.type='checkbox';input.checked=checks.includes(i);input.addEventListener('change',()=>{checks=input.checked?[...checks.filter(x=>x!==i),i]:checks.filter(x=>x!==i);save()});l.append(input,document.createTextNode(t));$('#checklist').appendChild(l)});
+function route(){let id=location.hash.slice(1)||'overview';if(id==='main'){document.getElementById('main').scrollIntoView();return}if(!$('.page#'+CSS.escape(id)))id='overview';$$('.page').forEach(p=>p.hidden=p.id!==id);$$('#nav a').forEach(a=>{a.classList.toggle('active',a.dataset.page===id);if(a.dataset.page===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});$('#breadcrumb').textContent=$('#'+id).dataset.title;document.title=$('#'+id).dataset.title+' · CS5228 复习手册';document.body.classList.remove('menu-open');$('.menu-toggle').setAttribute('aria-expanded','false');$('#search-results').hidden=true;window.scrollTo({top:0,behavior:'instant'});if(id==='lecture2')drawKM();if(id==='lecture5')drawLR()}
+$$('[data-cheat-page]').forEach(b=>b.addEventListener('click',()=>document.getElementById('cheat-page-'+b.dataset.cheatPage).scrollIntoView({behavior:'smooth',block:'start'})));
+window.addEventListener('hashchange',route);$('.menu-toggle').addEventListener('click',()=>{const on=document.body.classList.toggle('menu-open');$('.menu-toggle').setAttribute('aria-expanded',on)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.body.classList.remove('menu-open');$('.menu-toggle').setAttribute('aria-expanded','false');$('#search-results').hidden=true}});$('#start').addEventListener('click',()=>location.hash='lecture'+([1,2,3,4,5,6].find(n=>!completed.includes(n))||1));$('#print').addEventListener('click',()=>{print()});
+$('#search').addEventListener('input',e=>{const query=e.target.value.trim().toLowerCase();const r=$('#search-results');r.replaceChildren();r.hidden=!query;if(!query)return;let matches=0;$$('.page').forEach(p=>{if(p.id==='overview')return;const text=p.textContent.replace(/\s+/g,' ');const pos=text.toLowerCase().indexOf(query);if(pos<0)return;matches++;const a=document.createElement('a');a.href='#'+p.id;a.textContent=p.dataset.title;const s=document.createElement('small');s.textContent='…'+text.slice(Math.max(0,pos-25),pos+90)+'…';a.appendChild(s);a.addEventListener('click',()=>{r.hidden=true;if(location.hash==='#'+p.id)route()});r.appendChild(a)});if(!matches){const msg=document.createElement('p');msg.textContent='没有找到。试试“梯度”“Apriori”或“归一化”。';r.appendChild(msg)}});document.addEventListener('click',e=>{if(!e.target.closest('.searchbox'))$('#search-results').hidden=true});
+let km={centers:[1,3],assign:null,phase:'assign',iteration:0,done:false};const kmPoints=[1,2,3,8,9,10];
+function drawKM(){
+ const chart=$('#km-chart'),W=Math.max(280,Math.round(chart.clientWidth||700));chart.setAttribute('viewBox',`0 0 ${W} 190`);
+ const colors=['#315b47','#a27637'],sx=v=>28+v*(W-56)/10;
+ let plot='<title>K-Means：六个一维点与两个中心；圆形为簇 1，方形为簇 2</title>'+`<path d="M28 110H${W-22}" stroke="#bdc9b7"/>`;
+ for(let x=0;x<=10;x+=(W<500?2:1))plot+=`<text x="${sx(x)}" y="142" text-anchor="middle" font-size="13" fill="#68716b">${x}</text>`;
+ kmPoints.forEach((x,i)=>{const group=km.assign?km.assign[i]:null,c=group===null?'#829087':colors[group];plot+=(group===1?`<rect x="${sx(x)-7}" y="80" width="14" height="14" rx="2" fill="${c}"/>`:`<circle cx="${sx(x)}" cy="87" r="7" fill="${c}"/>`)+`<text x="${sx(x)}" y="65" text-anchor="middle" font-size="13" fill="#445248">${x}</text>`});
+ km.centers.forEach((x,i)=>{const cx=sx(x);plot+=`<path d="M${cx} 99l8 11 -8 11 -8 -11Z" fill="${colors[i]}" stroke="white" stroke-width="2"/><text x="${i?W-18:18}" y="175" text-anchor="${i?'end':'start'}" font-size="13" fill="${colors[i]}">${i?'■':'●'} 中心 ${i+1} = ${x.toFixed(2)}</text>`});chart.innerHTML=plot;
+ const sse=km.assign?kmPoints.reduce((v,x,i)=>v+(x-km.centers[km.assign[i]])**2,0):null;
+ $('#km-status').textContent=km.done?`分组已稳定：{1,2,3} 和 {8,9,10}，中心为 2、9；SSE = ${sse.toFixed(2)}。`:`已更新中心 ${km.iteration} 轮。${km.assign?'当前 SSE = '+sse.toFixed(2)+'。':'初始中心为 1、3，先分配每个点。'}下一步：${km.phase==='assign'?'分配到最近中心':'按簇内均值更新中心'}。`;
+ $('#km-next').textContent=km.done?'已收敛':km.phase==='assign'?'执行分配':'更新中心';$('#km-next').disabled=km.done;
+}
+$('#km-next').addEventListener('click',()=>{if(km.phase==='assign'){const next=kmPoints.map(x=>Math.abs(x-km.centers[0])<=Math.abs(x-km.centers[1])?0:1);if(km.assign&&next.every((a,i)=>a===km.assign[i]))km.done=true;km.assign=next;km.phase='update'}else{km.centers=km.centers.map((c,j)=>{const vals=kmPoints.filter((x,i)=>km.assign[i]===j);return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:c});km.iteration++;km.phase='assign'}drawKM()});$('#km-reset').addEventListener('click',()=>{km={centers:[1,3],assign:null,phase:'assign',iteration:0,done:false};drawKM()});
+function inputInt(id){const e=$('#'+id);return e.value.trim()===''?NaN:Number(e.value)}
+function calcAR(){const[n,x,y,xy]=['ar-n','ar-x','ar-y','ar-xy'].map(inputInt);const status=$('#ar-status');const valid=[n,x,y,xy].every(Number.isInteger)&&n>0&&x>=0&&y>=0&&xy>=0&&x<=n&&y<=n&&xy<=Math.min(x,y)&&xy>=Math.max(0,x+y-n);status.classList.toggle('error',!valid);if(!valid){['ar-support','ar-confidence','ar-lift'].forEach(id=>$('#'+id).textContent='—');status.textContent='请输入一致的非负整数计数：N>0，XY≤min(X,Y)，且 XY≥max(0,X+Y−N)。';return}const sup=xy/n,conf=x?xy/x:null,lift=x&&y?xy*n/(x*y):null;$('#ar-support').textContent=(sup*100).toFixed(1)+'%';$('#ar-confidence').textContent=conf===null?'未定义':(conf*100).toFixed(1)+'%';$('#ar-lift').textContent=lift===null?'未定义':lift.toFixed(3);status.textContent=lift===null?'前件或后件从未出现，相关分母为 0，因此置信度或 lift 未定义。':`Y 的总体出现率为 ${(y/n*100).toFixed(1)}%，出现 X 后为 ${(conf*100).toFixed(1)}%。${Math.abs(lift-1)<1e-10?'Lift = 1，这两个事件的出现符合独立情形。':lift>1?'Lift > 1，样本中呈正关联。':'Lift < 1，样本中呈负关联；高置信度不等于正关联。'}`}
+$$('[id^="ar-"]').filter(e=>e.tagName==='INPUT').forEach(e=>e.addEventListener('input',calcAR));
+function calcCM(){const ids=['tp','fp','fn','tn'];const v=ids.map(k=>inputInt('cm-'+k));const s=$('#cm-status');if(v.some(n=>!Number.isInteger(n)||n<0)){s.classList.add('error');s.textContent='请使用非负整数计数。';ids.forEach(k=>$('#cm-cell-'+k).textContent='—');return}s.classList.remove('error');ids.forEach((k,i)=>$('#cm-cell-'+k).textContent=k.toUpperCase()+' = '+v[i]);const[tp,fp,fn,tn]=v;const ratio=(a,b)=>b?(a/b*100).toFixed(2)+'%':'未定义';s.textContent=`Accuracy ${ratio(tp+tn,tp+fp+fn+tn)} · Precision ${ratio(tp,tp+fp)} · Recall ${ratio(tp,tp+fn)} · Specificity ${ratio(tn,tn+fp)} · F1 ${ratio(2*tp,2*tp+fp+fn)}`}
+$$('[id^="cm-"]').filter(e=>e.tagName==='INPUT').forEach(e=>e.addEventListener('input',calcCM));
+function drawLR(){
+ const chart=$('#lr-chart'),W=Math.max(280,Math.round(chart.clientWidth||700));chart.setAttribute('viewBox',`0 0 ${W} 260`);
+ const z=Number($('#lr-z').value),th=Number($('#lr-th').value),p=1/(1+Math.exp(-z));$('#lr-z-value').value=z.toFixed(1);$('#lr-th-value').value=th.toFixed(2);
+ const sx=x=>40+(x+6)/12*(W-70),sy=y=>211-y*178;let plot='<title>Sigmoid：模型得分与正类概率</title>';
+ [0,.5,1].forEach(y=>{plot+=`<path d="M40 ${sy(y)}H${W-30}" stroke="#e1e6df"/><text x="29" y="${sy(y)+5}" text-anchor="end" font-size="13" fill="#68716b">${y}</text>`});
+ (W<500?[-6,0,6]:[-6,-3,0,3,6]).forEach(x=>{plot+=`<text x="${sx(x)}" y="235" text-anchor="middle" font-size="13" fill="#68716b">${x}</text>`});
+ let d='';for(let x=-6;x<=6.001;x+=.1)d+=(d?' L':'M')+sx(x).toFixed(2)+' '+sy(1/(1+Math.exp(-x))).toFixed(2);
+ plot+=`<text x="13" y="19" font-size="14" fill="#445248">p</text><text x="${W-12}" y="235" font-size="14" fill="#445248">z</text><path d="${d}" stroke="#315b47" stroke-width="3" fill="none"/><path d="M40 ${sy(th)}H${W-30}" stroke="#aa7d3d" stroke-dasharray="5 5"/><text x="${W-32}" y="${sy(th)-9}" text-anchor="end" font-size="13" fill="#925221">阈值 ${th.toFixed(2)}</text><path d="M${sx(z)} 211V${sy(p)}" stroke="#81947b" stroke-dasharray="3 4"/><circle cx="${sx(z)}" cy="${sy(p)}" r="6" fill="#315b47" stroke="white" stroke-width="2"/>`;chart.innerHTML=plot;
+ $('#lr-status').textContent=`p = ${p.toFixed(4)}；预测类别 = ${p>=th?'1（正确）':'0（错误）'}；真实 y = 1；交叉熵 −ln(p) = ${(-Math.log(p)).toFixed(4)}。改变阈值只改变类别判定，不改变此处的概率或交叉熵。`;
+}
+$('#lr-z').addEventListener('input',drawLR);$('#lr-th').addEventListener('input',drawLR);
+window.addEventListener('resize',()=>{if(!$('#lecture2').hidden)drawKM();if(!$('#lecture5').hidden)drawLR()});
+// Expand explanatory content only for printing, then restore the reading state.
+let printDetails=[];window.addEventListener('beforeprint',()=>{printDetails=$$('details').map(d=>[d,d.open]);$$('details').forEach(d=>d.open=true);drawKM();drawLR();$$('.quiz').forEach((box,idx)=>{const n=Math.floor(idx/4)+1,i=idx%4,q=quizData[n][i];const f=$('.feedback',box);f.dataset.beforePrint=f.innerHTML;f.dataset.wasHidden=f.hidden?'1':'0';f.textContent='答案：'+String.fromCharCode(65+q[2])+'。'+q[3]})});window.addEventListener('afterprint',()=>{printDetails.forEach(([d,open])=>d.open=open);$$('.quiz .feedback').forEach(f=>{f.innerHTML=f.dataset.beforePrint||'';f.hidden=f.dataset.wasHidden==='1'})});
+updateScores();updateProgress();calcAR();calcCM();drawKM();drawLR();route();
+</script>
+</body></html>
