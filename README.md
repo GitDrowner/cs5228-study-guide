@@ -6,6 +6,7 @@ A static collection of course study guides: Chinese explanations, worked example
 
 | Course | Page | What is in it |
 | --- | --- | --- |
+| CS5340 Uncertainty Modelling in AI | `cs5340-study.html`, `cs5340/*.svg` | Lecture 1–10 explained page by page in Chinese for beginners, every worked example computed step by step, a Chinese–English glossary at the end of each lecture, all 18 Exercise 1 questions with folded solutions and English model answers, a one-page tour of all ten lectures and a final formula sheet. |
 | CS5242 Neural Networks and Deep Learning | `cs5242-study.html` | Lecture 1–10, Assignment 1 derivations, Quiz 7–10 solutions, exam checklist, formula sheet, 22 self-test questions. Chinese–English, paragraph by paragraph. |
 | CS5234 Algorithms at Scale | `cs5234-study.html`, `cs5234/*.pdf` | Lecture 1–11 explained in Chinese for beginners, homework and take-home walkthroughs, Quiz 1 and Quiz 2 cheat sheets (Chinese and English PDFs), mock papers in the formal quiz format with marking points, and a bilingual practice bank. Quiz 2 material excludes k-means. |
 | CS5228 Knowledge Discovery and Data Mining | `cs5228-study.html`, `cs5228-practice.html`, `cs5228-bilingual-cheat-sheet.pdf` | Lecture 1–6 study guide with interactive labs, practice exercises and a printable bilingual cheat sheet. |
@@ -16,6 +17,7 @@ A static collection of course study guides: Chinese explanations, worked example
 
 - `index.html` – the hub (generated)
 - `cs5242-study.html` – CS5242 guide (generated from `notes-src/cs5242.md`)
+- `cs5340-study.html`, `cs5340/` – CS5340 guide (generated from `notes-src/cs5340.md`) and its diagrams
 - `cs5234-study.html`, `cs5234/` – the CS5234 guide (hand-written page) and its PDFs
 - `cs5228-*.html`, `cheat-page-*.png`, `cs5228-bilingual-cheat-sheet.pdf` – the CS5228 guide (hand-written, unchanged apart from a link back to the hub)
 - `assets/site.css`, `assets/notes.js` – shared styles and runtime for generated guides
@@ -32,7 +34,9 @@ A static collection of course study guides: Chinese explanations, worked example
    - `中文 · English` in headings and table cells is shown on two lines
    - ```` ```latex ```` blocks are rendered with KaTeX when the site is built
    - a question list, then a heading starting with `答案`, then an answer list: each answer is folded under its question
-2. Add a config next to it (copy `notes-src/cs5242.json`): output file, page order, sidebar labels, card descriptions.
+   - any other heading starting with `答案` folds everything up to the next heading of the same or a higher level
+   - images are ordinary Markdown images (`![说明](cs5340/figure.svg)`), with paths relative to the site root
+2. Add a config next to it (copy `notes-src/cs5242.json`): output file, page order, sidebar labels, card descriptions. Optional keys: `"subsections": true` keeps `**3.1 …**` bold lines (and unnumbered ones on pages that have `###` sections) as subheadings instead of promoting them; `metrics` adds figures to the overview hero; `overview_head` replaces the heading above the chapter cards. The accent can be `green`, `blue` or `plum`.
 3. Add an entry to `notes-src/catalog.json` with `source` and `config`.
 4. Build: `python3 tools/build_notes.py` (needs Python with `markdown-it-py`, `beautifulsoup4`, `lxml`, and Node.js with the `katex` package; set `KATEX_PATH` if `katex` is not installed where Node can find it).
 

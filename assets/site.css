@@ -12,6 +12,11 @@
   --pill:#cfe1f2;--pill-ink:#1d3550;--soft:#e8eff6;--hero:#e6eef5;--hero-line:#d3e0ec;--th:#e9f0f6;--th-ink:#2e4a66;
   --card-hover:#7f9bb8;--index:#7891ab;--track:#33475e;--en:#57677a;
 }
+.accent-plum{
+  --accent:#5b3f73;--accent-dark:#46305a;--nav:#21172c;--nav-hover:#33253f;--nav-text:#d5cbe0;--nav-muted:#b1a2c1;
+  --pill:#e6dbf1;--pill-ink:#382650;--soft:#f1ecf6;--hero:#efe9f4;--hero-line:#e1d7ea;--th:#f1ecf6;--th-ink:#4a3462;
+  --card-hover:#a28ab8;--index:#9884ab;--track:#46395a;--en:#675d73;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.85}
@@ -141,6 +146,9 @@ nav .done{margin-left:auto;font-size:12px}
 .pitfall h2,.pitfall h3{margin-top:12px;color:var(--orange)}
 .math{background:#f3f5f1;border-radius:10px;padding:6px 18px;margin:16px 0;overflow-x:auto;overflow-y:hidden}
 .accent-blue .math{background:#f1f4f8}
+.accent-plum .math{background:#f5f2f7}
+.lesson p>img{display:block;max-width:100%;height:auto;margin:18px auto 6px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+.lesson blockquote{margin:16px 0;padding:6px 18px;background:var(--soft);border-left:3px solid var(--accent);border-radius:0 12px 12px 0}
 .math .katex-display{margin:.8em 0}
 .math pre{margin:12px 0;white-space:pre-wrap;font-size:13px}
 .table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:#fff}
