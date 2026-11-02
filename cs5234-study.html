@@ -175,13 +175,13 @@ html{scroll-behavior:smooth}
       <tr><td class="n">L2</td><td>查询算法（上界）</td><td>无偏估计 + 集中性；Mean / Median Trick</td><td>连通图边数 $(1+\varepsilon)$ 近似，$O(\sqrt n/\varepsilon^2)$ 次查询</td></tr>
       <tr><td class="n">L3</td><td>查询算法下界</td><td>决策树、Yao 原理、归约</td><td>$R(\mathrm{OR})\ge n/3$；图连通性 $\Omega(n^2)$</td></tr>
       <tr><td class="n">L4</td><td>性质测试</td><td>$\varepsilon$-far、二分搜索测试、TVD、碰撞统计</td><td>有序性测试 $O(\log n/\varepsilon)$；均匀性测试 $O(\sqrt n/\varepsilon^4)$</td></tr>
-      <tr><td class="n">L5</td><td>流式算法</td><td>蓄水池抽样、Morris 计数、生成森林、Spanner</td><td>近似计数 $O(\log\log n/\varepsilon^2)$ 空间；$(2k-1)$-spanner</td></tr>
-    <tr><td class="n">L6</td><td>聚类（不在 Quiz 1 范围；$k$-means 不考）</td><td>贪心 + 三角不等式、转测试问题 + 几何猜测、coreset</td><td>$k$-center 2-近似（优于 2 是 NP-hard）；流式 $k$-median $(4\alpha^2+4\alpha)$；MEB $(1+\varepsilon)$</td></tr>
+      <tr><td class="n">L5</td><td>流式算法（Quiz 1、Quiz 2 都考）</td><td>蓄水池抽样、Morris 计数、生成森林、Spanner</td><td>近似计数 $O(\log\log n/\varepsilon^2)$ 空间；$(2k-1)$-spanner</td></tr>
+    <tr><td class="n">L6</td><td>聚类（不在 Quiz 1、Quiz 2 范围）</td><td>贪心 + 三角不等式、转测试问题 + 几何猜测、coreset</td><td>$k$-center 2-近似（优于 2 是 NP-hard）；流式 $k$-median $(4\alpha^2+4\alpha)$；MEB $(1+\varepsilon)$</td></tr>
         <tr><td class="n">L7</td><td>不同元素计数</td><td>哈希函数、第 $t$ 小哈希值、$k$-wise 独立哈希</td><td>$(1\pm\varepsilon)$ 估计不同元素数，$O(\varepsilon^{-2}\log m\log\frac1\delta)$ 空间</td></tr>
     <tr><td class="n">L8</td><td>通信复杂度</td><td>流式 → 单向通信、抽屉原理、Newman 定理、从 Index / Gap-Hamming 归约</td><td>流式连通性 $\Omega(n)$；完美匹配、MIS $\Omega(n^2)$</td></tr>
     <tr><td class="n">L9</td><td>频率估计</td><td>频率向量、线性 sketch、随机符号抵消</td><td>AMS 估 $F_2$；Misra-Gries / Count-Min / Count Sketch 找大户；稀疏恢复</td></tr>
     <tr><td class="n">L10</td><td>数据压缩</td><td>Count Sketch、JL 随机投影、$\gamma$-net</td><td>近似稀疏恢复 $(1+\varepsilon)$；JL 降到 $O(\frac{\log n}{\varepsilon^2})$ 维；回归压缩</td></tr>
-    <tr><td class="n">L11</td><td>图问题的查询与流式算法</td><td>$\ell_0$-sampler、Kruskal、随机顺序（Luby）、局部模拟</td><td>AGM 生成森林 $O(n\log^4n)$；MST 权重估计；MIS $O(\log n)$ 遍</td></tr>
+    <tr><td class="n">L11</td><td>图问题的查询与流式算法（不在 Quiz 2 范围）</td><td>$\ell_0$-sampler、Kruskal、随机顺序（Luby）、局部模拟</td><td>AGM 生成森林 $O(n\log^4n)$；MST 权重估计；MIS $O(\log n)$ 遍</td></tr>
     
     </tbody>
   </table></div>
@@ -607,7 +607,7 @@ html{scroll-behavior:smooth}
 <!-- ================= L6 ================= -->
 <section class="lec" id="l6">
   <div class="lec-head"><span class="eyebrow">Lecture 6</span><h2>聚类</h2><span class="sub">Clustering · k-center · k-median · 最小包围球</span></div>
-  <div class="box key"><span class="tag">考试范围提醒</span>第 6 讲不在 Quiz 1 范围内（Quiz 1 只考 Lecture 1–5）。这一讲用到的套路（贪心 + 三角不等式、把优化问题转成测试问题再几何猜测、coreset）会在后面反复出现。<b>$k$-means 不考</b>，下面只在表格里列出它的定义。</div>
+  <div class="box key"><span class="tag">考试范围提醒</span>第 6 讲不在 Quiz 1 范围内（Quiz 1 只考 Lecture 1–5）。这一讲用到的套路（贪心 + 三角不等式、把优化问题转成测试问题再几何猜测、coreset）会在后面反复出现。<b>第 6 讲也不在 Quiz 2 范围内</b>（Quiz 2 考 Lecture 5、7–10）。</div>
 
   <h3>6.1 问题设定</h3>
   <p>给定 $n$ 个点 $p_1,\dots,p_n$ 和距离 $d$。$d$ 是<b>度量</b>：$d(p,p)=0$，对称，满足三角不等式 $d(p_i,p_j)+d(p_j,p_k)\ge d(p_i,p_k)$。选 $k$ 个中心 $C_1,\dots,C_k$，记 $C(p_i)$ 为离 $p_i$ 最近的中心，三种目标是：</p>
@@ -1124,6 +1124,7 @@ html{scroll-behavior:smooth}
 <!-- ================= L11 ================= -->
 <section class="lec" id="l11">
   <div class="lec-head"><span class="eyebrow">Lecture 11</span><h2>图问题的查询与流式算法</h2><span class="sub">AGM 生成森林 · MST · 极大独立集（Luby）· 极大匹配</span></div>
+  <div class="box key"><span class="tag">考试范围提醒</span>第 11 讲<b>不在 Quiz 2 范围内</b>（Quiz 2 考 Lecture 5、7–10）。</div>
 
   <div class="box easy"><span class="tag">一句话说清这一讲</span>
     把前面学的工具用到经典图问题上：边可以被删除时怎么维护连通性（用线性 sketch），怎么流式求最小生成树、只用查询估计 MST 的权重，以及极大独立集和匹配这类“一步依赖一步”的问题，如何用随机化减少依赖、少扫几遍。
@@ -1792,9 +1793,9 @@ Size: girth $&gt;2k$ ⇒ first $k$ BFS layers form a tree, each vertex $\ge d_{\
 
 <!-- ================= QUIZ 2 CHEAT SHEET ================= -->
 <section class="lec" id="sheet2">
-  <div class="lec-head"><span class="eyebrow">Quiz 2 · Cheat Sheet</span><h2>Quiz 2 Cheat Sheet（L6–L11）</h2><span class="sub">聚类、不同元素、通信复杂度、频率估计、压缩、图算法 · 与 PDF 版内容一致</span></div>
-  <div class="box key"><span class="tag">范围说明</span><b>$k$-means 不考</b>，所以没有写进来。Quiz 2 的日期、地点、是否开卷、题型请以 Canvas 公告为准；这里按 Quiz 1 的格式（开卷、两页 A4）准备。</div>
-  <p>后半张纸放了 sketch 对比表和三类大题的<b>答题模板</b>（估计量分析、归约证下界、近似比），考前先把这几段读熟。</p>
+  <div class="lec-head"><span class="eyebrow">Quiz 2 · Cheat Sheet</span><h2>Quiz 2 Cheat Sheet（L5、L7–L10）</h2><span class="sub">流式基础、不同元素、通信复杂度、频率估计、数据压缩 · 与 PDF 版内容一致</span></div>
+  <div class="box key"><span class="tag">Quiz 2 要求（老师课上公布）</span>11 月 5 日（周四）18:40–19:30，LT12，18:30 前到场 · 范围 <b>Lecture 5、7–10</b>（不考 L6 聚类和 L11 图算法） · <b>开卷</b> · 带 2B 铅笔 · 不能带电子设备 · 4 道选择题（4 分）+ 2 道大题（9 + 7 分）· 大题留空得 1 分。 请把 PDF 打印出来带进考场。</div>
+  <p>后半张纸放了 sketch 对比表和三类大题的<b>答题模板</b>（估计量分析、归约证下界、图流算法），考前先把这几段读熟。</p>
   <ul class="pdf-list"><li><a class="pdf-dl" href="cs5234/CS5234_Quiz2_CheatSheet_ZH.pdf" download>Quiz 2 cheat sheet 中文版 PDF</a> <a class="pdf-open" href="cs5234/CS5234_Quiz2_CheatSheet_ZH.pdf" target="_blank" rel="noopener">打开 ↗</a></li><li><a class="pdf-dl" href="cs5234/CS5234_Quiz2_CheatSheet_EN.pdf" download>Quiz 2 cheat sheet 英文版 PDF</a> <a class="pdf-open" href="cs5234/CS5234_Quiz2_CheatSheet_EN.pdf" target="_blank" rel="noopener">打开 ↗</a></li></ul>
   <div class="lang-tabs" role="tablist" aria-label="语言">
       <button type="button" class="lang-btn" data-group="cs2" data-lang="zh" aria-pressed="true">中文</button>
@@ -1805,8 +1806,9 @@ Size: girth $&gt;2k$ ⇒ first $k$ BFS layers form a tree, each vertex $\ge d_{\
 <ul class="cs-ul"><li> <b class="cs-key">流式上界</b>: 维护 sketch / 样本 / 摘要；无偏估计 → 方差 → Chebyshev（mean trick）→ median trick
 </li><li> <b class="cs-key">流式下界</b>: 单向通信；从 Index / Gap-Hamming / Disjointness 归约；把 Bob 的下标编码成关键边/元素
 </li><li> <b class="cs-key">允许删除（turnstile）</b>: 用线性 sketch $Rx$
+</li><li> <b class="cs-key">极小内存计数</b>: Morris：只存计数的对数；mean trick
 </li><li> <b class="cs-key">量级未知</b>: 转成带阈值 $T$ 的测试问题，并行跑 $T=(1+\eps)^j$
-</li><li> <b class="cs-key">近似算法</b>: 贪心 + 三角不等式；对最优簇用抽屉原理
+</li><li> <b class="cs-key">图流</b>: 维护稀疏子图（森林 / spanner），证明不变量 + 边数上界
 </li><li> <b class="cs-key">需要多少独立性</b> 只用 Chebyshev → 两两独立；四阶矩（AMS）→ 4-wise；以 $k$ 个大项为条件 → $(k{+}2)$-wise
 </li></ul>
 
@@ -1820,19 +1822,22 @@ Size: girth $&gt;2k$ ⇒ first $k$ BFS layers form a tree, each vertex $\ge d_{\
 </li><li> $(1-\frac1T)^T\approx\frac1e$, $(1-\frac1T)^{2T}\le\frac1{e^2}$; $\frac{d^k}{k!}\le(\frac{ed}k)^k$
 </li></ul>
 
-<h4 class="cs-h">2 · L6 聚类</h4>
+<h4 class="cs-h">2 · L5 流式基础</h4>
 
-<b class="cs-sub blk">设定</b>  度量 $d$：$d(p,p)=0$、对称、三角不等式。选 $k$ 个中心，$C(p)$ = 最近中心。 $k$-center: $\min\max_i d(p_i,C(p_i))$; $k$-median: $\min\sum_i d(p_i,C(p_i))$.
-<b class="cs-sub blk">困难性</b>  1-2 度量（距离只取 1、2，三角不等式自动成立）。有大小 $k$ 的支配集 ⇔ $k$-center 最优 $\le1$（有边 → 1，无边 → 2）⇒ 近似比 $&lt;2$ 是 NP-hard。
-<b class="cs-sub blk">最远点贪心 = 2-近似</b>  $S_i^*$ 为最优簇，$D(S_i^*)\le OPT$。点 $p\in S_i^*$：(a) 贪心在 $S_i^*$ 里选过 $c$ ⇒ $d(p,c)\le2OPT$；(b) 没选过 ⇒ $k$ 个中心落在 $k-1$ 个簇 ⇒ 两中心 $C_{\ell_1},C_{\ell_2}$ 同簇，距离 $\le2OPT$；选 $C_{\ell_2}$ 时它最远 ⇒ 当时所有点都在 $2OPT$ 内（之后更近）。 查询版：$nk$ 次距离查询。
-<b class="cs-sub blk">流式 $k$-center</b>  测试($T$)：第一个点作中心；新点离所有中心 $&gt;2T$ → 新中心，已有 $k$ 个则答 No。输出中心 ⇒ 代价 $\le2T$。No ⇒ $k+1$ 个点两两 $&gt;2T$ ⇒ 半径 $T$ 的球各盖一个 ⇒ $OPT&gt;T$。并行 $T=(1+\eps)^j$，最小非 No 的 $T^*$：$OPT/2\le T^*\le(1+\eps)OPT$ ⇒ $(2+2\eps)$；空间 $O(k\frac{\log\Delta}\eps)$ 个点。
-<b class="cs-sub blk">$k$-median coreset</b>  （优于 $1+\frac2e$ 是 NP-hard；最好 $2+\eps$。）每块 $\sqrt{nk}$ 点跑 $\alpha$-近似 → $k$ 个带权中心放入 $S$（$O(\sqrt{nk})$ 点）→ 在 $S$ 上再跑 $\alpha$-近似。<br>
-引理 $OPT(P)\le2OPT^*(P)$ (把自由中心挪到簇内最近输入点).<br>
-$\sum d(p_i,C_i)\le\sum d(p_i,s_i)+\sum d(s_i,C_i)$;<br>
-$\sum d(p_i,s_i)\le\alpha\sum_jOPT(P_j)\le2\alpha OPT$;<br>
-$\sum d(s_i,C_i)\le2\alpha\sum d(s_i,C_i^*)\le2\alpha(2\alpha+1)OPT$<br>
-⇒ <b class="cs-key">$(4\alpha^2+4\alpha)$</b>. $L$ 层: $(4\alpha+4)^L$, $O(Lkn^{1/L})$ 点.
-<b class="cs-sub blk">MEB (1-center)</b>  过圆心的任一半平面圆周上都有输入点。贪心：加入最远点、重算 MEB；$\lambda_i=r_i/D$，$\lambda_{i+1}\ge\frac{1+\lambda_i^2}2$；$x_i=1-\lambda_i$，$\frac1{x_{i+1}}\ge\frac1{x_i}+\frac12$ ⇒ $t&gt;\frac{10}\eps$ 即 $(1+\eps)$；coreset $O(1/\eps)$ 点。
+<b class="cs-sub blk">模型</b>  元素逐个到达、只看一次；内存最好是 $\mathrm{polylog}(n)$；存一个元素 $\log m$ 位，一个计数器 $\log n$ 位。
+<b class="cs-sub blk">蓄水池抽样</b>  存 $x$；$x_i$ 到达时以概率 $\frac1i$ 替换。<br>
+$\Pr[\text{\B{final}{最终}}=x_i]=\frac1i\cdot\frac i{i+1}\cdots\frac{n-1}n=\frac1n$. 空间 $\log m+\log n$. $k$ 份独立副本 ⇒ $k$ 个有放回样本。
+<b class="cs-sub blk">Morris 计数器</b>  每来一个 1，以概率 $2^{-C}$ 令 $C\gets C+1$；输出 $2^C-1$。<br>
+$X_i=2^{C_i}$: $\E[X_{i+1}\mid X_i{=}x]=2x\cdot\frac1x+x(1-\frac1x)=x+1$ ⇒ $\E X_A=A+1$ (无偏).<br>
+$\E[X_{i+1}^2\mid x]=x^2+3x$ ⇒ $\E X_i^2=\frac{3i(i+1)}2+1$, $\Var X_A=\frac{A(A-1)}2&lt;A^2$.<br>
+取 $\frac{10}{\eps^2}$ 份平均：$\Var&lt;\frac{\eps^2A^2}{10}$ ⇒ Chebyshev 失败率 $&lt;\frac1{10}$。空间 $O(\eps^{-2}\log\log n)$（$C$ 约为 $\log n$）。 <b class="cs-key">关键：全期望公式 + 递推。</b>
+<b class="cs-sub blk">边流</b>  顶点集事先已知，边逐条到达。
+<b class="cs-sub blk">连通性</b>  维护生成森林 $F$：加入 $e$ 不成环就加。至多 $n-1$ 条边 ⇒ $O(n\log n)$ 位；$G$ 连通 ⇔ $F$ 连通。
+<b class="cs-sub blk">二分图</b>  二分图 ⇔ 无奇环。维护森林 $F$；$F\cup e$ 有奇环 → 答 No；无环 → 加入。正确性：答 Yes ⇒ 给森林 2-染色；每条 $e\notin F$ 都闭合偶环 ⇒ 两端异色 ⇒ 对 $G$ 也合法。
+<b class="cs-sub blk">$(2k-1)$-spanner</b>  $H\subseteq G$ 且 $d_G\le d_H\le(2k-1)d_G$。加入 $e=(u,v)$ 当且仅当不形成长度 $\le2k$ 的环（即 $d_H(u,v)&gt;2k-1$）。<br>
+伸缩：被拒的边已有 $d_H(u,v)\le2k-1$；把最短路上每条边替换掉 ⇒ $d_H\le(2k-1)d_G$。<br>
+大小：围长 $&gt;2k$ ⇒ $O(n^{1+1/k})$ 条边。(i) 最小度 $\delta$：BFS 前 $k$ 层是一棵树，点数 $\ge(\delta-1)^k\le n$ ⇒ $\delta=O(n^{1/k})$。(ii) 平均度 $d$ ⇒ 反复删度 $&lt;\frac d4$ 的点（删掉 $&lt;\frac m2$ 条边）⇒ 剩下子图最小度 $\ge\frac d4$ ⇒ $d=O(n^{1/k})$。<br>
+空间 $O(n^{1+1/k}\log n)$ 位。$k=2$：3-spanner，$O(n^{3/2})$ 条边。
 
 <h4 class="cs-h">3 · L7 不同元素计数</h4>
 
@@ -1874,30 +1879,23 @@ $\ell_1$ 大户 → Count-Min；$\ell_2$ 大户 → Count Sketch。
 <b class="cs-sub blk">线性回归</b>  $L(x)=\|Ax-b\|_2=\|My\|_2$, $M=[A,b]$, $y=(x,-1)$. 若对所有 $y$ 有 $\|\Phi My\|=(1\pm\frac\eps{10})\|My\|$： $(1-\frac\eps{10})L(\tilde x)\le\tilde L(\tilde x)\le\tilde L(x^*)\le(1+\frac\eps{10})L(x^*)$ ⇒ $(1+\eps)$.
 <b class="cs-sub blk">子空间嵌入</b>  $d$-维 $E$, $k=O(\frac{d+\log(1/\delta)}{\eps^2})$ ⇒ 所有 $x\in E$ 被保持. 只看单位向量；$\frac12$-net 大小 $\le5^d$（半径 $\frac\gamma2$ 小球互不相交、都在半径 $1+\frac\gamma2$ 大球内）；对网上的点及差用 JL（$2^{O(d)}$ 个事件）⇒ 内积也保持；$x=\sum z_i$，$\|z_i\|\le2^{1-i}$，$\sum\|z_i\|\le2$ ⇒ 误差 $O(\eps)$。压缩后 $\tilde O(d^2/\eps^2)$ 个数。
 
-<h4 class="cs-h">7 · L11 图算法</h4>
-
-<b class="cs-sub blk">AGM</b>  $x_v$ 定义在 $\binom n2$ 对上：$v=u_1$ 记 $-w$，$v=u_2$ 记 $+w$。$x_S=\sum_{v\in S}x_v$ 恰在离开 $S$ 的边上非零 ⇒ 对 $Rx_S=\sum Rx_v$ 做 $\ell_0$ 采样。$\log n$ 轮（块数减半），每轮新 sketch（独立性），sampler $O(\log^2n\log\frac1\delta)$，$\delta=n^{-2}$ ⇒ $O(n\log^4n)$。
-<b class="cs-sub blk">MST 流式</b>  加入 $e$，成环则删环上最重边。环性质：环上最重边可以不在 MST 里。$O(n)$ 条边。
-<b class="cs-sub blk">MST 查询（只估权重）</b>  权重 $\in[W]$，$G_i$ = 权 $\le i$ 的边： <b class="cs-key">MST $=n-W+\sum_{i=1}^{W-1}\#CC(G_i)$</b> ($W=2$: $n-2+\#CC(G_1)$). $\#CC$ 用随机截断 $r$（$\Pr[r\ge i]=\frac1i$），$x=\mathbf1[|CC(v)|\le r]$：偏差 $\le\frac\eps W$，$\Var\le\frac{\#CC}n$；$W-1$ 项相加，总方差 $\le2\eps^2\text{MST}^2$ ⇒ Chebyshev；$O(\eps^{-2}nW\log\frac W\eps)$ 次查询。MST $\ge n-1$ ⇒ 加性 $\eps n$ 即相对误差。
-<b class="cs-sub blk">MIS（Luby）</b>  随机 $L(v)$；局部最小点全加入，删掉它们和邻居。$X_{wu}=1$ 若 $L(w)$ 是 $N(w)\cup N(u)$ 中最小：$\E\ge\frac1{d_w+d_u}$，删掉 $u$ 的 $d_u$ 条边；每条边至多记两次 ⇒ 期望删掉 $\ge\frac{|E|}2$ ⇒ $10\log n$ 轮 + Markov。多遍：每轮 2 遍，共 $O(\log n)$ 遍，$O(n\log n)$ 位。一遍需 $\Omega(n^2)$。
-<b class="cs-sub blk">匹配</b>  极大匹配 $\ge\frac12$ 最大匹配。流式贪心：$O(n)$ 条边，2-近似。查询：边的随机值 $L(e)$ 现用现抽；$Q(v)$ 按 $L$ 递增检查 $v$ 的边；$Q(v,e{=}uv)$ = $u$ 没有更早的边 $e'$ 使 $Q(u,e')$；抽 $t=\frac{100}{\eps^2}$ 个点，输出 $\frac{Xn}{2t}$。递归沿 $L$ 递减路径：$\Pr\le\frac{d^k}{k!}$，深度 $O(d/\eps)$ ⇒ $d^{O(d/\eps)}$ 次查询。
-
-<h4 class="cs-h">8 · 易错点</h4>
+<h4 class="cs-h">7 · 易错点</h4>
 
 <ul class="cs-ul"><li> 哈希函数是固定的：重复元素落进同一格（所以哈希统计的是<em>不同</em>元素）。
 </li><li> 写明分析需要的独立性（两两 / 4-wise / $(k{+}2)$-wise），并计入空间。
 </li><li> Count-Min 要求 $x_i\ge0$；Misra-Gries 只能加；KMV 遇删除失效。
+</li><li> Morris：$\E[2^C]=A+1$ 不是 $A$，要输出 $2^C-1$；每份空间是 $\log\log n$ 不是 $\log n$。
 </li><li> 下界归约：两个方向都要验证（答案 ⇔ $x_i=1$），且 Alice 的部分只依赖 $x$、Bob 的只依赖 $i$。
 </li><li> 对“所有 $i$/所有输入”做 union bound：单项失败率必须远小于 1/项数。
 </li></ul>
 
-<h4 class="cs-h">9 · 各 sketch 对比</h4>
+<h4 class="cs-h">8 · 各 sketch 对比</h4>
 
 
-<div class="mdisp"><table class="tbl"><tr><th>算法</th><th>模型</th><th>保证</th><th>空间</th></tr><tr><td>KMV</td><td>只插入</td><td>$(1\pm\eps)DE$</td><td>$\eps^{-2}\log m$</td></tr><tr><td>AMS</td><td>任意</td><td>$(1\pm\eps)F_2$</td><td>$\eps^{-2}\log(mn)$</td></tr><tr><td>M-G</td><td>只插入</td><td>$-\eps n$, 确定</td><td>$\eps^{-1}\log(mn)$</td></tr><tr><td>CM</td><td>strict</td><td>$+\eps\|x\|_1$</td><td>$\eps^{-1}\log m\log(mn)$</td></tr><tr><td>CS</td><td>任意</td><td>$\pm\eps\|x\|_2$</td><td>$\eps^{-2}\log m\log(mn)$</td></tr><tr><td>JL</td><td>线性</td><td>$(1\pm\eps)\|x\|_2$</td><td>$\eps^{-2}\log\frac1\delta$ 行</td></tr><tr><td>AGM</td><td>任意</td><td>生成森林</td><td>$n\log^4n$</td></tr></table></div>
+<div class="mdisp"><table class="tbl"><tr><th>算法</th><th>模型</th><th>保证</th><th>空间</th></tr><tr><td>KMV</td><td>只插入</td><td>$(1\pm\eps)DE$</td><td>$\eps^{-2}\log m$</td></tr><tr><td>AMS</td><td>任意</td><td>$(1\pm\eps)F_2$</td><td>$\eps^{-2}\log(mn)$</td></tr><tr><td>M-G</td><td>只插入</td><td>$-\eps n$, 确定</td><td>$\eps^{-1}\log(mn)$</td></tr><tr><td>CM</td><td>strict</td><td>$+\eps\|x\|_1$</td><td>$\eps^{-1}\log m\log(mn)$</td></tr><tr><td>CS</td><td>任意</td><td>$\pm\eps\|x\|_2$</td><td>$\eps^{-2}\log m\log(mn)$</td></tr><tr><td>JL</td><td>线性</td><td>$(1\pm\eps)\|x\|_2$</td><td>$\eps^{-2}\log\frac1\delta$ 行</td></tr><tr><td>Morris</td><td>只插入</td><td>$(1\pm\eps)A$</td><td>$\eps^{-2}\log\log n$</td></tr><tr><td>Spanner</td><td>边流</td><td>伸缩 $2k{-}1$</td><td>$n^{1+1/k}\log n$</td></tr></table></div>
  KMV/AMS 要 $1-\delta$ 再乘 $\log\frac1\delta$。M-G = Misra-Gries，CM = Count-Min，CS = Count Sketch。
 
-<h4 class="cs-h">10 · 答题模板</h4>
+<h4 class="cs-h">9 · 答题模板</h4>
 
 <b class="cs-sub blk">(A) 估计量分析</b> 
 <ol class="cs-ul"><li> 定义指示变量/带符号变量；算 $\E$（证无偏或界偏差）。
@@ -1913,10 +1911,10 @@ $\ell_1$ 大户 → Count-Min；$\ell_2$ 大户 → Count Sketch。
 </li><li> 证明：输出 YES ⇔ $x_i=1$（双向）。
 </li><li> 结论：空间 $\ge$ 通信量 $=\Omega(\cdot)$；随机算法对应随机通信下界。
 </li></ol>
-<b class="cs-sub blk">(C) 近似比</b> 
-固定一个最优解；分情况（抽屉原理：算法有没有选中这个最优簇）；链式用三角不等式；对所有点/簇求和。
+<b class="cs-sub blk">(C) 图流算法</b> 
+写清楚保留什么子图、加边规则；用不变量证正确性（森林 / 无短环 / 染色）；界住存的边数（$n-1$，或围长 $&gt;2k$ ⇒ $O(n^{1+1/k})$）；空间 = 边数 $\times\,2\log n$。
 
-<h4 class="cs-h">11 · 常用数</h4>
+<h4 class="cs-h">10 · 常用数</h4>
 
 <ul class="cs-ul"><li> $\frac1e\approx0.368$, $\frac1{e^2}\approx0.135$, 中点 $\approx0.25$
 </li><li> 几何猜测：$\log_{1+\eps}\Delta=O(\frac{\log\Delta}\eps)$ 个阈值。
@@ -1932,8 +1930,9 @@ $\ell_1$ 大户 → Count-Min；$\ell_2$ 大户 → Count Sketch。
 <ul class="cs-ul"><li> <b class="cs-key">Streaming upper bound</b>: keep a sketch / sample / summary; unbiased estimator → variance → Chebyshev (mean trick) → median trick
 </li><li> <b class="cs-key">Streaming lower bound</b>: one-way communication; reduce from Index / Gap-Hamming / Disjointness; encode Bob's index as a key edge / element
 </li><li> <b class="cs-key">Deletions allowed (turnstile)</b>: use a linear sketch $Rx$
+</li><li> <b class="cs-key">Counting with tiny memory</b>: Morris: store $\log$ of the count; mean trick
 </li><li> <b class="cs-key">Unknown scale</b>: convert to a testing problem with threshold $T$, run $T=(1+\eps)^j$ in parallel
-</li><li> <b class="cs-key">Approximation algorithm</b>: greedy + triangle inequality; pigeonhole on optimal clusters
+</li><li> <b class="cs-key">Graph stream</b>: keep a sparse subgraph (forest / spanner) and prove an invariant + an edge-count bound
 </li><li> <b class="cs-key">How much independence?</b> Chebyshev only → pairwise; 4th moment (AMS) → 4-wise; conditioning on $k$ heavy items → $(k{+}2)$-wise
 </li></ul>
 
@@ -1947,19 +1946,22 @@ $\ell_1$ 大户 → Count-Min；$\ell_2$ 大户 → Count Sketch。
 </li><li> $(1-\frac1T)^T\approx\frac1e$, $(1-\frac1T)^{2T}\le\frac1{e^2}$; $\frac{d^k}{k!}\le(\frac{ed}k)^k$
 </li></ul>
 
-<h4 class="cs-h">2 · L6 Clustering</h4>
+<h4 class="cs-h">2 · L5 Streaming basics</h4>
 
-<b class="cs-sub blk">Setup</b>  metric $d$: $d(p,p)=0$, symmetric, triangle inequality. Choose $k$ centres; $C(p)$ = nearest centre. $k$-center: $\min\max_i d(p_i,C(p_i))$; $k$-median: $\min\sum_i d(p_i,C(p_i))$.
-<b class="cs-sub blk">Hardness</b>  1-2 metric (distances in $\{1,2\}$, triangle inequality automatic). Dominating set of size $k$ ⇔ $k$-center OPT $\le1$ (edge → 1, non-edge → 2) ⇒ ratio $&lt;2$ is NP-hard.
-<b class="cs-sub blk">Farthest-first greedy = 2-approx</b>  $S_i^*$ optimal clusters, $D(S_i^*)\le OPT$. Point $p\in S_i^*$: (a) greedy picked $c\in S_i^*$ ⇒ $d(p,c)\le d(p,C_i^*)+d(C_i^*,c)\le2OPT$; (b) none picked in $S_i^*$ ⇒ $k$ centres in $k-1$ clusters ⇒ two centres $C_{\ell_1},C_{\ell_2}$ ($\ell_1&lt;\ell_2$) share a cluster, $d\le2OPT$; when $C_{\ell_2}$ was chosen it was the farthest point ⇒ every point within $2OPT$ then (and later). Query: $nk$ distance queries.
-<b class="cs-sub blk">Streaming $k$-center</b>  Test($T$): first point is a centre; new $p$ farther than $2T$ from all centres → new centre, or “No” if already $k$. Output centres ⇒ cost $\le2T$. “No” ⇒ $k+1$ points pairwise $&gt;2T$ ⇒ each radius-$T$ ball covers $\le1$ ⇒ $OPT&gt;T$. Run $T=(1+\eps)^j$: smallest non-“No” $T^*$ has $OPT/2\le T^*\le(1+\eps)OPT$ ⇒ $(2+2\eps)$-approx; space $O(k\frac{\log\Delta}\eps)$ points.
-<b class="cs-sub blk">$k$-median coreset</b>  ($&lt;1+\frac2e$ NP-hard; best $2+\eps$.) Blocks of $\sqrt{nk}$ points, $\alpha$-approx each → $k$ weighted centres into $S$ ($O(\sqrt{nk})$ points) → $\alpha$-approx on $S$.<br>
-Lemma $OPT(P)\le2OPT^*(P)$ (move each free centre to nearest input point).<br>
-$\sum d(p_i,C_i)\le\sum d(p_i,s_i)+\sum d(s_i,C_i)$;<br>
-$\sum d(p_i,s_i)\le\alpha\sum_jOPT(P_j)\le2\alpha OPT$;<br>
-$\sum d(s_i,C_i)\le2\alpha\sum d(s_i,C_i^*)\le2\alpha(2\alpha+1)OPT$<br>
-⇒ <b class="cs-key">$(4\alpha^2+4\alpha)$</b>. $L$ levels: $(4\alpha+4)^L$, $O(Lkn^{1/L})$ points.
-<b class="cs-sub blk">MEB (1-center)</b>  Some input point on the circle in every half-plane through the centre. Greedy: add farthest point, recompute MEB; $\lambda_i=r_i/D$, $\lambda_{i+1}\ge\frac{1+\lambda_i^2}2$ (max of $1-a$ and $\sqrt{\lambda_i^2+a^2}$); $x_i=1-\lambda_i$, $\frac1{x_{i+1}}\ge\frac1{x_i}+\frac12$ ⇒ $t&gt;\frac{10}\eps$ gives $(1+\eps)$; coreset of $O(1/\eps)$ points.
+<b class="cs-sub blk">Model</b>  elements arrive one by one, seen once; memory ideally $\mathrm{polylog}(n)$; storing one element $\log m$ bits, a counter $\log n$ bits.
+<b class="cs-sub blk">Reservoir sampling</b>  keep $x$; when $x_i$ arrives replace with prob. $\frac1i$.<br>
+$\Pr[\text{\B{final}{最终}}=x_i]=\frac1i\cdot\frac i{i+1}\cdots\frac{n-1}n=\frac1n$. Space $\log m+\log n$. $k$ independent copies ⇒ $k$ samples with replacement.
+<b class="cs-sub blk">Morris counter</b>  $C\gets C+1$ w.p. $2^{-C}$ on each 1; output $2^C-1$.<br>
+$X_i=2^{C_i}$: $\E[X_{i+1}\mid X_i{=}x]=2x\cdot\frac1x+x(1-\frac1x)=x+1$ ⇒ $\E X_A=A+1$ (unbiased).<br>
+$\E[X_{i+1}^2\mid x]=x^2+3x$ ⇒ $\E X_i^2=\frac{3i(i+1)}2+1$, $\Var X_A=\frac{A(A-1)}2&lt;A^2$.<br>
+Mean of $\frac{10}{\eps^2}$ copies: $\Var&lt;\frac{\eps^2A^2}{10}$ ⇒ Chebyshev $\Pr[|\bar A-A|&gt;\eps A]&lt;\frac1{10}$. Space $O(\eps^{-2}\log\log n)$ ($C\le\log n$ w.h.p.). <b class="cs-key">Key step: law of total expectation, then induction.</b>
+<b class="cs-sub blk">Edge stream</b>  vertex set known, edges arrive one by one.
+<b class="cs-sub blk">Connectivity</b>  keep spanning forest $F$: add $e$ iff no cycle. $\le n-1$ edges ⇒ $O(n\log n)$ bits; $G$ connected ⇔ $F$ connected.
+<b class="cs-sub blk">Bipartiteness</b>  bipartite ⇔ no odd cycle. Keep forest $F$; if $F\cup e$ has an odd cycle → “No”; no cycle → add. Correctness: “Yes” ⇒ 2-colour the forest; every $e\notin F$ closes an even cycle ⇒ endpoints differ ⇒ colouring valid for $G$.
+<b class="cs-sub blk">$(2k-1)$-spanner</b>  $H\subseteq G$ with $d_G\le d_H\le(2k-1)d_G$. Add $e=(u,v)$ iff it closes no cycle of length $\le2k$ (i.e. $d_H(u,v)&gt;2k-1$).<br>
+Stretch: a rejected edge already has $d_H(u,v)\le2k-1$; replace each edge of a shortest path ⇒ $d_H\le(2k-1)d_G$.<br>
+Size: girth $&gt;2k$ ⇒ $O(n^{1+1/k})$ edges. (i) min degree $\delta$: first $k$ BFS layers are a tree with $\ge(\delta-1)^k\le n$ vertices ⇒ $\delta=O(n^{1/k})$. (ii) average degree $d$ ⇒ peel vertices of degree $&lt;\frac d4$ (removes $&lt;\frac m2$ edges) ⇒ subgraph with min degree $\ge\frac d4$ ⇒ $d=O(n^{1/k})$.<br>
+Space $O(n^{1+1/k}\log n)$ bits. $k=2$: 3-spanner, $O(n^{3/2})$ edges.
 
 <h4 class="cs-h">3 · L7 Distinct elements</h4>
 
@@ -2001,30 +2003,23 @@ Step 2: $I$ = chosen, $J$ = true top-$k$; $j\in J\setminus I$ displaced by $i\in
 <b class="cs-sub blk">Regression</b>  $L(x)=\|Ax-b\|_2=\|My\|_2$, $M=[A,b]$, $y=(x,-1)$. If $\|\Phi My\|=(1\pm\frac\eps{10})\|My\|$ $\forall y$: $(1-\frac\eps{10})L(\tilde x)\le\tilde L(\tilde x)\le\tilde L(x^*)\le(1+\frac\eps{10})L(x^*)$ ⇒ $(1+\eps)$.
 <b class="cs-sub blk">Subspace embedding</b>  $d$-dim $E$, $k=O(\frac{d+\log(1/\delta)}{\eps^2})$ ⇒ all $x\in E$ preserved. Unit vectors only; $\frac12$-net $|N|\le5^d$ (disjoint radius-$\frac\gamma2$ balls inside radius $1+\frac\gamma2$); JL on $N$ and differences ($2^{O(d)}$ events) ⇒ inner products; $x=\sum z_i$, $\|z_i\|\le2^{1-i}$, $\sum\|z_i\|\le2$ ⇒ error $O(\eps)$. Sketch size $\tilde O(d^2/\eps^2)$.
 
-<h4 class="cs-h">7 · L11 Graph algorithms</h4>
-
-<b class="cs-sub blk">AGM</b>  $x_v$ over $\binom n2$ pairs: $-w$ if $v=u_1$, $+w$ if $v=u_2$ ($u_1&lt;u_2$). $x_S=\sum_{v\in S}x_v$ is non-zero exactly on edges leaving $S$ ⇒ $\ell_0$-sample $R x_S=\sum Rx_v$. $\log n$ rounds (components halve), fresh sketch per round (independence), $\ell_0$-sampler $O(\log^2n\log\frac1\delta)$, $\delta=n^{-2}$ ⇒ $O(n\log^4n)$.
-<b class="cs-sub blk">MST stream</b>  add $e$; if cycle, delete heaviest edge on it. Cycle property: max edge of a cycle is in no MST (some MST avoids it). $O(n)$ edges.
-<b class="cs-sub blk">MST query (weight only)</b>  weights in $[W]$, $G_i$ = edges of weight $\le i$: <b class="cs-key">MST $=n-W+\sum_{i=1}^{W-1}\#CC(G_i)$</b> ($W=2$: $n-2+\#CC(G_1)$). $\#CC$ via random truncation $r$ ($\Pr[r\ge i]=\frac1i$), $x=\mathbf1[|CC(v)|\le r]$: bias $\le\frac\eps W$, $\Var\le\frac{\#CC}n$; sum the $W-1$ estimators, total variance $\le2\eps^2\text{MST}^2$ ⇒ Chebyshev; $O(\eps^{-2}nW\log\frac W\eps)$ pair queries. MST $\ge n-1$ ⇒ additive $\eps n$ is relative.
-<b class="cs-sub blk">MIS (Luby)</b>  random $L(v)$; add all local minima; delete them + neighbours. $X_{wu}=1$ if $L(w)$ is min over $N(w)\cup N(u)$: $\E\ge\frac1{d_w+d_u}$, removes $d_u$ edges; each edge counted $\le2$ times ⇒ $\E[\text{removed}]\ge\frac12\sum(\frac{d_u}{d_w+d_u}+\frac{d_w}{d_w+d_u})=\frac{|E|}2$ ⇒ $10\log n$ rounds + Markov. Multi-pass: 2 passes/round, $O(\log n)$ passes, $O(n\log n)$ bits. One-pass needs $\Omega(n^2)$.
-<b class="cs-sub blk">Matching</b>  maximal $\ge\frac12$ maximum. Stream greedy: $O(n)$ edges, 2-approx. Query: random $L(e)$ (sampled lazily); $Q(v)$ checks edges of $v$ in increasing $L$; $Q(v,e{=}uv)$ = no earlier edge $e'$ of $u$ with $Q(u,e')$; sample $t=\frac{100}{\eps^2}$ vertices, output $\frac{Xn}{2t}$. Recursion follows $L$-decreasing paths: $\Pr\le\frac{d^k}{k!}$, depth $O(d/\eps)$ ⇒ $d^{O(d/\eps)}$ queries.
-
-<h4 class="cs-h">8 · Pitfalls</h4>
+<h4 class="cs-h">7 · Pitfalls</h4>
 
 <ul class="cs-ul"><li> Hash functions are fixed: repeated elements hit the same bucket (that is why hashing counts <em>distinct</em> elements).
 </li><li> State the independence your analysis needs (pairwise / 4-wise / $(k{+}2)$-wise) and count its space.
 </li><li> Count-Min needs $x_i\ge0$; Misra-Gries is insert-only; KMV breaks under deletions.
+</li><li> Morris: $\E[2^C]=A+1$, not $A$; output $2^C-1$. Space is $\log\log n$ per copy, not $\log n$.
 </li><li> Lower-bound reductions: check both directions (answer 1 ⇔ $x_i=1$) and that Alice's part depends only on $x$, Bob's only on $i$.
 </li><li> Union bound over “all $i$” or “all inputs”: per-item failure must be $\ll$ 1/(number of items).
 </li></ul>
 
-<h4 class="cs-h">9 · Sketch comparison</h4>
+<h4 class="cs-h">8 · Sketch comparison</h4>
 
 
-<div class="mdisp"><table class="tbl"><tr><th>Alg.</th><th>Model</th><th>Guarantee</th><th>Space</th></tr><tr><td>KMV</td><td>insert</td><td>$(1\pm\eps)DE$</td><td>$\eps^{-2}\log m$</td></tr><tr><td>AMS</td><td>turnstile</td><td>$(1\pm\eps)F_2$</td><td>$\eps^{-2}\log(mn)$</td></tr><tr><td>M-G</td><td>insert</td><td>$-\eps n$, det.</td><td>$\eps^{-1}\log(mn)$</td></tr><tr><td>CM</td><td>strict</td><td>$+\eps\|x\|_1$</td><td>$\eps^{-1}\log m\log(mn)$</td></tr><tr><td>CS</td><td>turnstile</td><td>$\pm\eps\|x\|_2$</td><td>$\eps^{-2}\log m\log(mn)$</td></tr><tr><td>JL</td><td>linear</td><td>$(1\pm\eps)\|x\|_2$</td><td>$\eps^{-2}\log\frac1\delta$ rows</td></tr><tr><td>AGM</td><td>turnstile</td><td>spanning forest</td><td>$n\log^4n$</td></tr></table></div>
+<div class="mdisp"><table class="tbl"><tr><th>Alg.</th><th>Model</th><th>Guarantee</th><th>Space</th></tr><tr><td>KMV</td><td>insert</td><td>$(1\pm\eps)DE$</td><td>$\eps^{-2}\log m$</td></tr><tr><td>AMS</td><td>turnstile</td><td>$(1\pm\eps)F_2$</td><td>$\eps^{-2}\log(mn)$</td></tr><tr><td>M-G</td><td>insert</td><td>$-\eps n$, det.</td><td>$\eps^{-1}\log(mn)$</td></tr><tr><td>CM</td><td>strict</td><td>$+\eps\|x\|_1$</td><td>$\eps^{-1}\log m\log(mn)$</td></tr><tr><td>CS</td><td>turnstile</td><td>$\pm\eps\|x\|_2$</td><td>$\eps^{-2}\log m\log(mn)$</td></tr><tr><td>JL</td><td>linear</td><td>$(1\pm\eps)\|x\|_2$</td><td>$\eps^{-2}\log\frac1\delta$ rows</td></tr><tr><td>Morris</td><td>insert</td><td>$(1\pm\eps)A$</td><td>$\eps^{-2}\log\log n$</td></tr><tr><td>Spanner</td><td>edge</td><td>stretch $2k{-}1$</td><td>$n^{1+1/k}\log n$</td></tr></table></div>
  KMV/AMS: $\times\log\frac1\delta$ for $1-\delta$. M-G = Misra-Gries, CM = Count-Min, CS = Count Sketch.
 
-<h4 class="cs-h">10 · Answer templates</h4>
+<h4 class="cs-h">9 · Answer templates</h4>
 
 <b class="cs-sub blk">(A) Estimator analysis</b> 
 <ol class="cs-ul"><li> Define indicator / signed variables; compute $\E$ (show unbiased or bound the bias).
@@ -2040,10 +2035,10 @@ Step 2: $I$ = chosen, $J$ = true top-$k$; $j\in J\setminus I$ displaced by $i\in
 </li><li> Prove: output YES ⇔ $x_i=1$ (both directions).
 </li><li> Conclude: space $\ge$ CC $=\Omega(\cdot)$; mention randomness ⇒ randomized CC bound.
 </li></ol>
-<b class="cs-sub blk">(C) Approximation ratio</b> 
-Fix an optimal solution; split into cases (pigeonhole: did the algorithm hit this optimal cluster?); chain triangle inequalities; sum over points / clusters.
+<b class="cs-sub blk">(C) Graph stream algorithm</b> 
+State what subgraph you keep and the rule for adding an edge; prove correctness via an invariant (forest / no short cycle / colouring); bound stored edges ($n-1$, or girth $&gt;2k$ ⇒ $O(n^{1+1/k})$); space = edges $\times\,2\log n$.
 
-<h4 class="cs-h">11 · Quick numbers</h4>
+<h4 class="cs-h">10 · Quick numbers</h4>
 
 <ul class="cs-ul"><li> $\frac1e\approx0.368$, $\frac1{e^2}\approx0.135$, midpoint $\approx0.25$
 </li><li> Geometric guessing: $\log_{1+\eps}\Delta=O(\frac{\log\Delta}\eps)$ thresholds.
@@ -2058,8 +2053,8 @@ Fix an optimal solution; split into cases (pigeonhole: did the algorithm hit thi
 
 <!-- ================= QUIZ 2 MOCK PAPER ================= -->
 <section class="lec" id="paper2">
-  <div class="lec-head"><span class="eyebrow">Quiz 2 · Mock Paper</span><h2>Quiz 2 模拟卷（L6–L11）</h2><span class="sub">沿用 Quiz 1 的格式：4 道选择题（共 4 分）+ 2 道大题（9 + 7 分），50 分钟</span></div>
-  <div class="box key"><span class="tag">格式假设</span>老师还没公布 Quiz 2 的具体格式时，先按 Quiz 1 的格式练：4 道选择题各 1 分、两道大题 9 + 7 分、大题留空得 1 分。<b>$k$-means 不考</b>，题目不涉及。如果 Canvas 上的要求不同，以 Canvas 为准。</div>
+  <div class="lec-head"><span class="eyebrow">Quiz 2 · Mock Paper</span><h2>Quiz 2 模拟卷（L5、L7–L10）</h2><span class="sub">按老师公布的格式：4 道选择题（共 4 分）+ 2 道大题（9 + 7 分），50 分钟</span></div>
+  <div class="box key"><span class="tag">Quiz 2 要求（老师课上公布）</span>11 月 5 日（周四）18:40–19:30，LT12，18:30 前到场 · 范围 <b>Lecture 5、7–10</b>（不考 L6 聚类和 L11 图算法） · <b>开卷</b> · 带 2B 铅笔 · 不能带电子设备 · 4 道选择题（4 分）+ 2 道大题（9 + 7 分）· 大题留空得 1 分。</div>
   <p>建议打印中英对照的试卷，计时 50 分钟：选择题 5 分钟，大题 1（AMS 估计 $\|x-y\|_2^2$）约 25 分钟，大题 2（归约证下界）约 20 分钟。做完对照解答里的评分点给自己打分。</p>
   <ul class="pdf-list"><li><a class="pdf-dl" href="cs5234/CS5234_Quiz2_MockPaper_Bilingual.pdf" download>模拟卷（中英对照）PDF</a> <a class="pdf-open" href="cs5234/CS5234_Quiz2_MockPaper_Bilingual.pdf" target="_blank" rel="noopener">打开 ↗</a></li><li><a class="pdf-dl" href="cs5234/CS5234_Quiz2_MockPaper_Solutions_ZH.pdf" download>解答与评分 中文 PDF</a> <a class="pdf-open" href="cs5234/CS5234_Quiz2_MockPaper_Solutions_ZH.pdf" target="_blank" rel="noopener">打开 ↗</a></li><li><a class="pdf-dl" href="cs5234/CS5234_Quiz2_MockPaper_Solutions_EN.pdf" download>解答与评分 英文 PDF</a> <a class="pdf-open" href="cs5234/CS5234_Quiz2_MockPaper_Solutions_EN.pdf" target="_blank" rel="noopener">打开 ↗</a></li></ul>
   <div class="lang-tabs" role="tablist" aria-label="语言">
@@ -2088,25 +2083,28 @@ Fix an optimal solution; split into cases (pigeonhole: did the algorithm hit thi
 
 <h4 class="mq-h">选择题 3（1 分）</h4>
 
-<p>关于度量空间上的 $k$-center，哪项正确（假设 P $\ne$ NP）？</p>
+<p>Morris 计数器每来一个 1 以概率 $2^{-C}$ 令 $C$ 加 1，输出 $2^C-1$。设 $A$ 为 1 的个数。哪项正确？</p>
 
 <p>
-<span class="mcq-opt">(A) 最远点贪心总能找到最优解。</span>
-<span class="mcq-opt">(B) 最远点贪心是 2-近似，且没有多项式算法能达到 $1.9$ 的近似比。</span>
-<span class="mcq-opt">(C) 对任意 $\eps&gt;0$ 都有多项式时间的 $(1+\eps)$-近似。</span>
-<span class="mcq-opt">(D) 最远点贪心的近似比随 $k$ 增大而变差。</span>
+<span class="mcq-opt">(A) $\E[2^C]=A$。</span>
+<span class="mcq-opt">(B) $\Var(2^C)=\frac{A(A-1)}2$，所以平均 $\frac{10}{\eps^2}$ 份独立副本能以 $\ge0.9$ 的概率得到 $(1\pm\eps)$ 估计。</span>
+<span class="mcq-opt">(C) 每份需要 $\Theta(\log n)$ 位，和精确计数一样。</span>
+<span class="mcq-opt">(D) 分析需要两两独立的哈希函数。</span>
 </p>
-<details class="sol"><summary>查看解答</summary><div><b>(B)</b>。对任意 $k$ 贪心都是 2-近似（抽屉原理 + 三角不等式）。用图构造 1-2 度量：存在大小 $k$ 的支配集 ⇔ OPT $=1$，否则 OPT $=2$；比值 $1.9$ 的算法能区分两种情况，而这是 NP-hard。所以 (C)(D) 错，(A) 也错（问题是 NP-hard）。</div></details>
+<details class="sol"><summary>查看解答</summary><div><b>(B)</b>。令 $X_i=2^{C_i}$：$\E[X_{i+1}\mid X_i=x]=x+1$，所以 $\E[2^C]=A+1$（(A) 差 1，这正是输出要减 1 的原因）。$\E[X_{i+1}^2\mid x]=x^2+3x$ 推出 $\Var X_A=\frac{A(A-1)}2&lt;A^2$。$k=\frac{10}{\eps^2}$ 份的平均方差 $&lt;\frac{\eps^2A^2}{10}$，Chebyshev 失败率 $&lt;\frac1{10}$。(C) 错：$C\approx\log A$，每份只存 $O(\log\log n)$ 位。(D) 错：Morris 每次抛新硬币，不用哈希。</div></details>
 
 
 <h4 class="mq-h">选择题 4（1 分）</h4>
 
-<p>连通图有 $n=10$ 个点，边权为 $\{1,2,3\}$ 中的整数。$G_i$ 为权 $\le i$ 的边构成的子图。已知 $\#CC(G_1)=4$，$\#CC(G_2)=2$。MST 的权重是多少？</p>
+<p>边流中，算法维护 $H$，到达的边当且仅当不在 $H$ 中形成长度 $\le4$ 的环时才加入（即 $k=2$）。哪项正确？</p>
 
 <p>
-<span class="mcq-opt">(A) 11</span><span class="mcq-opt">(B) 12</span><span class="mcq-opt">(C) 13</span><span class="mcq-opt">(D) 16</span>
+<span class="mcq-opt">(A) $H$ 是 $G$ 的 3-spanner，有 $O(n^{3/2})$ 条边。</span>
+<span class="mcq-opt">(B) $H$ 是 $G$ 的 4-spanner，有 $O(n\sqrt n\log n)$ 条边。</span>
+<span class="mcq-opt">(C) $H$ 是 3-spanner，但可能有 $\Theta(n^2)$ 条边。</span>
+<span class="mcq-opt">(D) $H$ 精确保持所有距离。</span>
 </p>
-<details class="sol"><summary>查看解答</summary><div><b>(C)</b>。MST $=n-W+\sum_{i=1}^{W-1}\#CC(G_i)=10-3+4+2=13$。验算：Kruskal 用 $10-4=6$ 条权 1 的边、$4-2=2$ 条权 2、$2-1=1$ 条权 3：$6+4+3=13$。</div></details>
+<details class="sol"><summary>查看解答</summary><div><b>(A)</b>。被拒的边 $(u,v)$ 会形成长度 $\le2k=4$ 的环，所以 $H$ 里已有一条长度 $\le3=2k-1$ 的 $u$–$v$ 路；把最短路上的每条边替换掉，伸缩比为 3。$H$ 的围长 $&gt;4$，由 BFS / 最小度论证，边数为 $O(n^{1+1/k})=O(n^{3/2})$，排除 (C)。伸缩比是 $2k-1=3$ 而不是 4，距离也不是精确保持的（被拒边的两端距离可达 3）。</div></details>
 
 
 <h4 class="mq-sec">第二部分 · 大题</h4><h4 class="mq-h">大题 1（9 分）</h4>
@@ -2166,25 +2164,28 @@ Fix an optimal solution; split into cases (pigeonhole: did the algorithm hit thi
 
 <h4 class="mq-h">MCQ 3 (1 pt)</h4>
 
-<p>Which statement about metric $k$-center is true (assuming P $\ne$ NP)?</p>
+<p>The Morris counter increments $C$ with probability $2^{-C}$ on each 1 and outputs $2^C-1$. Let $A$ be the number of 1s. Which statement is true?</p>
 
 <p>
-<span class="mcq-opt">(A) Farthest-first greedy always finds an optimal solution.</span>
-<span class="mcq-opt">(B) Farthest-first greedy is a 2-approximation, and no polynomial-time algorithm achieves ratio $1.9$.</span>
-<span class="mcq-opt">(C) For every $\eps&gt;0$ there is a polynomial-time $(1+\eps)$-approximation.</span>
-<span class="mcq-opt">(D) The approximation ratio of farthest-first greedy grows with $k$.</span>
+<span class="mcq-opt">(A) $\E[2^C]=A$.</span>
+<span class="mcq-opt">(B) $\Var(2^C)=\frac{A(A-1)}2$, so averaging $\frac{10}{\eps^2}$ independent copies gives a $(1\pm\eps)$-estimate with probability $\ge0.9$.</span>
+<span class="mcq-opt">(C) Each copy needs $\Theta(\log n)$ bits, the same as an exact counter.</span>
+<span class="mcq-opt">(D) The analysis needs a pairwise-independent hash function.</span>
 </p>
-<details class="sol"><summary>Show solution</summary><div><b>(B)</b>. Greedy is a 2-approximation for every $k$ (pigeonhole + triangle inequality). In a 1-2 metric built from a graph, a dominating set of size $k$ exists iff OPT $=1$ (otherwise OPT $=2$); a ratio-$1.9$ algorithm would separate the two cases, which is NP-hard. So (C) and (D) are false, and (A) is false since the problem is NP-hard.</div></details>
+<details class="sol"><summary>Show solution</summary><div><b>(B)</b>. With $X_i=2^{C_i}$: $\E[X_{i+1}\mid X_i=x]=x+1$ so $\E[2^C]=A+1$ ((A) is off by one; that is why the output subtracts 1). $\E[X_{i+1}^2\mid x]=x^2+3x$ gives $\Var X_A=\frac{A(A-1)}2&lt;A^2$. The mean of $k=\frac{10}{\eps^2}$ copies has variance $&lt;\frac{\eps^2A^2}{10}$, so Chebyshev gives failure $&lt;\frac1{10}$. (C) is wrong: $C\approx\log A$, so a copy stores $O(\log\log n)$ bits. (D) is wrong: Morris uses fresh coin flips, no hashing.</div></details>
 
 
 <h4 class="mq-h">MCQ 4 (1 pt)</h4>
 
-<p>A connected graph has $n=10$ vertices and integer edge weights in $\{1,2,3\}$. Let $G_i$ be the subgraph with edges of weight $\le i$. You are told $\#CC(G_1)=4$ and $\#CC(G_2)=2$. What is the weight of the MST?</p>
+<p>In an edge stream, the algorithm keeps $H$ and adds an arriving edge iff it does not create a cycle of length $\le4$ in $H$ (i.e. $k=2$). Which is true?</p>
 
 <p>
-<span class="mcq-opt">(A) 11</span><span class="mcq-opt">(B) 12</span><span class="mcq-opt">(C) 13</span><span class="mcq-opt">(D) 16</span>
+<span class="mcq-opt">(A) $H$ is a 3-spanner of $G$ with $O(n^{3/2})$ edges.</span>
+<span class="mcq-opt">(B) $H$ is a 4-spanner of $G$ with $O(n\sqrt n\log n)$ edges.</span>
+<span class="mcq-opt">(C) $H$ is a 3-spanner, but it can have $\Theta(n^2)$ edges.</span>
+<span class="mcq-opt">(D) $H$ preserves all distances exactly.</span>
 </p>
-<details class="sol"><summary>Show solution</summary><div><b>(C)</b>. MST $=n-W+\sum_{i=1}^{W-1}\#CC(G_i)=10-3+4+2=13$. Check: Kruskal uses $10-4=6$ edges of weight 1, $4-2=2$ of weight 2, $2-1=1$ of weight 3: $6+4+3=13$.</div></details>
+<details class="sol"><summary>Show solution</summary><div><b>(A)</b>. A rejected edge $(u,v)$ would close a cycle of length $\le2k=4$, so $H$ already has a $u$–$v$ path of length $\le3=2k-1$; replacing every edge of a shortest path gives stretch $3$. $H$ has girth $&gt;4$, so by the BFS / min-degree argument it has $O(n^{1+1/k})=O(n^{3/2})$ edges, which rules out (C). The stretch is $2k-1=3$, not 4, and distances are not exact (a rejected edge's endpoints are at distance up to 3).</div></details>
 
 
 <h4 class="mq-sec">Part II · Essay questions</h4><h4 class="mq-h">Essay 1 (9 pts)</h4>
