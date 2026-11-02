@@ -50,7 +50,7 @@
       "code": "CS5234",
       "title": "大规模算法",
       "title_en": "Algorithms at Scale",
-      "scope": "Lecture 1–11 · Quiz 1 / Quiz 2",
+      "scope": "Lecture 1–11 · Quiz 2: L5, L7–10",
       "updated": "2026-11",
       "summary": "从概率工具、查询下界、性质测试讲到流式算法、sketch、通信复杂度、JL 与图算法。零基础中文讲解，附作业解析、两份中英 Cheat Sheet、两套正式格式模拟卷和题库。",
       "chips": [
