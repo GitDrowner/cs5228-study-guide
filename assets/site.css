@@ -1,0 +1,213 @@
+/* Shared styles for the notes hub (index.html) and generated study pages.
+   Visual language follows cs5228-study.html; each course sets its accent via body.accent-*. */
+:root{
+  --bg:#f5f6f3;--paper:#fff;--ink:#202c29;--muted:#68716b;--line:#e1e6df;
+  --sand:#fff4e5;--orange:#925221;--radius:16px;
+  --accent:#315b47;--accent-dark:#234a37;--nav:#182e26;--nav-hover:#284236;--nav-text:#c9d5cc;--nav-muted:#acbeb3;
+  --pill:#dce8b8;--pill-ink:#243b2b;--soft:#eaf1e8;--hero:#eaf0e4;--hero-line:#dce4d5;--th:#edf1e9;--th-ink:#36503d;
+  --card-hover:#89a083;--index:#829678;--track:#3b5145;--en:#5d6b63;
+}
+.accent-blue{
+  --accent:#2d4f73;--accent-dark:#223d5b;--nav:#142235;--nav-hover:#22364f;--nav-text:#c7d3df;--nav-muted:#9fb2c6;
+  --pill:#cfe1f2;--pill-ink:#1d3550;--soft:#e8eff6;--hero:#e6eef5;--hero-line:#d3e0ec;--th:#e9f0f6;--th-ink:#2e4a66;
+  --card-hover:#7f9bb8;--index:#7891ab;--track:#33475e;--en:#57677a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.85}
+button,input{font:inherit}
+button,a,input,summary{touch-action:manipulation}
+button{cursor:pointer;border:1px solid var(--line);border-radius:9px;padding:8px 16px;color:var(--ink);background:#fff;font-weight:550}
+button:hover{background:var(--soft)}
+a{color:var(--accent)}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #b88a40;outline-offset:4px}
+.primary,a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.primary:hover,a.primary:hover{background:var(--accent-dark)}
+.skip{position:fixed;top:-100px;left:20px;z-index:99;background:#fff;padding:12px}
+.skip:focus{top:12px}
+[hidden]{display:none!important}
+.eyebrow{text-transform:uppercase;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:2px}
+.en-sub{color:var(--muted);margin:0}
+code{background:var(--soft);padding:2px 5px;border-radius:4px;font-size:.92em}
+
+/* ---------- Hub ---------- */
+.hub{max-width:1080px;margin:0 auto;padding:48px 32px 56px}
+.hub-brand{display:flex;gap:12px;align-items:center;margin-bottom:28px}
+.hub-brand .brandmark{background:#dce8b8;color:#233e2e}
+.hub-brand strong{font-size:18px;letter-spacing:1px;display:block;line-height:1.3}
+.hub-brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:2px}
+.hub-hero{padding:38px 40px;background:#eaf0e4;border:1px solid #dce4d5;border-radius:20px}
+.hub-hero h1{font-size:38px;line-height:1.35;letter-spacing:-1.2px;margin:12px 0 10px}
+.hub-hero h1 span{color:#315b47}
+.hub-hero p{color:#53634f;max-width:620px;margin:0;font-size:15px}
+.hub-hero .en-sub{font-size:13px;margin-top:6px}
+.hub-metrics{display:flex;gap:40px;margin-top:24px;padding-top:22px;border-top:1px solid #cedac7;flex-wrap:wrap}
+.hub-metrics b{font-family:Georgia,serif;font-size:25px;font-weight:400;margin-right:7px}
+.hub-metrics span{font-size:12px;color:#576552}
+.sectionhead{display:flex;justify-content:space-between;align-items:baseline;margin:36px 0 16px;gap:12px}
+.sectionhead h2{font-size:20px;margin:0;letter-spacing:-.4px}
+.sectionhead small{font-size:12px;color:var(--muted)}
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.course-card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--radius);padding:24px 26px}
+.course-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px;color:var(--muted)}
+.course-code{font-family:Georgia,serif;font-size:15px;letter-spacing:1px;color:var(--pill-ink);background:var(--pill);padding:3px 11px;border-radius:8px}
+.course-card h2{font-size:21px;margin:16px 0 2px;letter-spacing:-.3px}
+.course-card .en-sub{font-size:13px}
+.course-summary{font-size:14px;color:#46534c;margin:14px 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:12px 0 20px}
+.chips li{font-size:12px;background:var(--soft);color:var(--accent);padding:3px 10px;border-radius:20px}
+.course-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.course-links a{display:inline-block;padding:8px 15px;border:1px solid var(--line);border-radius:9px;text-decoration:none;font-size:13px;background:#fff}
+.course-links a:not(.primary):hover{background:var(--soft)}
+.course-links a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.course-links a.primary:hover{background:var(--accent-dark)}
+.course-foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:18px;padding-top:12px}
+.hub-foot{font-size:12px;color:var(--muted);margin-top:34px;text-align:center}
+
+/* ---------- Study page shell ---------- */
+.brandmark{width:39px;height:39px;display:grid;place-items:center;background:var(--pill);color:var(--pill-ink);font-family:Georgia,serif;font-size:23px;border-radius:12px;flex:none}
+aside{position:fixed;inset:0 auto 0 0;width:250px;background:var(--nav);color:#f3f6ef;padding:22px 20px 26px;display:flex;flex-direction:column;z-index:30;overflow:auto}
+.back-link{display:inline-block;color:var(--nav-muted);text-decoration:none;font-size:12px;letter-spacing:1px;margin:0 0 20px 2px}
+.back-link:hover{color:#fff}
+.brand{display:flex;gap:12px;align-items:center}
+.brand strong{font-size:19px;letter-spacing:1px}
+.brand small{display:block;font-size:11px;color:var(--nav-muted);letter-spacing:2px}
+.navlabel{font-size:11px;color:var(--nav-muted);letter-spacing:2px;margin:26px 12px 8px}
+nav{display:grid;gap:3px}
+nav a{color:var(--nav-text);text-decoration:none;display:flex;gap:12px;align-items:center;padding:8px 12px;border-radius:9px;font-size:14px;line-height:1.5}
+nav a:hover{background:var(--nav-hover)}
+nav a.active{background:var(--pill);color:var(--pill-ink)}
+nav .num{font-family:Georgia,serif;opacity:.7;min-width:22px;font-size:13px}
+nav .done{margin-left:auto;font-size:12px}
+.sidebar-foot{margin-top:auto;padding-top:28px;font-size:12px;color:var(--nav-muted)}
+.progressbar{height:5px;background:var(--track);border-radius:5px;overflow:hidden;margin:10px 0}
+.progressbar span{display:block;height:100%;background:var(--pill);transition:width .2s}
+.workspace{margin-left:250px}
+.topbar{position:sticky;top:0;z-index:20;height:72px;display:flex;align-items:center;gap:14px;padding:0 48px;border-bottom:1px solid var(--line);background:rgba(245,246,243,.96)}
+.crumb{font-size:13px;color:var(--muted);margin-right:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.crumb b{color:var(--ink);font-weight:500}
+.searchbox{position:relative;width:240px;flex:none}
+.searchbox input{width:100%;border:1px solid var(--line);border-radius:9px;background:#fff;padding:8px 12px;font-size:13px}
+.search-results{position:absolute;right:0;top:46px;width:400px;max-height:440px;overflow:auto;background:#fff;box-shadow:0 12px 50px rgba(20,34,53,.14);border:1px solid var(--line);border-radius:12px;z-index:40}
+.search-results a{display:block;text-decoration:none;padding:12px 14px;border-bottom:1px solid var(--line);font-size:13px}
+.search-results a small{display:block;color:var(--muted)}
+.search-results p{padding:12px;margin:0;font-size:13px}
+.topbar .tool{font-size:12px;background:transparent;padding:7px 11px;white-space:nowrap}
+.topbar .tool[aria-pressed="true"]{background:var(--soft);border-color:var(--card-hover);color:var(--accent)}
+.menu-toggle{display:none}
+.content{max-width:1000px;margin:auto;padding:40px 48px 60px}
+.page{scroll-margin-top:140px}
+.footer{text-align:center;color:var(--muted);font-size:11px;padding:10px 20px 30px}
+
+/* overview */
+.hero{padding:36px 38px;background:var(--hero);border:1px solid var(--hero-line);border-radius:20px}
+.hero h1{font-size:38px;line-height:1.35;letter-spacing:-1.5px;margin:14px 0 17px}
+.hero h1 span{color:var(--accent)}
+.hero p{color:#4f5d66;max-width:600px;font-size:14px;margin:0}
+.hero .primary{margin-top:18px}
+.metrics{display:flex;gap:40px;margin-top:24px;padding-top:22px;border-top:1px solid var(--hero-line);flex-wrap:wrap}
+.metrics b{font-family:Georgia,serif;font-size:25px;font-weight:400;margin-right:7px}
+.metrics span{font-size:12px;color:var(--muted)}
+.intro-note{font-size:12px;color:var(--muted);margin-top:18px}
+.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.chapter-card{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .15s,border-color .15s}
+.chapter-card:hover{transform:translateY(-3px);border-color:var(--card-hover)}
+.cardtop{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);gap:8px}
+.chapter-card .index{font-family:Georgia,serif;font-size:27px;color:var(--index)}
+.chapter-card h3{font-size:16px;margin:10px 0 6px;line-height:1.5}
+.chapter-card p{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.75}
+.cardbottom{margin-top:auto;border-top:1px solid var(--line);padding-top:10px;display:flex;justify-content:space-between;font-size:12px;color:var(--accent)}
+
+/* lesson pages */
+.lesson-head{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px}
+.lesson-head h1{font-size:30px;line-height:1.4;margin:8px 0 6px;letter-spacing:-.6px}
+.lesson-head .en-sub{font-size:15px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.toc button{font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:#fff;color:var(--accent)}
+.toc-label{font-size:11px;letter-spacing:2px;color:var(--muted);margin:0 0 8px}
+.lesson h2{font-size:21px;line-height:1.5;margin:38px 0 12px;letter-spacing:-.3px;scroll-margin-top:90px}
+.lesson h3{font-size:16.5px;line-height:1.55;margin:28px 0 8px;scroll-margin-top:90px}
+.lesson h2 .en-inline,.lesson h3 .en-inline{display:block;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:2px}
+.lesson p{margin:10px 0}
+.lesson li{margin:6px 0}
+.lesson li>p{margin:4px 0}
+.lesson ul,.lesson ol{padding-left:24px}
+.lesson p.en,.lesson li p.en{color:var(--en);font-size:14px;line-height:1.75;margin-top:-2px}
+.lesson > p.en{padding-left:14px;border-left:2px solid var(--line)}
+.summary{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:14px 20px;margin:4px 0 22px}
+.summary p{margin:6px 0}
+.summary > p.en{border:0;padding:0}
+.pitfall{background:var(--sand);border-left:3px solid #be8a4e;padding:6px 20px 10px;border-radius:0 12px 12px 0;margin:28px 0}
+.pitfall h2,.pitfall h3{margin-top:12px;color:var(--orange)}
+.math{background:#f3f5f1;border-radius:10px;padding:6px 18px;margin:16px 0;overflow-x:auto;overflow-y:hidden}
+.accent-blue .math{background:#f1f4f8}
+.math .katex-display{margin:.8em 0}
+.math pre{margin:12px 0;white-space:pre-wrap;font-size:13px}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:13px;background:#fff}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.65}
+th{background:var(--th);color:var(--th-ink);font-weight:600}
+tr:last-child td{border-bottom:0}
+td .en-inline,th .en-inline{display:block;color:var(--en);font-size:12px;margin-top:2px}
+th .en-inline{color:var(--th-ink);opacity:.8;font-weight:500}
+details{border:1px solid var(--line);border-radius:10px;background:#fff;margin:12px 0}
+summary{padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer;color:var(--accent)}
+details>div{padding:2px 18px 12px}
+details.answer{margin:10px 0 4px;background:var(--soft);border-color:transparent}
+details.answer summary{font-size:13px;padding:7px 14px}
+details.answer>div{padding:0 16px 8px}
+details.reveal>div{padding:0 18px 8px}
+.lesson-footer{border-top:1px solid var(--line);margin-top:38px;padding-top:24px;display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.lesson-footer a{text-decoration:none;font-size:13px;padding:8px 4px}
+.complete-btn.completed{background:var(--soft);border-color:var(--card-hover);color:var(--accent)}
+
+/* Chinese-only reading mode */
+body.zh-only .en,body.zh-only .en-inline{display:none!important}
+
+@media(max-width:1100px){
+  aside{width:226px;padding:20px 14px}
+  .workspace{margin-left:226px}
+  .content{padding:32px 28px}
+  .topbar{padding:0 28px}
+  .chapter-grid{grid-template-columns:1fr 1fr}
+  .searchbox{width:200px}
+}
+@media(max-width:760px){
+  aside{transform:translateX(-100%);transition:transform .2s;width:270px}
+  body.menu-open aside{transform:translateX(0);box-shadow:10px 0 50px rgba(20,34,53,.2)}
+  .workspace{margin-left:0}
+  .menu-toggle{display:block;padding:6px 10px;white-space:nowrap;font-size:13px}
+  .topbar{height:62px;padding:0 16px;gap:8px}
+  .crumb{display:none}
+  .searchbox{width:auto;flex:1;min-width:0}
+  .search-results{width:min(360px,calc(100vw - 32px));right:auto;left:0}
+  .topbar #print{display:none}
+  .content{padding:24px 16px 40px}
+  .hero{padding:26px 22px}
+  .hero h1{font-size:30px}
+  .chapter-grid,.course-grid{grid-template-columns:1fr}
+  .lesson-head h1{font-size:25px}
+  .lesson h2{font-size:19px}
+  .metrics,.hub-metrics{gap:22px}
+  .hub{padding:28px 16px 40px}
+  .hub-hero{padding:26px 22px}
+  .hub-hero h1{font-size:30px}
+  .course-card{padding:20px}
+  .lesson-footer .complete-btn{order:3;width:100%}
+  .math{padding:4px 12px}
+  .toc{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-right:-16px}
+  .toc button{white-space:nowrap;flex:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{
+  aside,.topbar,.lesson-footer,.footer,.search-results,.toc,.toc-label,.hero .primary{display:none!important}
+  .workspace{margin:0}
+  .content{max-width:none;padding:0}
+  body{background:#fff;font-size:10.5pt;line-height:1.6}
+  .page[hidden]{display:block!important}
+  .page{break-before:page}
+  .page:first-child{break-before:auto}
+  .summary,.pitfall,.math,.table-wrap,details{break-inside:avoid}
+  details>div{display:block!important}
+  .lesson h2,.lesson h3{break-after:avoid}
+}

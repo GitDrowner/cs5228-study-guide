@@ -1,0 +1,202 @@
+{
+  "id": "cs5242",
+  "code": "CS5242",
+  "out": "cs5242-study.html",
+  "store": "cs5242-study-v1",
+  "accent": "blue",
+  "brandmark": "∇",
+  "brand_small": "THE STUDY COMPANION",
+  "subject": "神经网络与深度学习",
+  "title": "CS5242 · 神经网络与深度学习复习手册",
+  "description": "CS5242 Lecture 1–10 期末复习：逐段中英对照的概念讲解、公式、手算例题、Quiz 解析与自测。",
+  "hero": {
+    "eyebrow": "CS5242 / FINAL EXAM STUDY GUIDE",
+    "title": "从一个神经元，<br><span>走到 GPT 推理。</span>",
+    "text": "线性回归、反向传播、优化器，再到 Transformer、BERT 与 GPT。每段中文后面紧跟英文，公式和手算步骤一步不省，适合零基础准备闭卷考试。",
+    "note": "按课件、讲义与 Quiz 7–10 整理。考试范围与题型以课程公告为准；这里的重点标注是复习建议。"
+  },
+  "foot_note": "Lecture 01–10 · 中英对照版<br>依据课件与讲义整理",
+  "split": [
+    "逐讲笔记"
+  ],
+  "groups": [
+    {
+      "label": "开始",
+      "pages": [
+        "overview",
+        "glossary",
+        "map"
+      ]
+    },
+    {
+      "label": "前半程 · L1–L6",
+      "pages": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "A1"
+      ]
+    },
+    {
+      "label": "后半程 · L7–L10",
+      "pages": [
+        "L7",
+        "L8",
+        "L9",
+        "L10"
+      ]
+    },
+    {
+      "label": "考前",
+      "pages": [
+        "checklist",
+        "formulas",
+        "selftest"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "match": "开始之前",
+      "id": "glossary",
+      "nav": "零基础词汇表",
+      "num": "Aa",
+      "tag": "GLOSSARY",
+      "desc": "零基础必读：样本、梯度、损失、过拟合等 18 个词的大白话解释。"
+    },
+    {
+      "match": "课程地图",
+      "id": "map",
+      "nav": "课程地图",
+      "num": "⌖",
+      "tag": "COURSE MAP",
+      "desc": "十讲一张表：每讲讲什么、必会什么、对应哪次作业或 Quiz。"
+    },
+    {
+      "match": "L1 ",
+      "id": "L1",
+      "nav": "导论",
+      "num": "01",
+      "lecture": true,
+      "tag": "INTRODUCTION",
+      "desc": "AI、ML、DL 的关系，传统机器学习与深度学习的区别，发展历史。"
+    },
+    {
+      "match": "L2 ",
+      "id": "L2",
+      "nav": "泛化误差",
+      "num": "02",
+      "lecture": true,
+      "tag": "GENERALISATION",
+      "desc": "训练误差小不等于测试误差小：经验风险、泛化误差、PAC 与 VC 维。"
+    },
+    {
+      "match": "L3 ",
+      "id": "L3",
+      "nav": "梯度下降",
+      "num": "03",
+      "lecture": true,
+      "tag": "OPTIMISATION",
+      "desc": "梯度下降为什么有效、学习率何时发散，SGD、mini-batch 与动量。"
+    },
+    {
+      "match": "L4 ",
+      "id": "L4",
+      "nav": "线性回归",
+      "num": "04",
+      "lecture": true,
+      "tag": "REGRESSION",
+      "desc": "最简单的「模型 + 损失 + 梯度下降」：手算一步更新与向量化梯度。"
+    },
+    {
+      "match": "L5 ",
+      "id": "L5",
+      "nav": "感知机与分类",
+      "num": "05",
+      "lecture": true,
+      "tag": "BACKPROPAGATION",
+      "desc": "感知机、MLP 数参数、手算反向传播，sigmoid / softmax 与交叉熵。"
+    },
+    {
+      "match": "L6 ",
+      "id": "L6",
+      "nav": "训练技巧",
+      "num": "06",
+      "lecture": true,
+      "tag": "TRAINING",
+      "desc": "激活函数、XOR、动量 / RMSprop / Adam、初始化、归一化与正则化。"
+    },
+    {
+      "match": "作业 1 的推导",
+      "id": "A1",
+      "nav": "作业 1 推导",
+      "num": "A1",
+      "lecture": true,
+      "tag": "DERIVATIONS",
+      "desc": "sigmoid、softmax、SiLU 求导，score function 与均值性质的证明。"
+    },
+    {
+      "match": "L7 ",
+      "id": "L7",
+      "nav": "Transformer 与 MoE",
+      "num": "07",
+      "lecture": true,
+      "tag": "TRANSFORMER",
+      "desc": "自注意力手算、因果掩码、12d² 参数、6ND 算力，MoE 门控与负载均衡。"
+    },
+    {
+      "match": "L8 ",
+      "id": "L8",
+      "nav": "BERT",
+      "num": "08",
+      "lecture": true,
+      "tag": "BERT",
+      "desc": "只用编码器：MLM 与 80/10/10、NSP、微调头、QA 与参数估算。"
+    },
+    {
+      "match": "L9 ",
+      "id": "L9",
+      "nav": "GPT-1/2/3",
+      "num": "09",
+      "lecture": true,
+      "tag": "GPT",
+      "desc": "同一个损失放大 1500 倍：微调 → 零样本 → 少样本，困惑度与 KV 缓存。"
+    },
+    {
+      "match": "L10 ",
+      "id": "L10",
+      "nav": "GPT 推理",
+      "num": "10",
+      "lecture": true,
+      "tag": "INFERENCE",
+      "desc": "prefill 与 decode、KV 缓存、贪心、top-k 采样与 beam search。"
+    },
+    {
+      "match": "闭卷考前必背清单",
+      "id": "checklist",
+      "nav": "闭卷必背清单",
+      "num": "✓",
+      "tag": "CHECKLIST",
+      "desc": "闭卷前必须会的计算题型、推导、一句话简答和常用数值。"
+    },
+    {
+      "match": "公式与结论速查",
+      "id": "formulas",
+      "nav": "公式速查",
+      "num": "∑",
+      "tag": "FORMULA SHEET",
+      "desc": "41 行一页纸：每个概念必须能默写的公式和结论。"
+    },
+    {
+      "match": "自测题与答案",
+      "id": "selftest",
+      "nav": "自测题",
+      "num": "?",
+      "tag": "SELF-TEST",
+      "desc": "22 道小题，先自己做，再点开看答案。"
+    }
+  ]
+}

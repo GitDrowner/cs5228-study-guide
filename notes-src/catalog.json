@@ -1,0 +1,85 @@
+{
+  "site": {
+    "title": "复习笔记",
+    "title_en": "Study Notes",
+    "tagline": "NUS 课程复习手册合集：中文讲解、手算例题与自测，部分课程逐段中英对照。",
+    "tagline_en": "A collection of course study guides with worked examples and self-tests.",
+    "footer": "独立学习资料，并非 NUS 官方网站或往年试卷。复习进度只保存在你自己的浏览器里。"
+  },
+  "notes": [
+    {
+      "id": "cs5242",
+      "code": "CS5242",
+      "title": "神经网络与深度学习",
+      "title_en": "Neural Networks and Deep Learning",
+      "scope": "Lecture 1–10 · 期末闭卷",
+      "updated": "2026-10",
+      "summary": "从线性回归、反向传播一路讲到 Transformer、BERT、GPT 与推理。每段中文后面紧跟英文，公式、手算例题和 Quiz 解析齐全。",
+      "chips": [
+        "逐段中英对照",
+        "10 讲 + 作业推导",
+        "4 套 Quiz 解析",
+        "22 道自测"
+      ],
+      "accent": "blue",
+      "source": "notes-src/cs5242.md",
+      "config": "notes-src/cs5242.json",
+      "href": "cs5242-study.html",
+      "links": [
+        {
+          "label": "打开复习手册",
+          "href": "cs5242-study.html",
+          "primary": true
+        },
+        {
+          "label": "公式速查",
+          "href": "cs5242-study.html#formulas"
+        },
+        {
+          "label": "自测题",
+          "href": "cs5242-study.html#selftest"
+        }
+      ],
+      "stats": {
+        "lectures": 10,
+        "selftests": 22
+      }
+    },
+    {
+      "id": "cs5228",
+      "code": "CS5228",
+      "title": "知识发现与数据挖掘",
+      "title_en": "Knowledge Discovery and Data Mining",
+      "scope": "Lecture 1–6 · 期中",
+      "updated": "2026-10",
+      "summary": "从理解数据、聚类、关联规则到决策树、回归与集成学习。中文讲解配交互演示，附 12 页双语 Cheat Sheet 和练习题。",
+      "chips": [
+        "中文讲解",
+        "4 个交互实验",
+        "24 道自测",
+        "双语 Cheat Sheet"
+      ],
+      "accent": "green",
+      "href": "cs5228-study.html",
+      "links": [
+        {
+          "label": "打开复习手册",
+          "href": "cs5228-study.html",
+          "primary": true
+        },
+        {
+          "label": "练习题",
+          "href": "cs5228-practice.html"
+        },
+        {
+          "label": "Cheat Sheet PDF",
+          "href": "cs5228-bilingual-cheat-sheet.pdf"
+        }
+      ],
+      "stats": {
+        "lectures": 6,
+        "selftests": 24
+      }
+    }
+  ]
+}
