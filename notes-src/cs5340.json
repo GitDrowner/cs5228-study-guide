@@ -1,0 +1,205 @@
+{
+  "id": "cs5340",
+  "code": "CS5340",
+  "out": "cs5340-study.html",
+  "store": "cs5340-study-v1",
+  "accent": "plum",
+  "brandmark": "∝",
+  "brand_small": "THE STUDY COMPANION",
+  "subject": "不确定性建模",
+  "title": "CS5340 · 不确定性建模复习手册",
+  "description": "CS5340 Uncertainty Modelling in AI 复习：Lecture 1–10 逐页中文讲解、手算例题、中英术语对照与 Exercise 1 全部 18 题详解。",
+  "subsections": true,
+  "hero": {
+    "eyebrow": "CS5340 / UNCERTAINTY MODELLING IN AI",
+    "title": "从一张概率表，<br><span>走到变分推断。</span>",
+    "text": "概率基础、贝叶斯网络与马尔可夫随机场，精确推断、参数学习与 EM，再到 HMM、采样和变分推断。按课件逐页讲解，例题一步一步手算，每讲末尾附中英术语对照，适合零基础准备英文期末考试。",
+    "note": "按课件、Scribe 与 Exercise 1 整理，覆盖 Lecture 1–10。考试范围与题型以课程公告为准；这里的重点标注是复习建议。"
+  },
+  "metrics": [
+    {
+      "value": 18,
+      "label": "道 Exercise 例题"
+    }
+  ],
+  "overview_head": [
+    "按讲复习，最后做 Exercise",
+    "点卡片进入；每讲末尾都有中英术语对照"
+  ],
+  "foot_note": "Lecture 01–10 · 中文讲解 + 英文术语<br>依据课件与 Exercise 1 整理",
+  "split": [
+    "逐讲笔记"
+  ],
+  "groups": [
+    {
+      "label": "开始",
+      "pages": [
+        "overview",
+        "map"
+      ]
+    },
+    {
+      "label": "建模 · L1–L3",
+      "pages": [
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    {
+      "label": "精确推断 · L4–L5",
+      "pages": [
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "label": "学习 · L6–L8",
+      "pages": [
+        "L6",
+        "L7",
+        "L8"
+      ]
+    },
+    {
+      "label": "近似推断 · L9–L10",
+      "pages": [
+        "L9",
+        "L10"
+      ]
+    },
+    {
+      "label": "练习与速查",
+      "pages": [
+        "ex1",
+        "brief",
+        "final"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "match": "先看这里",
+      "id": "map",
+      "nav": "课程地图",
+      "num": "⌖",
+      "tag": "START HERE",
+      "desc": "整门课只做三件事：建模、推断、学习。课程安排、评分和这份笔记的用法。"
+    },
+    {
+      "match": "L1 ",
+      "id": "L1",
+      "nav": "概率基础",
+      "num": "01",
+      "lecture": true,
+      "tag": "PROBABILITY",
+      "desc": "概率空间、随机变量、加法与乘法规则、贝叶斯公式、独立性与共轭分布。"
+    },
+    {
+      "match": "L2 ",
+      "id": "L2",
+      "nav": "贝叶斯网络",
+      "num": "02",
+      "lecture": true,
+      "tag": "BAYESIAN NETWORKS",
+      "desc": "用有向图读条件独立：三种基本结构、d-分离、Bayes Ball 与马尔可夫毯。"
+    },
+    {
+      "match": "L3 ",
+      "id": "L3",
+      "nav": "马尔可夫随机场",
+      "num": "03",
+      "lecture": true,
+      "tag": "MARKOV RANDOM FIELDS",
+      "desc": "条件独立五条规则、I-Map、团与势函数、Hammersley–Clifford 定理与 CRF。"
+    },
+    {
+      "match": "L4 ",
+      "id": "L4",
+      "nav": "变量消元与 BP",
+      "num": "04",
+      "lecture": true,
+      "tag": "EXACT INFERENCE",
+      "desc": "把求和号往里推：变量消元、重构图与树宽，树上的 sum-product。"
+    },
+    {
+      "match": "L5 ",
+      "id": "L5",
+      "nav": "因子图与联结树",
+      "num": "05",
+      "lecture": true,
+      "tag": "JUNCTION TREE",
+      "desc": "因子图、max-product 与回溯、联结树的构造，以及最大生成树定理的证明。"
+    },
+    {
+      "match": "L6 ",
+      "id": "L6",
+      "nav": "参数学习",
+      "num": "06",
+      "lecture": true,
+      "tag": "PARAMETER LEARNING",
+      "desc": "MLE 与 MAP：数数、最小二乘、共轭先验；MRF 的矩匹配、IPF 与 CRF 的 SGD。"
+    },
+    {
+      "match": "L7 ",
+      "id": "L7",
+      "nav": "混合模型与 EM",
+      "num": "07",
+      "lecture": true,
+      "tag": "MIXTURES AND EM",
+      "desc": "K-means、高斯混合模型与 EM：一维数据手算一轮 EM，再用下界与 KL 分解说明它为什么有效。"
+    },
+    {
+      "match": "L8 ",
+      "id": "L8",
+      "nav": "隐马尔可夫模型",
+      "num": "08",
+      "lecture": true,
+      "tag": "HIDDEN MARKOV MODELS",
+      "desc": "前向后向、Baum-Welch、缩放因子与 Viterbi，用两枚硬币从头算到尾。"
+    },
+    {
+      "match": "L9 ",
+      "id": "L9",
+      "nav": "蒙特卡洛采样",
+      "num": "09",
+      "lecture": true,
+      "tag": "SAMPLING",
+      "desc": "拒绝采样、重要性采样、祖先采样、MH 与 Gibbs，以及马尔可夫链的收敛条件。"
+    },
+    {
+      "match": "L10 ",
+      "id": "L10",
+      "nav": "变分推断",
+      "num": "10",
+      "lecture": true,
+      "tag": "VARIATIONAL INFERENCE",
+      "desc": "ELBO 与 KL、均值场、正向与反向 KL、变分 GMM、Ising 去噪与环状 BP。"
+    },
+    {
+      "match": "Exercise 1",
+      "id": "ex1",
+      "nav": "Exercise 1 详解",
+      "num": "E1",
+      "lecture": true,
+      "tag": "EXERCISE 1",
+      "desc": "18 道题：题目、考点、中文详解和可以照着写的英文答案，答案先折叠，做完再看。"
+    },
+    {
+      "match": "十讲速览",
+      "id": "brief",
+      "nav": "十讲速览",
+      "num": "≡",
+      "tag": "QUICK TOUR",
+      "desc": "每讲一节：一句话、直觉、核心公式、小例子和易错点，适合第一遍建立印象或考前快速过一遍。"
+    },
+    {
+      "match": "期末速查",
+      "id": "final",
+      "nav": "期末速查",
+      "num": "∑",
+      "tag": "FORMULA SHEET",
+      "desc": "核心公式、什么问题用什么算法、按学习目标的复习清单和跨章节的常见坑。"
+    }
+  ]
+}

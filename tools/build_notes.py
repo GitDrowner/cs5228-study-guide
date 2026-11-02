@@ -153,7 +153,7 @@ def wrap(soup, elements, tag, **attrs):
     return box
 
 
-def transform(fragment_html, page_id, formulas):
+def transform(fragment_html, page_id, formulas, subsections=False):
     soup = BeautifulSoup(f'<div id="root">{fragment_html}</div>', 'lxml')
     root = soup.find(id='root')
 
@@ -186,9 +186,14 @@ def transform(fragment_html, page_id, formulas):
                 s.unwrap()
             p.name = 'h3'
     heads = [h for h in element_children(root) if h.name in ('h2', 'h3')]
-    numbered = any(re.match(r'^\d+\.', h.get_text()) for h in heads if h.name == 'h3')
+    # A numbered bold line ("3. …") is a main heading. With "subsections" set in the note
+    # config, "3.1 …" lines stay subheadings, and so do unnumbered ones on a page that
+    # already has ## / ### headings.
+    main = re.compile(r'^\d+\.(?!\d)' if subsections else r'^\d+\.')
+    numbered = any(main.match(h.get_text()) for h in heads if h.name == 'h3')
+    has_h2 = subsections and any(h.name == 'h2' for h in heads)
     for h in heads:
-        if h.name == 'h3' and (not numbered or re.match(r'^\d+\.', h.get_text())):
+        if h.name == 'h3' and ((not numbered and not has_h2) or main.match(h.get_text())):
             h.name = 'h2'
 
     # two-line bilingual headings and table cells; tables scroll on small screens
@@ -314,7 +319,7 @@ def build_note(note, catalog):
     for rp in raw_pages:
         pc = rp['cfg']
         frag = MD.render('\n'.join(rp['md']))
-        root, toc, summary = transform(frag, pc['id'], formulas)
+        root, toc, summary = transform(frag, pc['id'], formulas, cfg.get('subsections', False))
         zh, en = split_title(rp['title'])
         pages.append({'cfg': pc, 'zh': zh, 'en': en, 'root': root, 'toc': toc, 'summary': summary})
 
@@ -371,14 +376,18 @@ def build_note(note, catalog):
                      f'<span>{esc(pc.get("tag", ""))}</span></div><h3>{esc(title)}</h3>'
                      f'<p>{esc(desc)}</p><div class="cardbottom"><span>{" · ".join(bits)}</span><span>↗</span></div></a>')
     hero = cfg['hero']
+    # Quiz / self-test counts are only shown when the note has them; a config can add its own figures.
+    metrics = [(f'{n_lectures:02d}', '讲'), (str(len(formulas)), '个公式')]
+    metrics += [(str(v), label) for v, label in ((quiz_count, '套 Quiz 解析'), (selftest_count, '道自测')) if v]
+    metrics += [(str(m['value']), m['label']) for m in cfg.get('metrics', [])]
+    head_title, head_note = cfg.get('overview_head', ['按讲复习，最后做自测', '点卡片进入；右上角可以只看中文'])
     overview = (
         '<section class="page" id="overview" data-title="复习总览">'
         f'<div class="hero"><div class="eyebrow">{esc(hero["eyebrow"])}</div><h1>{hero["title"]}</h1><p>{esc(hero["text"])}</p>'
         '<button class="primary" id="start" type="button">开始复习 →</button>'
-        f'<div class="metrics"><div><b>{n_lectures:02d}</b><span>讲</span></div><div><b>{len(formulas)}</b><span>个公式</span></div>'
-        f'<div><b>{quiz_count}</b><span>套 Quiz 解析</span></div><div><b>{selftest_count}</b><span>道自测</span></div></div></div>'
+        f'<div class="metrics">{"".join(f"<div><b>{esc(v)}</b><span>{esc(label)}</span></div>" for v, label in metrics)}</div></div>'
         f'<p class="intro-note">{esc(hero["note"])}</p>'
-        '<div class="sectionhead"><h2>按讲复习，最后做自测</h2><small>点卡片进入；右上角可以只看中文</small></div>'
+        f'<div class="sectionhead"><h2>{esc(head_title)}</h2><small>{esc(head_note)}</small></div>'
         f'<div class="chapter-grid">{"".join(cards)}</div></section>'
     )
 
