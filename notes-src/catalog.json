@@ -8,6 +8,42 @@
   },
   "notes": [
     {
+      "id": "cs5234",
+      "code": "CS5234",
+      "title": "大规模算法",
+      "title_en": "Algorithms at Scale",
+      "scope": "Lecture 1–11 · Quiz 1 / Quiz 2",
+      "updated": "2026-11",
+      "summary": "从概率工具、查询下界、性质测试讲到流式算法、sketch、通信复杂度、JL 与图算法。零基础中文讲解，附作业解析、两份中英 Cheat Sheet、两套正式格式模拟卷和题库。",
+      "chips": [
+        "零基础中文讲解",
+        "11 讲 + 作业解析",
+        "中英 Cheat Sheet ×2",
+        "模拟卷 + 题库"
+      ],
+      "accent": "blue",
+      "href": "cs5234-study.html",
+      "links": [
+        {
+          "label": "打开复习手册",
+          "href": "cs5234-study.html",
+          "primary": true
+        },
+        {
+          "label": "Quiz 2 Cheat Sheet",
+          "href": "cs5234-study.html#sheet2"
+        },
+        {
+          "label": "Quiz 2 模拟卷",
+          "href": "cs5234-study.html#paper2"
+        }
+      ],
+      "stats": {
+        "lectures": 11,
+        "selftests": 64
+      }
+    },
+    {
       "id": "cs5242",
       "code": "CS5242",
       "title": "神经网络与深度学习",
