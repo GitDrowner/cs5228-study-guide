@@ -8,6 +8,46 @@
   },
   "notes": [
     {
+      "id": "cs5228",
+      "code": "CS5228",
+      "title": "知识发现与数据挖掘",
+      "title_en": "Knowledge Discovery and Data Mining",
+      "scope": "Lecture 1–11 · 期中 + Lecture Quiz",
+      "updated": "2026-11",
+      "summary": "从理解数据、聚类、关联规则、决策树、回归与集成学习，到降维、推荐系统、图挖掘、时间序列与数据流挖掘。中文讲解配交互演示与手算例题，附双语 Cheat Sheet、练习题和期中后每讲的英文简答练习。",
+      "chips": [
+        "中文讲解",
+        "6 个交互实验",
+        "44 道自测",
+        "双语 Cheat Sheet"
+      ],
+      "accent": "green",
+      "href": "cs5228-study.html",
+      "links": [
+        {
+          "label": "打开复习手册",
+          "href": "cs5228-study.html",
+          "primary": true
+        },
+        {
+          "label": "期中后 L7–11",
+          "href": "cs5228-study.html#lecture7"
+        },
+        {
+          "label": "练习题",
+          "href": "cs5228-practice.html"
+        },
+        {
+          "label": "Cheat Sheet PDF",
+          "href": "cs5228-bilingual-cheat-sheet.pdf"
+        }
+      ],
+      "stats": {
+        "lectures": 11,
+        "selftests": 44
+      }
+    },
+    {
       "id": "cs5340",
       "code": "CS5340",
       "title": "不确定性建模",
@@ -117,42 +157,6 @@
       "stats": {
         "lectures": 10,
         "selftests": 22
-      }
-    },
-    {
-      "id": "cs5228",
-      "code": "CS5228",
-      "title": "知识发现与数据挖掘",
-      "title_en": "Knowledge Discovery and Data Mining",
-      "scope": "Lecture 1–6 · 期中",
-      "updated": "2026-10",
-      "summary": "从理解数据、聚类、关联规则到决策树、回归与集成学习。中文讲解配交互演示，附 12 页双语 Cheat Sheet 和练习题。",
-      "chips": [
-        "中文讲解",
-        "4 个交互实验",
-        "24 道自测",
-        "双语 Cheat Sheet"
-      ],
-      "accent": "green",
-      "href": "cs5228-study.html",
-      "links": [
-        {
-          "label": "打开复习手册",
-          "href": "cs5228-study.html",
-          "primary": true
-        },
-        {
-          "label": "练习题",
-          "href": "cs5228-practice.html"
-        },
-        {
-          "label": "Cheat Sheet PDF",
-          "href": "cs5228-bilingual-cheat-sheet.pdf"
-        }
-      ],
-      "stats": {
-        "lectures": 6,
-        "selftests": 24
       }
     }
   ]

@@ -9,7 +9,7 @@ A static collection of course study guides: Chinese explanations, worked example
 | CS5340 Uncertainty Modelling in AI | `cs5340-study.html`, `cs5340/*.svg` | Lecture 1–10 explained page by page in Chinese for beginners, every worked example computed step by step, a Chinese–English glossary at the end of each lecture, all 18 Exercise 1 questions with folded solutions and English model answers, a one-page tour of all ten lectures and a final formula sheet. |
 | CS5242 Neural Networks and Deep Learning | `cs5242-study.html` | Lecture 1–10, Assignment 1 derivations, Quiz 7–10 solutions, exam checklist, formula sheet, 22 self-test questions. Chinese–English, paragraph by paragraph. |
 | CS5234 Algorithms at Scale | `cs5234-study.html`, `cs5234/*.pdf` | Lecture 1–11 explained in Chinese for beginners, homework and take-home walkthroughs, Quiz 1 and Quiz 2 cheat sheets (Chinese and English PDFs), mock papers in the formal quiz format with marking points, and a bilingual practice bank. Quiz 2 material excludes k-means. |
-| CS5228 Knowledge Discovery and Data Mining | `cs5228-study.html`, `cs5228-practice.html`, `cs5228-bilingual-cheat-sheet.pdf` | Lecture 1–6 study guide with interactive labs, practice exercises and a printable bilingual cheat sheet. |
+| CS5228 Knowledge Discovery and Data Mining | `cs5228-study.html`, `cs5228-practice.html`, `cs5228-bilingual-cheat-sheet.pdf` | Lecture 1–11 study guide with 6 interactive labs and 44 self-test questions; Lecture 7–11 add the in-lecture quiz answers and English short-answer practice. Midterm practice exercises and a printable bilingual cheat sheet cover Lecture 1–6. |
 
 `index.html` is the hub that lists every note. Old links to the CS5228 guide still work: the CS5228 file names are unchanged, and the hub forwards the old `#lecture1`-style section links.
 
@@ -19,7 +19,7 @@ A static collection of course study guides: Chinese explanations, worked example
 - `cs5242-study.html` – CS5242 guide (generated from `notes-src/cs5242.md`)
 - `cs5340-study.html`, `cs5340/` – CS5340 guide (generated from `notes-src/cs5340.md`) and its diagrams
 - `cs5234-study.html`, `cs5234/` – the CS5234 guide (hand-written page) and its PDFs
-- `cs5228-*.html`, `cheat-page-*.png`, `cs5228-bilingual-cheat-sheet.pdf` – the CS5228 guide (hand-written, unchanged apart from a link back to the hub)
+- `cs5228-*.html`, `cheat-page-*.png`, `cs5228-bilingual-cheat-sheet.pdf` – the CS5228 guide (hand-written; `cs5228-study.html` is edited directly, it is not generated)
 - `assets/site.css`, `assets/notes.js` – shared styles and runtime for generated guides
 - `assets/katex/` – KaTeX stylesheet and fonts for the pre-rendered formulas (MIT licence in `assets/katex/LICENSE`)
 - `notes-src/` – note sources: `catalog.json` lists every note shown on the hub; each generated note has a Markdown file and a JSON config
